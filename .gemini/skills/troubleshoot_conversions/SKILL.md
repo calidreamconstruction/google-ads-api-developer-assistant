@@ -26,8 +26,7 @@ When analyzing conversion data directly:
 
 ## 3. Structured Screen Output & Reporting
 
-You MUST structure your final response on screen exactly as follows:
-
+You MUST structure your final response and duplicate this exact structure inside the output report file along with the details of each conversion:
 
 ```text
 1. Introductory Conversion Analysis
@@ -53,6 +52,4 @@ For Customer ID: 8466202666, the overall conversion upload health is generally s
 
 ## 4. Consolidation Mandate
 
-All findings—including terminal summaries, structured analysis, verbatim screen output, and complete query data—MUST be consolidated into the single self-contained output report file generated in `saved/data/`. This file MUST start with the exact header `Created by the Google Ads API Developer Assistant` and MUST be the sole artifact submitted to the user for support.
-
-When consolidating findings into the report file, note that the script structures the detailed report sections under `5. Primary Errors & Critical Issues` and `6. General Health & Technical Findings` to avoid redundancy with your introductory analysis at the top of the file. Placeholders or external references are strictly prohibited.
+All findings—including terminal summaries, structured analysis, verbatim screen output, and complete query data—MUST be consolidated into the single self-contained output report file generated in `saved/data/`. This file MUST start with the exact header `Created by the Google Ads API Developer Assistant` and MUST be the sole artifact submitted to the user for support. Placeholders or external references are strictly prohibited.
