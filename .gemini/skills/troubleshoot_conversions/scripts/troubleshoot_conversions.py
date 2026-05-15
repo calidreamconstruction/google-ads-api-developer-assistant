@@ -49,8 +49,8 @@ def merge_previous_findings(output_dir: str) -> List[str]:
             try:
                 with open(pf, "r", encoding="utf-8") as f:
                     content = f.read()
-                    if "=== SUMMARY OF FINDINGS ===" in content:
-                        summary_part = content.split("=== ERRORS FOUND ===")[0]
+                    if "=== INTRODUCTORY ANALYSIS ===" in content:
+                        summary_part = content.split("=== PRIMARY ERRORS & CRITICAL ISSUES ===")[0]
                         findings.append(f"Historical Finding (from {os.path.basename(pf)}):\n{summary_part.strip()}")
             except Exception:
                 pass
@@ -150,18 +150,22 @@ def main(client: GoogleAdsClient, customer_id: str):
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("Created by the Google Ads API Developer Assistant\n")
-        f.write("=== SUMMARY OF FINDINGS ===\n")
-        f.write("\n".join(summary if summary else ["Status: Diagnostics completed."]) + "\n\n")
+        f.write("=== INTRODUCTORY ANALYSIS ===\n")
+        f.write("\n".join(summary if summary else [f"Diagnostic Report for Customer ID: {customer_id}"]) + "\n\n")
 
         if history:
             f.write("=== HISTORICAL CONTEXT ===\n")
             f.write("\n".join(history) + "\n\n")
 
-        f.write("=== ERRORS FOUND ===\n")
+        f.write("=== PRIMARY ERRORS & CRITICAL ISSUES ===\n")
         f.write("\n".join(errors if errors else ["No blocking errors detected."]) + "\n\n")
 
-        f.write("=== DETAILS ===\n")
-        f.write("\n".join(details) + "\n")
+        f.write("=== GENERAL HEALTH & TECHNICAL FINDINGS ===\n")
+        f.write("\n".join(details) + "\n\n")
+
+        f.write("=== ACTIONABLE RECOMMENDATIONS ===\n")
+        f.write("1. Review blocking errors and verify Customer Data Terms acceptance in Google Ads UI.\n")
+        f.write("2. Inspect specific action failure rates and address matching or lookback window discrepancies.\n")
 
     print(f"Consolidated troubleshooting report: {output_path}")
 

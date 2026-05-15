@@ -18,14 +18,18 @@ import unittest
 from unittest.mock import MagicMock, patch, mock_open
 from io import StringIO
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "scripts"))
+)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
 
 from google.ads.googleads.errors import GoogleAdsException
 from google.ads.googleads.client import GoogleAdsClient
-from api_examples.collect_conversions_troubleshooting_data import main
+import troubleshoot_conversions
+from troubleshoot_conversions import main
 
 
-class TestCollectConversionsTroubleshootingData(unittest.TestCase):
+class TestTroubleshootConversions(unittest.TestCase):
     def setUp(self):
         self.mock_client = MagicMock(spec=GoogleAdsClient)
         self.mock_ga_service = MagicMock()

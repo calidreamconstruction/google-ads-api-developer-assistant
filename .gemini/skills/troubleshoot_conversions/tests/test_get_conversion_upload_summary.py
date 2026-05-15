@@ -14,18 +14,19 @@
 
 import sys
 import os
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-
 import unittest
 from unittest.mock import MagicMock
 from io import StringIO
 
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "scripts"))
+)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../..")))
+
 from google.ads.googleads.errors import GoogleAdsException
 from google.ads.googleads.client import GoogleAdsClient
-
-# Import functions from the script
-from api_examples.get_conversion_upload_summary import main
+import get_conversion_upload_summary
+from get_conversion_upload_summary import main
 
 
 class TestGetConversionUploadSummary(unittest.TestCase):

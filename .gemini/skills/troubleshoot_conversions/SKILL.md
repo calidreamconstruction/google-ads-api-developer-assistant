@@ -11,11 +11,15 @@ This skill investigates conversion upload issues and generates a structured diag
 
 When invoked to troubleshoot conversions:
 1. Locate the required `customer_id` (from context or `customer_id.txt`). If missing, prompt the user.
-2. Execute the mandatory diagnostic collector script within the sequestered virtual environment:
+2. Execute the mandatory high-level upload summary script to inspect client import health:
 ```bash
-./.venv/bin/python3 api_examples/collect_conversions_troubleshooting_data.py --customer_id <customer_id> --api_version v23
+./.venv/bin/python3 .gemini/skills/troubleshoot_conversions/scripts/get_conversion_upload_summary.py --customer_id <customer_id> --api_version <api_version>
 ```
-3. Note the consolidated troubleshooting report path returned by the script (e.g., `saved/data/conversion_troubleshooting_report_<epoch>.txt`).
+3. Next, execute the mandatory diagnostic collector script within the sequestered virtual environment:
+```bash
+./.venv/bin/python3 .gemini/skills/troubleshoot_conversions/scripts/troubleshoot_conversions.py --customer_id <customer_id> --api_version <api_version>
+```
+4. Note the consolidated troubleshooting report path returned by the script (e.g., `saved/data/conversion_troubleshooting_report_<epoch>.txt`).
 
 ## 2. Diagnostic Queries & Calculations
 

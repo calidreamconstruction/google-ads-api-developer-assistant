@@ -6,7 +6,7 @@
 - Converted explain command to a skill.
 - Converted step_by_step command to a skill.
 - Replaced conversions_support_package with troubleshoot_conversions skill.
-- Updated collect_conversions_troubleshooting_data.py to be fully compliant with v24 conversion troubleshooting directives.
+- Relocated conversion troubleshooting and upload summary scripts and tests into troubleshoot_conversions skill directory.
 - Added troubleshoot_conversions skill.
 
 * 2.3.0
