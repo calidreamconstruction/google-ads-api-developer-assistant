@@ -66,6 +66,7 @@ def main(client: GoogleAdsClient, customer_id: str):
     summary = []
     errors = []
     details = [
+        "\n[1] Customer Account Information",
         f"Diagnostic Report for Customer ID: {customer_id}",
         f"Timestamp: {time.ctime()} (Epoch: {epoch})",
         "-" * 40
