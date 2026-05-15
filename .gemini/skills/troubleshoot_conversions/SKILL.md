@@ -3,6 +3,8 @@ name: troubleshoot_conversions
 description: Investigates conversion upload issues and generates a structured diagnostic report based on Google Ads API conversion summaries and alerts.
 ---
 
+<instructions>
+
 # Troubleshoot Conversions
 
 This skill investigates conversion upload issues and generates a structured diagnostic report by executing the mandatory conversion troubleshooting workflow.
@@ -24,13 +26,16 @@ When analyzing conversion data directly:
 - **Attributes & Totals**: Use `successful_count` and `failed_count`. Calculate daily total as `successful_count + failed_count + pending_count` (top-level `total_event_count` is only available on parent resources).
 - **Alert Inspection**: Access `alerts` (OfflineConversionAlert) at the top-level resource. Inspect `alert.error` oneof via `WhichOneof("error_code")` and report `error_percentage`. If summaries are empty, append exactly: `Reason: No standard offline imports detected in last 90 days`.
 
-## 3. Structured Screen Output & Reporting
+</instructions>
+
+## Report Structure & Format
+When generating the final report, you must strictly follow this exact layout. Do not alter the headings or the order of sections.
 
 You MUST structure your final response and duplicate this exact structure inside the output report file along with the details of each conversion:
 
 ```text
 1. Introductory Conversion Analysis
-For Customer ID: 8466202666, the overall conversion upload health is generally strong for API and Web Client imports (EXCELLENT), but shows significant degradation for the Ads Data Connector (GOOD). Approximately 12.47% of events via the Ads Data Connector are failing, primarily due to expiration issues.
+For Customer ID: 12345678, the overall conversion upload health is generally strong for API and Web Client imports (EXCELLENT), but shows significant degradation for the Ads Data Connector (GOOD). Approximately 12.47% of events via the Ads Data Connector are failing, primarily due to expiration issues.
 
 2. Primary Errors & Critical Issues
  * EXPIRED_EVENT (12.00% - 100.00%): This is the most critical blocker. Several actions, including "When Status becomes New" and "DM API TEST [Not used]Hybrid Test", are seeing 100% failure rates. This indicates that conversions are being uploaded outside the supported lookback window (typically 90 days for GCLID-based uploads).
