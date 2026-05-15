@@ -104,6 +104,11 @@ class TestTroubleshootConversions(unittest.TestCase):
         self.assertIn("Action: Test Action (Total Success: 50/50)", written_content)
         self.assertIn("No blocking errors detected.", written_content)
 
+        output = self.captured_output.getvalue()
+        self.assertIn("Conversion Diagnostic Summary for Customer 1234567890", output)
+        self.assertIn("1. Client Summary (Overall Health):", output)
+        self.assertIn("2. Conversion Action Summaries:", output)
+
     @patch("os.makedirs")
     @patch("builtins.open", new_callable=mock_open)
     @patch("glob.glob")

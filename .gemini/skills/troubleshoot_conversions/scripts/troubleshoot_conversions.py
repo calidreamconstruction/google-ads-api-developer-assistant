@@ -49,8 +49,8 @@ def merge_previous_findings(output_dir: str) -> List[str]:
             try:
                 with open(pf, "r", encoding="utf-8") as f:
                     content = f.read()
-                    if "=== INTRODUCTORY ANALYSIS ===" in content:
-                        summary_part = content.split("=== PRIMARY ERRORS & CRITICAL ISSUES ===")[0]
+                    if "1. Introductory Analysis" in content:
+                        summary_part = content.split("2. Primary Errors & Critical Issues")[0]
                         findings.append(f"Historical Finding (from {os.path.basename(pf)}):\n{summary_part.strip()}")
             except Exception:
                 pass
@@ -97,15 +97,21 @@ def main(client: GoogleAdsClient, customer_id: str):
     FROM offline_conversion_upload_client_summary
     """
     results = run_query(client, customer_id, client_query)
+    print(f"\n=== Conversion Diagnostic Summary for Customer {customer_id} ===")
+    print("1. Client Summary (Overall Health):")
     if not results:
         details.append("Reason: No standard offline imports detected in last 90 days")
+        print("  No standard offline imports detected in last 90 days.")
     else:
         for row in results:
             csum = row.offline_conversion_upload_client_summary
             details.append(f"Client Status: {csum.status.name} (Total Success: {csum.successful_event_count}/{csum.total_event_count})")
+            print(f"  Client: {csum.client.name}, Status: {csum.status.name}")
+            print(f"  Total Events: {csum.total_event_count}, Successful: {csum.successful_event_count}")
             for ds in csum.daily_summaries:
                 total = ds.successful_count + ds.failed_count + ds.pending_count
                 details.append(f"  - {ds.upload_date}: Success={ds.successful_count}/{total}, Fail={ds.failed_count}, Pending={ds.pending_count}")
+                print(f"    {ds.upload_date}: {ds.successful_count}/{total} successful")
             for alert in csum.alerts:
                 try:
                     error_type = type(alert.error).pb(alert.error).WhichOneof("error_code")
@@ -113,8 +119,10 @@ def main(client: GoogleAdsClient, customer_id: str):
                     error_name = error_val.name
                     details.append(f"  - Alert: {error_name} ({alert.error_percentage:.2%})")
                     errors.append(f"Client Alert: {error_name} ({alert.error_percentage:.2%})")
+                    print(f"    Alert: {error_name} ({alert.error_percentage:.2%})")
                 except Exception:
                     details.append(f"  - Alert: {alert.error} ({alert.error_percentage:.2%})")
+                    print(f"    Alert: {alert.error} ({alert.error_percentage:.2%})")
 
     details.append("\n[3] Conversion Action Summaries (Last 7 Days)")
     summary_query = """
@@ -127,15 +135,19 @@ def main(client: GoogleAdsClient, customer_id: str):
     FROM offline_conversion_upload_conversion_action_summary
     """
     results = run_query(client, customer_id, summary_query)
+    print("\n2. Conversion Action Summaries:")
     if not results:
         details.append("Reason: No standard offline imports detected in last 90 days")
+        print("  No standard offline imports detected in last 90 days.")
     else:
         for row in results:
             asum = row.offline_conversion_upload_conversion_action_summary
             details.append(f"Action: {asum.conversion_action_name} (Total Success: {asum.successful_event_count}/{asum.total_event_count})")
+            print(f"  Action: {asum.conversion_action_name} (Success: {asum.successful_event_count}/{asum.total_event_count})")
             for ds in asum.daily_summaries:
                 total = ds.successful_count + ds.failed_count + ds.pending_count
                 details.append(f"  - {ds.upload_date}: Success={ds.successful_count}/{total}, Fail={ds.failed_count}, Pending={ds.pending_count}")
+                print(f"    {ds.upload_date}: {ds.successful_count}/{total} successful")
             for alert in asum.alerts:
                 try:
                     error_type = type(alert.error).pb(alert.error).WhichOneof("error_code")
@@ -143,29 +155,31 @@ def main(client: GoogleAdsClient, customer_id: str):
                     error_name = error_val.name
                     details.append(f"  - Alert: {error_name} ({alert.error_percentage:.2%})")
                     errors.append(f"Action Alert ({asum.conversion_action_name}): {error_name} ({alert.error_percentage:.2%})")
+                    print(f"    Alert: {error_name} ({alert.error_percentage:.2%})")
                 except Exception:
                     details.append(f"  - Alert: {alert.error} ({alert.error_percentage:.2%})")
+                    print(f"    Alert: {alert.error} ({alert.error_percentage:.2%})")
 
     history = merge_previous_findings(output_dir)
 
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write("Created by the Google Ads API Developer Assistant\n")
-        f.write("=== INTRODUCTORY ANALYSIS ===\n")
+        f.write("Created by the Google Ads API Developer Assistant\n\n")
+        f.write("1. Introductory Analysis\n")
         f.write("\n".join(summary if summary else [f"Diagnostic Report for Customer ID: {customer_id}"]) + "\n\n")
 
         if history:
             f.write("=== HISTORICAL CONTEXT ===\n")
             f.write("\n".join(history) + "\n\n")
 
-        f.write("=== PRIMARY ERRORS & CRITICAL ISSUES ===\n")
+        f.write("2. Primary Errors & Critical Issues\n")
         f.write("\n".join(errors if errors else ["No blocking errors detected."]) + "\n\n")
 
-        f.write("=== GENERAL HEALTH & TECHNICAL FINDINGS ===\n")
+        f.write("3. General Health & Technical Findings\n")
         f.write("\n".join(details) + "\n\n")
 
-        f.write("=== ACTIONABLE RECOMMENDATIONS ===\n")
-        f.write("1. Review blocking errors and verify Customer Data Terms acceptance in Google Ads UI.\n")
-        f.write("2. Inspect specific action failure rates and address matching or lookback window discrepancies.\n")
+        f.write("4. Actionable Recommendations\n")
+        f.write(" 1. Review blocking errors and verify Customer Data Terms acceptance in Google Ads UI.\n")
+        f.write(" 2. Inspect specific action failure rates and address matching or lookback window discrepancies.\n")
 
     print(f"Consolidated troubleshooting report: {output_path}")
 
