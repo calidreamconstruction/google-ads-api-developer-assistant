@@ -1,0 +1,18 @@
+suite_name: "Troubleshoot conversions"
+timeout_seconds: 300
+cases {
+  name: "Troubleshoot conversions basic invocation"
+  prompt: "Troubleshoot my conversions for customer 1234567890"
+  expected_tool_calls {
+    tool_name: "run_command"
+    arguments_contain: "./.venv/bin/python3"
+    arguments_contain: ".gemini/skills/troubleshoot_conversions/scripts/troubleshoot_conversions.py"
+    arguments_contain: "--customer_id 1234567890"
+    arguments_contain: "--api_version"
+  }
+  expectations: "Created by the Google Ads API Developer Assistant"
+  expectations: "1. Introductory Analysis"
+  expectations: "2. Primary Errors & Critical Issues"
+  expectations: "3. General Health & Technical Findings"
+  expectations: "Consolidated troubleshooting report:"
+}
