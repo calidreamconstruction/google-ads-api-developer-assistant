@@ -5,7 +5,7 @@
 - Added rule to GEMINI.md to prevent using SQL aggregate functions in GAQL queries.
 - Converted explain command to a skill.
 - Converted step_by_step command to a skill.
-- Converted conversions_support_package command to a skill.
+- Replaced conversions_support_package with troubleshoot_conversions skill.
 - Updated collect_conversions_troubleshooting_data.py to be fully compliant with v24 conversion troubleshooting directives.
 - Added troubleshoot_conversions skill.
 

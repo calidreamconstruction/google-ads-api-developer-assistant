@@ -43,7 +43,7 @@ def run_query(client: GoogleAdsClient, customer_id: str, query: str) -> List[Any
 def merge_previous_findings(output_dir: str) -> List[str]:
     """Reads findings from existing support packages to maintain context."""
     findings = []
-    prev_files = sorted(glob.glob(os.path.join(output_dir, "conversions_support_package_*.text")), reverse=True)
+    prev_files = sorted(glob.glob(os.path.join(output_dir, "conversion_troubleshooting_report_*.txt")), reverse=True)
     if prev_files:
         for pf in prev_files[:2]:
             try:
@@ -61,7 +61,7 @@ def main(client: GoogleAdsClient, customer_id: str):
     epoch = int(time.time())
     output_dir = "saved/data"
     os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, f"conversions_support_package_{epoch}.text")
+    output_path = os.path.join(output_dir, f"conversion_troubleshooting_report_{epoch}.txt")
 
     summary = []
     errors = []
