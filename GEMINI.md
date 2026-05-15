@@ -42,7 +42,7 @@
 
 #### 1.4. Technical Gatekeeping (Protocol Enforcement)
 - **NO BYPASS:** Bypassing the GAQL Validation (3.1) or Python Linting (3.2) protocols is a **System Failure**. 
-- **EXPLICIT LOGGING:** Before calling `run_shell_command` for Python or any API search tool, you MUST explicitly state which protocol step you are currently executing (e.g., "Protocol 3.2: Executing Ruff linting on /tmp/script.py").
+- **EXPLICIT LOGGING:** Before calling `run_shell_command` for Python or any API search tool, you MUST explicitly state which protocol step you are currently executing (e.g., "Protocol 3.2: Executing Ruff linting on saved/code/tmp_lint.py").
 - **PRE-FLIGHT GATE:** For every Python script, the `ruff` check is a blocking operation. If `ruff` returns an error, you MUST fix it and re-lint before the script is even considered for the `saved/code/` directory.
 - **GAQL INTEGRITY:** Any GAQL query presented in chat or sent to the API MUST be preceded by a "Validation Block" confirming it has passed the 4-step sequence in Section 3.1.
 
@@ -97,10 +97,10 @@ Before presenting or executing ANY GAQL query, you MUST pass this 4-step sequenc
 
 #### 3.2. Code Generation Protocol (Python)
 Every Python script generated MUST follow this automated linting pipeline:
-1.  **Write:** Write code to a temporary file in `/tmp/`.
-2.  **Lint:** Run `ruff check --fix <tmp_file>`.
+1.  **Write:** Write code to a temporary file within the workspace (e.g., `saved/code/tmp_lint.py`).
+2.  **Lint:** Run `./.venv/bin/python3 -m ruff check --fix saved/code/tmp_lint.py`.
 3.  **Read:** Read the fixed code from the temporary file.
-4.  **Finalize:** Use the fixed code in the `write_file` or `run_shell_command` tool.
+4.  **Finalize:** Use the fixed code in the `write_file` or `run_shell_command` tool and delete the temporary file.
 
 #### 3.2. Error Handling (Python)
 Catch `GoogleAdsException` as `ex`. Iterate over `ex.failure.errors`.
