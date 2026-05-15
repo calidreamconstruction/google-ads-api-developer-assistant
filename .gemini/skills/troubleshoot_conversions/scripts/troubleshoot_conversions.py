@@ -186,10 +186,6 @@ def main(client: GoogleAdsClient, customer_id: str):
         f.write("3. General Health & Technical Findings\n")
         f.write("\n".join(details) + "\n\n")
 
-        f.write("4. Actionable Recommendations\n")
-        f.write(" 1. Review blocking errors and verify Customer Data Terms acceptance in Google Ads UI.\n")
-        f.write(" 2. Inspect specific action failure rates and address matching or lookback window discrepancies.\n")
-
     print(f"Consolidated troubleshooting report: {output_path}")
 
 
