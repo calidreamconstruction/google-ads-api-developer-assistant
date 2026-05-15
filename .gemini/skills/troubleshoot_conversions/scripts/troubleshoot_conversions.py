@@ -125,11 +125,11 @@ def main(client: GoogleAdsClient, customer_id: str):
                     error_type = type(alert.error).pb(alert.error).WhichOneof("error_code")
                     error_val = getattr(alert.error, error_type)
                     error_name = error_val.name
-                    details.append(f"  - Alert: {error_name} ({alert.error_percentage:.2%})")
-                    errors.append(f"Client Alert: {error_name} ({alert.error_percentage:.2%})")
+                    details.append(f"  - Alert ({client_name}): {error_name} ({alert.error_percentage:.2%})")
+                    errors.append(f"Client Alert ({client_name}): {error_name} ({alert.error_percentage:.2%})")
                     print(f"    Alert: {error_name} ({alert.error_percentage:.2%})")
                 except Exception:
-                    details.append(f"  - Alert: {alert.error} ({alert.error_percentage:.2%})")
+                    details.append(f"  - Alert ({client_name}): {alert.error} ({alert.error_percentage:.2%})")
                     print(f"    Alert: {alert.error} ({alert.error_percentage:.2%})")
         summary.append("\n".join(intro_lines))
 
