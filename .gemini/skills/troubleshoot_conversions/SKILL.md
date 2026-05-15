@@ -29,7 +29,7 @@ When analyzing conversion data directly:
 You MUST structure your final response and duplicate this exact structure inside the output report file along with the details of each conversion:
 
 ```text
-1. Introductory Analysis
+1. Introductory Conversion Analysis
 For Customer ID: 8466202666, the overall conversion upload health is generally strong for API and Web Client imports (EXCELLENT), but shows significant degradation for the Ads Data Connector (GOOD). Approximately 12.47% of events via the Ads Data Connector are failing, primarily due to expiration issues.
 
 2. Primary Errors & Critical Issues

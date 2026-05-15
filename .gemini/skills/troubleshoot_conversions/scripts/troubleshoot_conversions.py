@@ -102,9 +102,17 @@ def main(client: GoogleAdsClient, customer_id: str):
     if not results:
         details.append("Reason: No standard offline imports detected in last 90 days")
         print("  No standard offline imports detected in last 90 days.")
+        summary.append(f"For Customer ID: {customer_id}, no standard offline imports were detected in the last 90 days.")
     else:
+        intro_lines = [f"For Customer ID: {customer_id}, the overall conversion upload health summary across clients:"]
         for row in results:
             csum = row.offline_conversion_upload_client_summary
+            fail_rate = 0.0
+            if csum.total_event_count > 0:
+                fail_rate = (csum.total_event_count - csum.successful_event_count) / csum.total_event_count
+            client_name = csum.client.name.split("/")[-1] if "/" in csum.client.name else csum.client.name
+            intro_lines.append(f"  - {client_name}: {csum.status.name} ({csum.successful_event_count}/{csum.total_event_count} successful, {fail_rate:.2%} failure rate)")
+            
             details.append(f"Client Status: {csum.status.name} (Total Success: {csum.successful_event_count}/{csum.total_event_count})")
             print(f"  Client: {csum.client.name}, Status: {csum.status.name}")
             print(f"  Total Events: {csum.total_event_count}, Successful: {csum.successful_event_count}")
@@ -123,6 +131,7 @@ def main(client: GoogleAdsClient, customer_id: str):
                 except Exception:
                     details.append(f"  - Alert: {alert.error} ({alert.error_percentage:.2%})")
                     print(f"    Alert: {alert.error} ({alert.error_percentage:.2%})")
+        summary.append("\n".join(intro_lines))
 
     details.append("\n[3] Conversion Action Summaries (Last 7 Days)")
     summary_query = """

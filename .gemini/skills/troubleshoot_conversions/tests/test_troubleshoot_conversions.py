@@ -99,6 +99,7 @@ class TestTroubleshootConversions(unittest.TestCase):
         written_content = "".join(call.args[0] for call in handle.write.call_args_list)
         
         self.assertIn("Diagnostic Report for Customer ID: 1234567890", written_content)
+        self.assertIn("For Customer ID: 1234567890, the overall conversion upload health summary across clients:", written_content)
         self.assertIn("Customer: Test Customer", written_content)
         self.assertIn("Client Status: SUCCESS (Total Success: 50/50)", written_content)
         self.assertIn("Action: Test Action (Total Success: 50/50)", written_content)
