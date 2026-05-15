@@ -49,8 +49,8 @@ def merge_previous_findings(output_dir: str) -> List[str]:
             try:
                 with open(pf, "r", encoding="utf-8") as f:
                     content = f.read()
-                    if "1. Introductory Analysis" in content:
-                        summary_part = content.split("2. Primary Errors & Critical Issues")[0]
+                    if "Primary Errors & Critical Issues" in content:
+                        summary_part = content.split("General Health & Technical Findings")[0]
                         findings.append(f"Historical Finding (from {os.path.basename(pf)}):\n{summary_part.strip()}")
             except Exception:
                 pass
@@ -173,17 +173,14 @@ def main(client: GoogleAdsClient, customer_id: str):
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("Created by the Google Ads API Developer Assistant\n\n")
-        f.write("1. Introductory Analysis\n")
-        f.write("\n".join(summary if summary else [f"Diagnostic Report for Customer ID: {customer_id}"]) + "\n\n")
-
         if history:
             f.write("=== HISTORICAL CONTEXT ===\n")
             f.write("\n".join(history) + "\n\n")
 
-        f.write("2. Primary Errors & Critical Issues\n")
+        f.write("5. Primary Errors & Critical Issues\n")
         f.write("\n".join(errors if errors else ["No blocking errors detected."]) + "\n\n")
 
-        f.write("3. General Health & Technical Findings\n")
+        f.write("6. General Health & Technical Findings\n")
         f.write("\n".join(details) + "\n\n")
 
     print(f"Consolidated troubleshooting report: {output_path}")
