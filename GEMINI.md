@@ -183,5 +183,5 @@ When generating diagnostic reports:
 - **Transparency:** Always `read_file` any content written to `saved/` and display it to the user.
 
 #### 6.3. Disambiguation
-- **AI Max:** Refers to "AI Max for Search", NOT "Performance Max".
+- **AI Max:** Refers to "AI Max for Search campaigns", NOT "Performance Max" campaigns.
 - **Upload/Import:** Synonymous in conversion context.

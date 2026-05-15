@@ -1,9 +1,0 @@
-DEBUG: Executing configure_environment.py...
-Creating virtual environment in /usr/local/google/home/rwh/google-ads-api-developer-assistant/.venv...
-Virtual environment created successfully.
-Installing google-ads into /usr/local/google/home/rwh/google-ads-api-developer-assistant/.venv...
-google-ads installed successfully.
-DEBUG: home_dir=/usr/local/google/home/rwh
-DEBUG: python_home=/usr/local/google/home/rwh/google-ads.yaml (exists=True)
-DEBUG: python_target=/usr/local/google/home/rwh/google-ads-api-developer-assistant/config/google-ads.yaml
-Configured Python config directly
