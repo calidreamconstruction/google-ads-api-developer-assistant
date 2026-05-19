@@ -18,9 +18,10 @@ A 2-3 sentence summary of the findings. State the purpose of the report.
 - **Percentage Failing**: Percent of conversion uploads failing and the primary reason
 
 ### [Primary Errors & Critical Issues]
-- **Errors**: List specific error and their percentages. 
+- **Errors**: List specific error and their percentages. If percentage in 0, do not list. Do not preface with 'Client Alert'
 
 ### [General Health & Technical Findings]
+- DO NOT print (Total Success: [succcess}/[fail]) for current day in header for each section.
 - **GOOGLE_ADS_API**: status whith number and percentage of total successful upload s
 - **GOOGLE_ADS_WEB_CLIENT**: {status EXCELLENT|GOOD|FAIR|POOR} {successful uploads}/[total successful uploads} {percentage of successful uploads}
 - **ADS_DATA_CONNECTOR:** {status EXCELLENT|GOOD|FAIR|POOR} {successful uploads}/[total successful uploads} {percentage of successful uploads}
