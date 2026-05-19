@@ -1,0 +1,15 @@
+suite_name: "Validate GAQL"
+timeout_seconds: 300
+cases {
+  name: "Validate GAQL basic invocation"
+  prompt: "Validate the query SELECT campaign.id, campaign.name FROM campaign for customer 1234567890"
+  expected_tool_calls {
+    tool_name: "run_command"
+    arguments_contain: "./.venv/bin/python3"
+    arguments_contain: ".gemini/skills/validate_gaql/scripts/validate_gaql.py"
+    arguments_contain: "--customer_id"
+    arguments_contain: "1234567890"
+    arguments_contain: "--api_version"
+  }
+  expectations: "Validating Query for"
+}
