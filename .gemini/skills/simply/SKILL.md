@@ -1,5 +1,5 @@
 ---
-name: explain
+name: simply
 description: Explains Google Ads API concepts, code snippets, or queries in plain English using real-world analogies.
 ---
 
