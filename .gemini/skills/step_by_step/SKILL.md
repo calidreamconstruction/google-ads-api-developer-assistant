@@ -1,5 +1,5 @@
 ---
-name: step_by_step
+name: step-by-step
 description: Presents a response as a step-by-step process for the user to follow.
 ---
 

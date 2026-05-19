@@ -1,5 +1,5 @@
 ---
-name: get_cids_under_mcc
+name: get-cids-under-mcc
 description: Retrieves a list of all child customer account IDs (CIDs) under a given Manager Account (MCC).
 ---
 

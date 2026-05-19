@@ -1,5 +1,5 @@
 ---
-name: troubleshoot_conversions
+name: troubleshoot-conversions
 description: Investigates conversion upload issues and generates a structured diagnostic report based on Google Ads API conversion summaries and alerts.
 ---
 
