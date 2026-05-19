@@ -5,7 +5,7 @@ description: Extracts the version from gemini-extension.json and makes it availa
 
 # Get Extension Version
 
-This skill extracts the version from `gemini-extension.json`.
+Extracts the version from `gemini-extension.json`.
 
 ## Usage
 

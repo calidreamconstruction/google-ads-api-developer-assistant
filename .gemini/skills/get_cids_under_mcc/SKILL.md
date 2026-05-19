@@ -5,7 +5,7 @@ description: Retrieves a list of all child customer account IDs (CIDs) under a g
 
 # Get CIDs Under MCC
 
-This skill retrieves all child accounts under a specified Google Ads Manager Account (MCC).
+ Retrieves all child accounts under a specified Google Ads Manager Account (MCC).
 
 ## Usage
 
