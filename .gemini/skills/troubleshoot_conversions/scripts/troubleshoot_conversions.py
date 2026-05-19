@@ -18,6 +18,7 @@
 """Mandatory diagnostic collector for conversion troubleshooting."""
 
 import argparse
+from datetime import datetime, timedelta
 import glob
 import os
 import time
@@ -114,7 +115,7 @@ def main(client: GoogleAdsClient, customer_id: str):
             client_name = csum.client.name.split("/")[-1] if "/" in csum.client.name else csum.client.name
             intro_lines.append(f"  - {client_name}: {csum.status.name} ({csum.successful_event_count}/{csum.total_event_count} successful, {fail_rate:.2%} failure rate)")
             
-            details.append(f"Client Status: {csum.status.name})")
+            details.append(f"Client Status: {csum.status.name} (Total Success: {csum.successful_event_count}/{csum.total_event_count})")
             print(f"  Client: {csum.client.name}, Status: {csum.status.name}")
             print(f"  Total Events: {csum.total_event_count}, Successful: {csum.successful_event_count}")
             for ds in csum.daily_summaries:
@@ -169,6 +170,30 @@ def main(client: GoogleAdsClient, customer_id: str):
                 except Exception:
                     details.append(f"  - Alert: {alert.error} ({alert.error_percentage:.2%})")
                     print(f"    Alert: {alert.error} ({alert.error_percentage:.2%})")
+    details.append("\n[4] Recent GCLID Validation (Last 7 Days)")
+    gclids_found = []
+    for i in range(1, 8):
+        query_date = (datetime.now() - timedelta(i)).strftime('%Y-%m-%d')
+        gclid_query = f"""
+        SELECT
+          click_view.gclid,
+          segments.date
+        FROM click_view
+        WHERE segments.date = '{query_date}'
+        LIMIT 5
+        """
+        results = run_query(client, customer_id, gclid_query)
+        if results:
+            for row in results:
+                gclids_found.append((row.click_view.gclid, query_date, i))
+            if len(gclids_found) >= 10:
+                break
+
+    if not gclids_found:
+        details.append("Reason: No recent GCLIDs found in click_view for the last 7 days")
+    else:
+        for gclid, date_str, age in gclids_found:
+            details.append(f"  - GCLID: {gclid} | Date: {date_str} | Status: VALID ({age} day(s) old)")
 
     history = merge_previous_findings(output_dir)
 

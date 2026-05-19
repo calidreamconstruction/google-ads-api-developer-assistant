@@ -25,7 +25,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 
 from google.ads.googleads.errors import GoogleAdsException
 from google.ads.googleads.client import GoogleAdsClient
-import troubleshoot_conversions
 from troubleshoot_conversions import main
 
 
@@ -78,6 +77,14 @@ class TestTroubleshootConversions(unittest.TestCase):
         asum.daily_summaries = [ds]
         asum.alerts = []
 
+        # 3. GCLID Query Mock
+        mock_row_gclid = MagicMock()
+        mock_row_gclid.click_view.gclid = "mocked_gclid_abc"
+        mock_row_gclid.segments.date = "2026-02-24"
+
+        mock_batch_gclid = MagicMock()
+        mock_batch_gclid.results = [mock_row_gclid]
+
         mock_batch_customer = MagicMock()
         mock_batch_customer.results = [mock_row_customer]
 
@@ -87,11 +94,18 @@ class TestTroubleshootConversions(unittest.TestCase):
         mock_batch_as = MagicMock()
         mock_batch_as.results = [mock_row_as]
 
-        self.mock_ga_service.search_stream.side_effect = [
-            [mock_batch_customer],
-            [mock_batch_cs],
-            [mock_batch_as]
-        ]
+        def search_stream_side_effect(customer_id, query):
+            if "FROM customer" in query:
+                return [mock_batch_customer]
+            elif "FROM offline_conversion_upload_client_summary" in query:
+                return [mock_batch_cs]
+            elif "FROM offline_conversion_upload_conversion_action_summary" in query:
+                return [mock_batch_as]
+            elif "FROM click_view" in query:
+                return [mock_batch_gclid]
+            return []
+
+        self.mock_ga_service.search_stream.side_effect = search_stream_side_effect
 
         main(self.mock_client, self.customer_id)
 
@@ -104,6 +118,9 @@ class TestTroubleshootConversions(unittest.TestCase):
         self.assertIn("Client Status: SUCCESS (Total Success: 50/50)", written_content)
         self.assertIn("Action: Test Action (Total Success: 50/50)", written_content)
         self.assertIn("No blocking errors detected.", written_content)
+        self.assertIn("Recent GCLID Validation (Last 7 Days)", written_content)
+        self.assertIn("GCLID: mocked_gclid_abc", written_content)
+        self.assertIn("Status: VALID", written_content)
 
         output = self.captured_output.getvalue()
         self.assertIn("Conversion Diagnostic Summary for Customer 1234567890", output)
@@ -124,11 +141,12 @@ class TestTroubleshootConversions(unittest.TestCase):
         mock_batch_customer = MagicMock()
         mock_batch_customer.results = [mock_row_customer]
         
-        self.mock_ga_service.search_stream.side_effect = [
-            [mock_batch_customer],
-            [],
-            []
-        ]
+        def search_stream_side_effect(customer_id, query):
+            if "FROM customer" in query:
+                return [mock_batch_customer]
+            return []
+
+        self.mock_ga_service.search_stream.side_effect = search_stream_side_effect
 
         main(self.mock_client, self.customer_id)
 
