@@ -114,7 +114,7 @@ def main(client: GoogleAdsClient, customer_id: str):
             client_name = csum.client.name.split("/")[-1] if "/" in csum.client.name else csum.client.name
             intro_lines.append(f"  - {client_name}: {csum.status.name} ({csum.successful_event_count}/{csum.total_event_count} successful, {fail_rate:.2%} failure rate)")
             
-            details.append(f"Client Status: {csum.status.name} #(Total Success: {csum.successful_event_count}/{csum.total_event_count})")
+            details.append(f"Client Status: {csum.status.name})")
             print(f"  Client: {csum.client.name}, Status: {csum.status.name}")
             print(f"  Total Events: {csum.total_event_count}, Successful: {csum.successful_event_count}")
             for ds in csum.daily_summaries:

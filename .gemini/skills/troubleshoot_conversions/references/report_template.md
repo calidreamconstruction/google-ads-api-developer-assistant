@@ -29,7 +29,7 @@ A 2-3 sentence summary of the findings. State the purpose of the report.
 - **BUlKSHEET ACTIONS:** {status EXCELLENT|GOOD|FAIR|POOR} {successful uploads}/[total successful uploads} {percentage of successful uploads}
 
 ### [Actionable Recommendations]
-List of actions that can be taken by the user to correct the current state.
+- **Actionable Recommendations:** List of actions that can be taken by the user to correct the current state.
 
 ## 2. Consolidation Mandate
 
