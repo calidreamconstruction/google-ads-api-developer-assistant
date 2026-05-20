@@ -1,0 +1,22 @@
+{
+  "init-session": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python3 .agents/hooks/configure_environment.py"
+      },
+      {
+        "type": "command",
+        "command": "python3 .agents/hooks/check_github_version.py"
+      }
+    ]
+  },
+  "terminate-session": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 .agents/hooks/cleanup_environment.py"
+      }
+    ]
+  }
+}
