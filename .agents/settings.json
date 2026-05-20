@@ -19,31 +19,21 @@
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "startup",
-        "hooks": [
-          {
-            "name": "init",
-            "type": "command",
-            "command": "python3 .agents/hooks/configure_environment.py"
-          },
-          {
-            "name": "check_version",
-            "type": "command",
-            "command": "python3 .agents/hooks/check_github_version.py"
-          }
-        ]
+        "name": "init",
+        "type": "command",
+        "command": "python3 .agents/hooks/configure_environment.py"
+      },
+      {
+        "name": "check_version",
+        "type": "command",
+        "command": "python3 .agents/hooks/check_github_version.py"
       }
     ],
     "SessionEnd": [
       {
-        "matcher": "exit",
-        "hooks": [
-          {
-            "name": "cleanup",
-            "type": "command",
-            "command": "python3 .agents/hooks/cleanup_environment.py"
-          }
-        ]
+        "name": "cleanup",
+        "type": "command",
+        "command": "python3 .agents/hooks/cleanup_environment.py"
       }
     ]
   }
