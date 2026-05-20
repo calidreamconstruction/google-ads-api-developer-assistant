@@ -1,29 +1,5 @@
 {
   "tools": {
     "enableHooks": true
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "name": "test",
-        "type": "command",
-        "command": "echo 'SessionStart executed!' > /tmp/antigravity_hook_test.txt",
-        "timeout": 30000
-      },
-      {
-        "name": "check_version",
-        "type": "command",
-        "command": "python3 .agents/hooks/check_github_version.py",
-        "timeout": 30000
-      }
-    ],
-    "SessionEnd": [
-      {
-        "name": "cleanup",
-        "type": "command",
-        "command": "python3 .agents/hooks/cleanup_environment.py",
-        "timeout": 30000
-      }
-    ]
   }
 }

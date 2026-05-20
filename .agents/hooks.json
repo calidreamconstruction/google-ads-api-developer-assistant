@@ -1,13 +1,16 @@
 {
-  "init-session": {
+  "initialize-env": {
+    "enabled": true,
     "PreInvocation": [
       {
         "type": "command",
-        "command": "python3 .agents/hooks/configure_environment.py"
+        "command": "python3 .agents/hooks/configure_environment.py",
+        "timeout": 30
       },
       {
         "type": "command",
-        "command": "python3 .agents/hooks/check_github_version.py"
+        "command": "python3 .agents/hooks/check_github_version.py",
+        "timeout": 30
       }
     ]
   },
@@ -15,7 +18,8 @@
     "Stop": [
       {
         "type": "command",
-        "command": "python3 .agents/hooks/cleanup_environment.py"
+        "command": "python3 .agents/hooks/cleanup_environment.py",
+        "timeouut": 30
       }
     ]
   }
