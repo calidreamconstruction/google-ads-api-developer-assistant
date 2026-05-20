@@ -7,7 +7,7 @@
       {
         "name": "test",
         "type": "command",
-        "command": "echo 'SessionStart executed! > /tmp/anitgraviy_hook_test.txt'",
+        "command": "echo 'SessionStart executed!' > /tmp/antigravity_hook_test.txt",
         "timeout": 30000
       },
       {
