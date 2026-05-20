@@ -1,4 +1,7 @@
 {
+  "tools": {
+    "enableHooks": true
+  },
   "environment-setup": {
     "PreInvocation": [
           {                                                                                                                                                                                                                                  
