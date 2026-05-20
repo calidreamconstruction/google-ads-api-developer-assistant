@@ -72,7 +72,6 @@ try {
 
 
 
-
     # --- Test Case 3: Run install.ps1 Default (no flags) ---
     Write-Host "--- Running install.ps1 (Default) ---"
     # Ensure client_libs is clean for this test case

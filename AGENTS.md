@@ -157,7 +157,7 @@ NEVER guess the structure of an API object.
 ### 5. Troubleshooting [DIAGNOSTICS]
 
 #### 5.1. Conversions
-- **Mandatory Path:** Follow `conversions/GEMINI.md` workflow.
+- **Mandatory Path:** Follow `conversions/AGENTS.md` workflow.
 - **First Step:** Query `offline_conversion_upload_client_summary`.
 - **Validation:** Logical time checks (`conversion_time > click_time`) are required before upload.
 

@@ -147,7 +147,7 @@ def main() -> None:
     cids = get_cids_under_mcc(customer_id, args.api_version)
 
     if args.save_csv:
-        # Assumes script is in .gemini/skills/get_cids_under_mcc/scripts/
+        # Assumes script is in .antigravity/skills/get_cids_under_mcc/scripts/
         # Project root is 5 levels up
         base_dir = os.path.dirname(
             os.path.dirname(

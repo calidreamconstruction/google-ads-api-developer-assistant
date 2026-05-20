@@ -34,10 +34,10 @@ logger.addHandler(stream_handler)
 
 
 def get_local_version():
-    # gemini-extension.json is in the root directory
-    # So we need to go up one more level from .gemini to find gemini-extension.json
+    # manifest.json is in the root directory
+    # So we need to go up one more level from .gemini to find manifest.json
     root_dir = os.path.dirname(base_dir)
-    json_path = os.path.join(root_dir, "gemini-extension.json")
+    json_path = os.path.join(root_dir, "manifest.json")
 
     try:
         with open(json_path, "r") as f:
@@ -49,7 +49,7 @@ def get_local_version():
 
 
 def get_remote_version():
-    url = "https://raw.githubusercontent.com/googleads/google-ads-api-developer-assistant/main/gemini-extension.json"
+    url = "https://raw.githubusercontent.com/googleads/google-ads-api-developer-assistant/main/manifest.json"
     try:
         with urllib.request.urlopen(url, timeout=5) as response:
             if response.status == 200:
@@ -70,7 +70,7 @@ def parse_version(v_str):
 
 
 def main():
-    logging.info("Checking for extension updates...")
+    logging.info("Checking for updates...")
     local_version = get_local_version()
     remote_version = get_remote_version()
 
@@ -85,11 +85,11 @@ def main():
     try:
         if parse_version(remote_version) > parse_version(local_version):
             logging.warning(
-                f"A new version of the extension is available: {remote_version}"
+                f"A new version is available: {remote_version}"
             )
             logging.warning("Please run `./update.sh` to update.")
         else:
-            logging.info("Extension is up to date.")
+            logging.info("Up to date.")
     except Exception as e:
         logging.error(f"Error comparing versions: {e}")
 

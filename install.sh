@@ -21,7 +21,6 @@
 #   2. Clones or updates the 'google-ads-python' repository into a specified directory.
 #   3. Updates the '.gemini/settings.json' file to include the project's API examples,
 #      saved code, and the cloned Python library in the context.
-#   4. Registers the project as a Gemini extension.
 
 # Exit on any error, and on undefined variables.
 set -eu
@@ -309,25 +308,6 @@ if ! mv "${TMP_SETTINGS_FILE}" "${SETTINGS_FILE}"; then
   exit 1
 fi
 
-echo "Registering Google Ads API Developer Assistant as a Gemini extension..."
-if command -v gemini &> /dev/null; then
-  # Use yes Y to handle the interactive prompt as --consent is not supported in OSS
-  # Capture output to detect "already installed" state
-  if ! INSTALL_OUTPUT=$(yes Y | gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git 2>&1); then
-    if [[ "${INSTALL_OUTPUT}" == *"already installed"* ]]; then
-      echo "Extension already installed. Reinstalling..."
-      gemini extensions uninstall "google-ads-api-developer-assistant" || true
-      yes Y | gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git
-    else
-      echo "${INSTALL_OUTPUT}" >&2
-      err "WARN: Failed to register extension automatically. You may need to run 'gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git' manually."
-    fi
-  else
-    echo "${INSTALL_OUTPUT}"
-  fi
-else
-  echo "WARN: 'gemini' command not found. Skipping extension registration."
-fi
 
 
 

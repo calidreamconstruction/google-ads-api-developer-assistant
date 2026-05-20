@@ -11,16 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# ==============================================================================
-# CRITICAL MAINTENANCE NOTE - DO NOT REMOVE
-# ==============================================================================
-# ⚠️ DO NOT migrate lifecycle hooks (SessionStart/SessionEnd) to the extension
-# manifest (hooks/hooks.json or gemini-extension.json).
-#
-# Doing so breaks hook execution in the OSS version of gemini-cli used in this
-# workspace. Hooks MUST remain registered in `.gemini/settings.json` using the
-# `matcher` wrapper list structure to function correctly.
-# ==============================================================================
 
 import os
 import shutil
