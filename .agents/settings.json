@@ -2,27 +2,28 @@
   "tools": {
     "enableHooks": true
   },
-  "environment-setup": {
-    "PreInvocation": [
-          {                                                                                                                                                                                                                                  
-            "type": "command",                                                                                                                                                                                                               
-            "command": "python3 .agents/hooks/configure_environment.py",                                                                                                                                                                     
-            "timeout": 30                                                                                                                                                                                                                    
-          },                                                                                                                                                                                                                                 
-          {                                                                                                                                                                                                                                  
-            "type": "command",                                                                                                                                                                                                               
-            "command": "python3 .agents/hooks/check_github_version.py",                                                                                                                                                                      
-            "timeout": 30                                                                                                                                                                                                                    
-          }                                                                                                                                                                                                                                  
-        ]                                                                                                                                                                                                                                    
-      },                                                                                                                                                                                                                                     
-      "environment-cleanup": {
-        "Stop": [
-          {
-            "type": "command",
-            "command": "python3 .agents/hooks/cleanup_environment.py",
-            "timeout": 30
-          }
-        ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "name": "init",
+        "type": "command",
+        "command": "python3 .agents/hooks/configure_environment.py",
+        "timeout": 30000
+      },
+      {
+        "name": "check_version",
+        "type": "command",
+        "command": "python3 .agents/hooks/check_github_version.py",
+        "timeout": 30000
       }
+    ],
+    "SessionEnd": [
+      {
+        "name": "cleanup",
+        "type": "command",
+        "command": "python3 .agents/hooks/cleanup_environment.py",
+        "timeout": 30000
+      }
+    ]
+  }
 }
