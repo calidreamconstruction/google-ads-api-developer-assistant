@@ -29,7 +29,7 @@ echo "Running tests in ${TEST_DIR}"
 FAKE_HOME="${TEST_DIR}/fake_home"
 FAKE_PROJECT="${TEST_DIR}/fake_project"
 mkdir -p "${FAKE_HOME}/bin"
-mkdir -p "${FAKE_PROJECT}/.gemini"
+mkdir -p "${FAKE_PROJECT}/.agents"
 
 # Resolve real script path before mocking git
 REAL_UPDATE_SCRIPT="$(git rev-parse --show-toplevel)/update.sh"
@@ -67,7 +67,7 @@ chmod +x "${FAKE_HOME}/bin/jq"
 export PATH="${FAKE_HOME}/bin:${PATH}"
 
 # Create dummy settings.json
-echo '{"context": {"includeDirectories": ["'"${FAKE_PROJECT}"'/client_libs/google-ads-python"]}}' > "${FAKE_PROJECT}/.gemini/settings.json"
+echo '{"context": {"includeDirectories": ["'"${FAKE_PROJECT}"'/client_libs/google-ads-python"]}}' > "${FAKE_PROJECT}/.agents/settings.json"
 mkdir -p "${FAKE_PROJECT}/client_libs/google-ads-python/.git"
 
 # Copy the real update.sh for testing
@@ -93,11 +93,11 @@ if [[ ! -d "${FAKE_PROJECT}/client_libs/google-ads-php/.git" ]]; then
 fi
 
 # Check if settings.json updated
-if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.gemini/settings.json" | grep -q "google-ads-php"; then
+if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.agents/settings.json" | grep -q "google-ads-php"; then
     echo "PASS: settings.json updated with php path"
 else
     echo "FAIL: settings.json missing php path"
-    cat "${FAKE_PROJECT}/.gemini/settings.json"
+    cat "${FAKE_PROJECT}/.agents/settings.json"
     exit 1
 fi
 
@@ -114,11 +114,11 @@ mkdir -p "$VALID_DIR"
 (cd "${FAKE_PROJECT}" && bash update.sh --context_dir "$VALID_DIR")
 
 # Check if settings.json updated
-if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.gemini/settings.json" | grep -q "valid_dir"; then
+if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.agents/settings.json" | grep -q "valid_dir"; then
     echo "PASS: settings.json updated with valid context_dir"
 else
     echo "FAIL: settings.json missing valid context_dir"
-    cat "${FAKE_PROJECT}/.gemini/settings.json"
+    cat "${FAKE_PROJECT}/.agents/settings.json"
     exit 1
 fi
 
@@ -139,7 +139,7 @@ else
 fi
 
 # Verify it was NOT added to settings.json
-if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.gemini/settings.json" | grep -q "non_existent_dir"; then
+if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.agents/settings.json" | grep -q "non_existent_dir"; then
     echo "FAIL: settings.json updated with invalid context_dir"
     exit 1
 else
@@ -155,7 +155,7 @@ INVALID_DIR2="${TEST_DIR}/non_existent_dir2"
 (cd "${FAKE_PROJECT}" && bash update.sh --context_dir "$VALID_DIR2,$INVALID_DIR2")
 
 # Verify VALID_DIR2 was added
-if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.gemini/settings.json" | grep -q "valid_dir2"; then
+if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.agents/settings.json" | grep -q "valid_dir2"; then
     echo "PASS: valid_dir2 added from mixed list"
 else
     echo "FAIL: valid_dir2 missing from mixed list"
@@ -163,7 +163,7 @@ else
 fi
 
 # Verify INVALID_DIR2 was NOT added
-if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.gemini/settings.json" | grep -q "non_existent_dir2"; then
+if /usr/bin/jq -r '.context.includeDirectories[]' "${FAKE_PROJECT}/.agents/settings.json" | grep -q "non_existent_dir2"; then
     echo "FAIL: non_existent_dir2 added from mixed list"
     exit 1
 else

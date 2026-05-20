@@ -10,7 +10,7 @@
 ### 1. Core Directives [MANDATORY]
 *   **API Response != Attribution**: A successful API import response (no errors) means the data was received, but it does **not** guarantee the conversion will be attributed to an ad. 
 *   **Offline Diagnostics Priority**: Always prioritize offline diagnostics for import health. The Google Ads UI is not organized by import date, which can make it difficult to diagnose recent issues.
-*   **Mandatory Diagnostic Workflow**: For ALL conversion-related troubleshooting, the AI MUST execute the `troubleshoot_conversions` skill (see `.gemini/skills/troubleshoot_conversions/SKILL.md`).
+*   **Mandatory Diagnostic Workflow**: For ALL conversion-related troubleshooting, the AI MUST execute the `troubleshoot_conversions` skill (see `.agents/skills/troubleshoot_conversions/SKILL.md`).
 
 ### 2. Common Error Codes & Resolution Strategies
 

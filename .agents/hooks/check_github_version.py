@@ -5,11 +5,11 @@ import sys
 import urllib.request
 
 # Setup logging
-# Script is in .gemini/hooks/
-# Log file should be in .gemini/
+# Script is in .agents/hooks/
+# Log file should be in .agents/
 base_dir = os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
-)  # This is .gemini directory
+)  # This is .agents directory
 log_path = os.path.join(base_dir, "check_github_version.log")
 
 # Create logger
@@ -35,7 +35,7 @@ logger.addHandler(stream_handler)
 
 def get_local_version():
     # manifest.json is in the root directory
-    # So we need to go up one more level from .gemini to find manifest.json
+    # So we need to go up one more level from .agents to find manifest.json
     root_dir = os.path.dirname(base_dir)
     json_path = os.path.join(root_dir, "manifest.json")
 

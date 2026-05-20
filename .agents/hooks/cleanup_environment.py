@@ -19,7 +19,7 @@ import sys
 def cleanup():
     # Determine paths
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    # .gemini/hooks/ -> project root is 2 levels up
+    # .agents/hooks/ -> project root is 2 levels up
     project_root = os.path.abspath(os.path.join(script_dir, "../.."))
     config_dir = os.path.join(project_root, "config")
 

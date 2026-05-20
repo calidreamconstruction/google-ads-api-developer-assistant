@@ -91,7 +91,7 @@ Before presenting or executing ANY GAQL query, you MUST pass this 4-step sequenc
     - `OR` is forbidden. Use `IN` or multiple queries.
     - **NO FROM IN METADATA:** Queries to `GoogleAdsFieldService` MUST NOT contain a `FROM` clause.
     - **Metadata Field Names:** When using `GoogleAdsFieldService.search_google_ads_fields`, field names MUST NOT be prefixed with the resource name (e.g., use `name`, not `google_ads_field.name`). Do NOT use `GoogleAdsService` to query `google_ads_field`. Failure results in `UNRECOGNIZED_FIELD`.
-4.  **Runtime Dry Run:** Execute `./.venv/bin/python3 .gemini/skills/validate_gaql/scripts/validate_gaql.py --customer_id <customer_id> --api_version <api_version>`.
+4.  **Runtime Dry Run:** Execute `./.venv/bin/python3 .agents/skills/validate_gaql/scripts/validate_gaql.py --customer_id <customer_id> --api_version <api_version>`.
     - **Success:** Proceed to implementation.
     - **Failure:** Fix query based on validator output and restart from Step 1.
 

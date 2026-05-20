@@ -6,7 +6,7 @@
     This script performs the following steps:
     1. Verifies that required tools (git) are installed.
     2. Clones or updates the selected Google Ads client libraries into a specified directory.
-    3. Updates the '.gemini/settings.json' file to include the project's API examples,
+    3. Updates the '.agents/settings.json' file to include the project's API examples,
        saved code, and the cloned client libraries in the context.
 
 .PARAMETER Python
@@ -165,7 +165,7 @@ foreach ($Lang in $AllLangs) {
 }
 
 # --- Modify settings.json ---
-$SettingsFile = Join-Path $ProjectDirAbs ".gemini\settings.json"
+$SettingsFile = Join-Path $ProjectDirAbs ".agents\settings.json"
 
 if (-not (Test-Path -LiteralPath $SettingsFile)) {
     Write-Error "ERROR: Settings file not found: $SettingsFile"

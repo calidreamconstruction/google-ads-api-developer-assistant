@@ -20,7 +20,7 @@ from unittest.mock import patch, MagicMock, mock_open
 # Add the project root to sys.path so we can import the hook scripts
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(script_dir, ".."))
-hooks_dir = os.path.join(project_root, ".gemini/hooks")
+hooks_dir = os.path.join(project_root, ".agents/hooks")
 sys.path.append(hooks_dir)
 
 import configure_environment  # noqa: E402
@@ -115,8 +115,8 @@ class TestConfigureEnvironment(unittest.TestCase):
     def test_manage_policy_file_creates_new(self, mock_file, mock_exists, mock_makedirs):
         with patch("os.path.expanduser", return_value="/mock/home"):
             configure_environment.manage_policy_file()
-            mock_makedirs.assert_called_once_with("/mock/home/.gemini/policies", exist_ok=True)
-            mock_file.assert_called_once_with("/mock/home/.gemini/policies/ads_assistant.toml", "w")
+            mock_makedirs.assert_called_once_with("/mock/home/.agents/policies", exist_ok=True)
+            mock_file.assert_called_once_with("/mock/home/.agents/policies/ads_assistant.toml", "w")
             handle = mock_file()
             written = "".join(call[0][0] for call in handle.write.call_args_list)
             self.assertIn('toolName = ["save_memory"]', written)

@@ -6,7 +6,7 @@ cases {
   expected_tool_calls {
     tool_name: "run_command"
     arguments_contain: "./.venv/bin/python3"
-    arguments_contain: ".gemini/skills/validate_gaql/scripts/validate_gaql.py"
+    arguments_contain: ".agents/skills/validate_gaql/scripts/validate_gaql.py"
     arguments_contain: "--customer_id"
     arguments_contain: "1234567890"
     arguments_contain: "--api_version"

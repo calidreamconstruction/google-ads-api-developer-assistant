@@ -55,8 +55,8 @@ try {
     # Git needs to be git.exe on Windows. This test likely only runs on Linux per the environment.
     
     # 2. Setup Fake Project
-    New-Item -ItemType Directory -Force -Path (Join-Path $FakeProject ".gemini") | Out-Null
-    Set-Content -Path (Join-Path $FakeProject ".gemini/settings.json") -Value '{"context": {"includeDirectories": []}}'
+    New-Item -ItemType Directory -Force -Path (Join-Path $FakeProject ".agents") | Out-Null
+    Set-Content -Path (Join-Path $FakeProject ".agents/settings.json") -Value '{"context": {"includeDirectories": []}}'
     New-Item -ItemType Directory -Force -Path (Join-Path $FakeProject "api_examples") | Out-Null
     New-Item -ItemType Directory -Force -Path (Join-Path $FakeProject "saved/code") | Out-Null
     
@@ -81,7 +81,7 @@ try {
     & $InstallScriptPath
     if ($LASTEXITCODE -ne 0) { throw "install.ps1 failed" }
     
-    $Settings = Get-Content -Raw (Join-Path $FakeProject ".gemini/settings.json") | ConvertFrom-Json
+    $Settings = Get-Content -Raw (Join-Path $FakeProject ".agents/settings.json") | ConvertFrom-Json
     $IncludedDirs = $Settings.context.includeDirectories
     
     # Check Python exists

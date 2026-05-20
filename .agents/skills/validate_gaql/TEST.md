@@ -12,7 +12,7 @@ The unit test suite validates the GAQL validation script logic, including:
 ### Running Unit Tests
 Execute the test suite within the sequestered virtual environment:
 ```bash
-./.venv/bin/python3 -m unittest discover -s .gemini/skills/validate_gaql/tests
+./.venv/bin/python3 -m unittest discover -s .agents/skills/validate_gaql/tests
 ```
 
 ## 2. Automated Evaluation (`EVAL.txtpb`)

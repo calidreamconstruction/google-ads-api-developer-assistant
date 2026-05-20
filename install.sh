@@ -19,7 +19,7 @@
 #   It performs the following steps:
 #   1. Verifies that required tools (jq, git) are installed.
 #   2. Clones or updates the 'google-ads-python' repository into a specified directory.
-#   3. Updates the '.gemini/settings.json' file to include the project's API examples,
+#   3. Updates the '.agents/settings.json' file to include the project's API examples,
 #      saved code, and the cloned Python library in the context.
 
 # Exit on any error, and on undefined variables.
@@ -250,7 +250,7 @@ for lang in $ALL_LANGS; do
 done
 
 # --- Modify settings.json ---
-readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.gemini/settings.json"
+readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.agents/settings.json"
 
 if [[ ! -f "${SETTINGS_FILE}" ]]; then
   err "ERROR: Settings file not found: ${SETTINGS_FILE}"

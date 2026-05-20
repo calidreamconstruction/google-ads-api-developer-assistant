@@ -18,7 +18,7 @@
 #   This script updates the Google Ads API Developer Assistant and its dependencies.
 #   It performs the following steps:
 #   1. Updates the 'google-ads-api-developer-assistant' repository (git pull).
-#   2. Reads '.gemini/settings.json' to locate the 'google-ads-python' repository.
+#   2. Reads '.agents/settings.json' to locate the 'google-ads-python' repository.
 #   3. Updates the 'google-ads-python' repository (git pull).
 
 # Exit on any error, and on undefined variables.
@@ -36,7 +36,7 @@ usage() {
   echo ""
   echo "  This script performs the following actions:"
   echo "  1. Updates the 'google-ads-api-developer-assistant' repository (git pull)."
-  echo "  2. Reads '.gemini/settings.json' to find configured client libraries."
+  echo "  2. Reads '.agents/settings.json' to find configured client libraries."
   echo "  3. Updates each found client library repository (git pull)."
   echo ""
   echo "  Options:"
@@ -49,7 +49,7 @@ usage() {
   echo "    --context_dir <dirs> Comma-separated list of directories to add to settings.json"
   echo ""
   echo "  If flags are provided, the script will ensure those libraries are installed"
-  echo "  (cloned) and registered in .gemini/settings.json if they weren't already."
+  echo "  (cloned) and registered in .agents/settings.json if they weren't already."
   echo ""
 }
 
@@ -167,7 +167,7 @@ echo "Detected project root: ${PROJECT_DIR_ABS}"
 # --- Update Assistant Repo ---
 echo "Updating google-ads-api-developer-assistant..."
 
-SETTINGS_JSON=".gemini/settings.json"
+SETTINGS_JSON=".agents/settings.json"
 TEMP_SETTINGS=$(mktemp)
 
 CUSTOMER_ID_FILE="customer_id.txt"
@@ -284,7 +284,7 @@ for lang in $ALL_LANGS; do
 done
 
 # --- Locate and Update Client Libraries ---
-readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.gemini/settings.json"
+readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.agents/settings.json"
 
 if [[ ! -f "${SETTINGS_FILE}" ]]; then
   err "ERROR: Settings file not found: ${SETTINGS_FILE}"

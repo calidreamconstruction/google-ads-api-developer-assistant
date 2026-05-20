@@ -18,7 +18,7 @@
 # manifest (hooks/hooks.json or manifest.json).
 #
 # Doing so breaks hook execution in the OSS version of antigravity used in this
-# workspace. Hooks MUST remain registered in `.gemini/settings.json` using the
+# workspace. Hooks MUST remain registered in `.agents/settings.json` using the
 # `matcher` wrapper list structure to function correctly.
 # ==============================================================================
 
@@ -221,7 +221,7 @@ def finish_hook(target_path, version):
 def manage_policy_file():
     """Manages the ads_assistant.toml policy file to restrict save_memory."""
     home_dir = os.path.expanduser("~")
-    policy_dir = os.path.join(home_dir, ".gemini", "policies")
+    policy_dir = os.path.join(home_dir, ".agents", "policies")
     policy_file = os.path.join(policy_dir, "ads_assistant.toml")
 
     os.makedirs(policy_dir, exist_ok=True)
@@ -326,7 +326,7 @@ def main():
         config_dir = os.path.join(project_root, "config")
         ext_version_script = os.path.join(
             project_root,
-            ".gemini/skills/ext_version/scripts/get_extension_version.py",
+            ".agents/skills/ext_version/scripts/get_extension_version.py",
         )
 
         os.makedirs(config_dir, exist_ok=True)

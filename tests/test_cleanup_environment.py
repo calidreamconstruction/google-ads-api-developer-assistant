@@ -20,7 +20,7 @@ from unittest.mock import patch
 # Add the project root to sys.path
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(script_dir, ".."))
-hooks_dir = os.path.join(project_root, ".gemini/hooks")
+hooks_dir = os.path.join(project_root, ".agents/hooks")
 sys.path.append(hooks_dir)
 
 import cleanup_environment  # noqa: E402

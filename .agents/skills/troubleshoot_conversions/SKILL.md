@@ -15,7 +15,7 @@ When invoked to troubleshoot conversions:
 1. Locate the required `customer_id` (from context or `customer_id.txt`). If missing, prompt the user.
 2. Execute the mandatory diagnostic collector script within the sequestered virtual environment. As it runs, it will output high-level client and action summaries to stdout to inform your analysis:
 ```bash
-./.venv/bin/python3 .gemini/skills/troubleshoot_conversions/scripts/troubleshoot_conversions.py --customer_id <customer_id> --api_version <api_version>
+./.venv/bin/python3 .agents/skills/troubleshoot_conversions/scripts/troubleshoot_conversions.py --customer_id <customer_id> --api_version <api_version>
 ```
 3. Note the consolidated troubleshooting report path returned by the script (e.g., `saved/data/conversion_troubleshooting_report_<epoch>.txt`).
 

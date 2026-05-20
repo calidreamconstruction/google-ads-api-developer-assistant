@@ -19,7 +19,7 @@ import sys
 def get_extension_version() -> None:
     """Reads manifest.json and prints the version."""
     try:
-        # Assumes the script is in .gemini/skills/ext_version/scripts/
+        # Assumes the script is in .agents/skills/ext_version/scripts/
         # manifest.json is at the root, so 4 levels up
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
         json_path = os.path.join(base_dir, "manifest.json")

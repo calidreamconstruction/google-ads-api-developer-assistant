@@ -13,7 +13,7 @@ The unit test suite validates the core diagnostic logic, including:
 ### Running Unit Tests
 Execute the test suite within the sequestered virtual environment:
 ```bash
-./.venv/bin/python3 -m unittest discover -s .gemini/skills/troubleshoot_conversions/tests
+./.venv/bin/python3 -m unittest discover -s .agents/skills/troubleshoot_conversions/tests
 ```
 
 ## 2. Automated Evaluation (`EVAL.txtpb`)
