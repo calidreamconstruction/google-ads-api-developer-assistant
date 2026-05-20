@@ -5,9 +5,9 @@
   "hooks": {
     "SessionStart": [
       {
-        "name": "init",
+        "name": "test",
         "type": "command",
-        "command": "python3 .agents/hooks/configure_environment.py",
+        "command": "echo 'SessionStart executed! > /tmp/anitgraviy_hook_test.txt'",
         "timeout": 30000
       },
       {
