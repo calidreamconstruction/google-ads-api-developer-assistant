@@ -184,24 +184,29 @@ def copy_and_append_version(home_config, target_config, version, lang="YAML"):
 
 
 def finish_hook(target_path, version):
-    """Outputs the hook's JSON response without setting any environment variables."""
-    # Prepare the context string that will be injected into the session
-    context_string = "StartSession initialized."
-
+    """Outputs the hook's JSON response with steps to inject into the conversation."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.abspath(os.path.join(script_dir, "../.."))
 
-    # Construct the JSON output required by Antigravity
-    # Setting systemMessage to empty string to prevent repeated output as requested by user
+    # Construct the JSON output required by Jetski PreInvocationHookResult.
+    # It supports only injectSteps which can contain userMessage, ephemeralMessage, or toolCall.
+    # We inject an ephemeral message to inform the agent about configuration and venv path.
+    message_content = (
+        "StartSession initialized. "
+        f"Virtual environment is located at {project_root}/.venv. "
+        f"Google Ads configuration file is written to {target_path}. "
+        f"Extension version is {version}. "
+        "You MUST use this virtual environment for linting, validation, and execution. "
+        f"When running Python scripts, use the python interpreter at {project_root}/.venv/bin/python3. "
+        f"Always run Google Ads client scripts with the environment variable GOOGLE_ADS_CONFIGURATION_FILE_PATH={target_path} set."
+    )
+
     output = {
-        "additionalContext": context_string,
-        "systemMessage": "",
-        "customVars": {
-            "PATH": f"{project_root}/.venv/bin:{os.environ.get('PATH', '')}",
-            "VIRTUAL_ENV": f"{project_root}/.venv",
-            "GOOGLE_ADS_CONFIGURATION_FILE_PATH": target_path,
-            "ads_assistant": version,
-        },
+        "injectSteps": [
+            {
+                "ephemeralMessage": message_content
+            }
+        ]
     }
     # Output to stdout
     print(json.dumps(output))

@@ -1,0 +1,20 @@
+{
+  "id": "0d1226bd-2863-4597-acbe-5612b0c78623",
+  "name": "/usr/local/google/home/rwh/google-ads-api-developer-assistant",
+  "projectResources": {
+    "resources": [
+      {
+        "gitFolder": {
+          "folderUri": "file:///usr/local/google/home/rwh/google-ads-api-developer-assistant",
+          "allowWrite": true
+        }
+      },
+      {
+        "gitFolder": {
+          "folderUri": "file:///usr/local/google/home/rwh/google-ads-api-developer-assistant/client_libs/google-ads-python",
+          "allowWrite": false
+        }
+      }
+    ]
+  }
+}

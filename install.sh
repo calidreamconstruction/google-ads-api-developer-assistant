@@ -19,8 +19,6 @@
 #   It performs the following steps:
 #   1. Verifies that required tools (jq, git) are installed.
 #   2. Clones or updates the 'google-ads-python' repository into a specified directory.
-#   3. Updates the '.agents/settings.json' file to include the project's API examples,
-#      saved code, and the cloned Python library in the context.
 
 # Exit on any error, and on undefined variables.
 set -eu

@@ -177,12 +177,14 @@ class TestConfigureEnvironment(unittest.TestCase):
             mock_print.assert_called_once()
             args, kwargs = mock_print.call_args
             data = json.loads(args[0])
-            self.assertEqual(data["additionalContext"], "StartSession initialized.")
-            self.assertEqual(data["systemMessage"], "")
-            self.assertIn("customVars", data)
-            self.assertEqual(data["customVars"]["ads_assistant"], "2.1.0")
-            self.assertEqual(data["customVars"]["GOOGLE_ADS_CONFIGURATION_FILE_PATH"], "/mock/target.yaml")
-            self.assertIn(".venv/bin", data["customVars"]["PATH"])
+            self.assertIn("injectSteps", data)
+            self.assertEqual(len(data["injectSteps"]), 1)
+            step = data["injectSteps"][0]
+            self.assertIn("ephemeralMessage", step)
+            msg = step["ephemeralMessage"]
+            self.assertIn("StartSession initialized", msg)
+            self.assertIn("/mock/target.yaml", msg)
+            self.assertIn("2.1.0", msg)
 
 if __name__ == "__main__":
     unittest.main()
