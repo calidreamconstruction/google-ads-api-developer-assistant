@@ -215,37 +215,91 @@ done
 clone_or_update() {
   local repo_url="$1"
   local clone_path="$2"
+  local log_file="$3"
   local repo_name
   
   repo_name=$(basename "${clone_path}")
 
-  echo "Managing repository ${repo_name} in ${clone_path}"
-  if [[ -d "${clone_path}/.git" ]]; then
-    echo "Directory ${clone_path} already exists. Updating..."
-    if ! (cd "${clone_path}" && git pull); then
-      echo "WARN: Failed to update ${repo_name}. Continuing..."
+  {
+    echo "Managing repository ${repo_name} in ${clone_path}"
+    if [[ -d "${clone_path}/.git" ]]; then
+      echo "Directory ${clone_path} already exists. Updating..."
+      if ! (cd "${clone_path}" && git pull); then
+        echo "WARN: Failed to update ${repo_name}. Continuing..."
+      else
+        echo "Successfully updated ${repo_name}."
+      fi
+    elif [[ -d "${clone_path}" ]]; then
+       echo "WARN: Directory ${clone_path} exists but is not a git repo. Skipping."
     else
-      echo "Successfully updated ${repo_name}."
+      echo "Cloning ${repo_url} into ${clone_path}"
+      if ! git clone "${repo_url}" "${clone_path}"; then
+        err "ERROR: Failed to clone ${repo_url}"
+        exit 1
+      fi
+      echo "Successfully cloned ${repo_name}."
     fi
-  elif [[ -d "${clone_path}" ]]; then
-     echo "WARN: Directory ${clone_path} exists but is not a git repo. Skipping."
-  else
-    echo "Cloning ${repo_url} into ${clone_path}"
-    if ! git clone "${repo_url}" "${clone_path}"; then
-      err "ERROR: Failed to clone ${repo_url}"
-      exit 1
-    fi
-    echo "Successfully cloned ${repo_name}."
-  fi
+  } > "${log_file}" 2>&1
 }
+
+# Standard arrays to track background processes (supported in Bash 3.2)
+pids=()
+log_files=()
+langs_running=()
+
+# Cleanup function for background jobs and logs on interruption
+cleanup_bg() {
+  echo "Installation interrupted. Cleaning up background processes..." >&2
+  for pid in "${pids[@]}"; do
+    if kill -0 "${pid}" 2>/dev/null; then
+      kill "${pid}" 2>/dev/null
+    fi
+  done
+  for log_file in "${log_files[@]}"; do
+    rm -f "${log_file}" 2>/dev/null
+  done
+}
+trap cleanup_bg INT TERM
 
 for lang in $ALL_LANGS; do
   if is_enabled "$lang"; then
     eval "path=\"\$LIB_PATH_${lang}\""
     url=$(get_repo_url "$lang")
-    clone_or_update "$url" "$path"
+    log_file="${PROJECT_DIR_ABS}/install_${lang}_log_$$.tmp"
+    
+    clone_or_update "$url" "$path" "${log_file}" &
+    pids+=($!)
+    log_files+=("${log_file}")
+    langs_running+=("${lang}")
   fi
 done
+
+# Wait for all background processes and report output
+failed=false
+set +e # Temporarily disable exit on error to check individual job status
+for i in "${!pids[@]}"; do
+  pid="${pids[$i]}"
+  lang="${langs_running[$i]}"
+  log_file="${log_files[$i]}"
+  
+  if ! wait "${pid}"; then
+    err "ERROR: Installation failed for ${lang}."
+    failed=true
+  fi
+  
+  if [[ -f "${log_file}" ]]; then
+    cat "${log_file}"
+    rm -f "${log_file}"
+  fi
+done
+set -e # Re-enable exit on error
+
+trap - INT TERM # Clear interruption traps
+
+if [[ "${failed}" == "true" ]]; then
+  err "ERROR: One or more library installations failed."
+  exit 1
+fi
 
 # --- Modify project.json ---
 readonly PROJECT_FILE="${PROJECT_DIR_ABS}/.jetskicli/project.json"

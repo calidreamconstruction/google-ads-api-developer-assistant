@@ -19,7 +19,7 @@
       {
         "type": "command",
         "command": "python3 hooks/cleanup_environment.py",
-        "timeouut": 30
+        "timeout": 30
       }
     ]
   }

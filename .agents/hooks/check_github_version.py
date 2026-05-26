@@ -70,12 +70,12 @@ def get_remote_version():
                 data = json.loads(response.read().decode("utf-8"))
                 return data.get("version")
             else:
-                logging.error(
+                logging.info(
                     f"Failed to fetch remote version, status: {response.status}"
                 )
                 return None
     except Exception as e:
-        logging.error(f"Error fetching remote version: {e}")
+        logging.info(f"Error fetching remote version: {e}")
         return None
 
 
