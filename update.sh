@@ -167,27 +167,12 @@ echo "Detected project root: ${PROJECT_DIR_ABS}"
 # --- Update Assistant Repo ---
 echo "Updating google-ads-api-developer-assistant..."
 
-SETTINGS_JSON=".agents/settings.json"
-TEMP_SETTINGS=$(mktemp)
+readonly PROJECT_FILE="${PROJECT_DIR_ABS}/.jetskicli/project.json"
 
 CUSTOMER_ID_FILE="customer_id.txt"
 TEMP_CUSTOMER_ID=$(mktemp)
 
-# 1. Backup existing settings if they exist
-if [[ -f "${SETTINGS_JSON}" ]]; then
-    echo "Backing up ${SETTINGS_JSON}..."
-    cp "${SETTINGS_JSON}" "${TEMP_SETTINGS}"
-    
-    # 2. Reset local changes to settings.json to allow git pull
-    # Only if the file is tracked and modified (or just blindly checkout if we know it's strict)
-    # Safest is to just checkout it if it exists in git.
-    if git ls-files --error-unmatch "${SETTINGS_JSON}" &> /dev/null; then
-        echo "Resetting ${SETTINGS_JSON} to avoid merge conflicts..."
-        git checkout "${SETTINGS_JSON}"
-    fi
-fi
-
-# 1b. Backup customer_id.txt if it exists
+# 1. Backup customer_id.txt if it exists
 if [[ -f "${CUSTOMER_ID_FILE}" ]]; then
     echo "Backing up ${CUSTOMER_ID_FILE}..."
     cp "${CUSTOMER_ID_FILE}" "${TEMP_CUSTOMER_ID}"
@@ -201,14 +186,6 @@ fi
 
 if ! git pull; then
     err "ERROR: Failed to update google-ads-api-developer-assistant."
-    # Attempt to restore settings if they were backed up? 
-    # Probably safer to leave the repo state as is if pull failed, 
-    # but strictly speaking we might want to restore the user's settings 
-    # if we reverted them.
-    if [[ -f "${TEMP_SETTINGS}" ]] && [[ -s "${TEMP_SETTINGS}" ]]; then
-         echo "Restoring original settings after failed pull..."
-         mv "${TEMP_SETTINGS}" "${SETTINGS_JSON}"
-    fi
     if [[ -f "${TEMP_CUSTOMER_ID}" ]] && [[ -s "${TEMP_CUSTOMER_ID}" ]]; then
          echo "Restoring original customer_id.txt after failed pull..."
          mv "${TEMP_CUSTOMER_ID}" "${CUSTOMER_ID_FILE}"
@@ -216,28 +193,9 @@ if ! git pull; then
     exit 1
 fi
 
-# 3. Restore/Merge settings
-if [[ -f "${TEMP_SETTINGS}" ]] && [[ -s "${TEMP_SETTINGS}" ]]; then
-    echo "Merging preserved settings with new defaults..."
-    # Merge: existing (backup) *over* new (repo)
-    # We want local user values to override repo values, but we also want 
-    # to keep any new keys from the repo that weren't in user's file.
-    # Logic: .[0] is repo (new), .[1] is backup (user). 
-    # .[0] * .[1] means backup overrides repo.
-    if jq -s '.[0] * .[1]' "${SETTINGS_JSON}" "${TEMP_SETTINGS}" > "${TEMP_SETTINGS}.merged"; then
-        mv "${TEMP_SETTINGS}.merged" "${SETTINGS_JSON}"
-        echo "Settings restored and merged successfully."
-    else
-        err "WARN: Failed to merge settings.json. Restoring original backup without merge."
-        mv "${TEMP_SETTINGS}" "${SETTINGS_JSON}"
-    fi
-    rm -f "${TEMP_SETTINGS}"
-fi
-
-# 3b. Restore customer_id.txt
+# 2. Restore customer_id.txt
 if [[ -f "${TEMP_CUSTOMER_ID}" ]] && [[ -s "${TEMP_CUSTOMER_ID}" ]]; then
     echo "Restoring preserved ${CUSTOMER_ID_FILE}..."
-    # Always overwrite with user's backup
     mv "${TEMP_CUSTOMER_ID}" "${CUSTOMER_ID_FILE}"
     echo "${CUSTOMER_ID_FILE} restored successfully."
     rm -f "${TEMP_CUSTOMER_ID}"
@@ -263,31 +221,36 @@ for lang in $ALL_LANGS; do
             exit 1
         fi
         
-        # Add to settings.json if not present
-        if [[ -f "${SETTINGS_JSON}" ]]; then
-            # Ensure path is absolute for settings.json
+        # Add to project.json if not present
+        if [[ -f "${PROJECT_FILE}" ]]; then
+            # Ensure path is absolute
             ABS_PATH=$(realpath "${lib_path}" 2>/dev/null || echo "${lib_path}")
-            echo "Registering ${ABS_PATH} in ${SETTINGS_JSON}..."
+            echo "Registering ${ABS_PATH} in ${PROJECT_FILE}..."
             if ! jq --arg new_path "${ABS_PATH}" '
-                if (.context.includeDirectories | any(. == $new_path)) then 
+                .projectResources //= {"resources": []} |
+                .projectResources.resources //= [] |
+                if (.projectResources.resources | any(.gitFolder.folderUri == ("file://" + $new_path))) then 
                     . 
                 else 
-                    .context.includeDirectories += [$new_path] 
-                end' "${SETTINGS_JSON}" > "${SETTINGS_JSON}.tmp"; then
-                err "ERROR: Failed to update ${SETTINGS_JSON}"
+                    .projectResources.resources += [{
+                        "gitFolder": {
+                          "folderUri": ("file://" + $new_path),
+                          "allowWrite": true
+                        }
+                    }] 
+                end' "${PROJECT_FILE}" > "${PROJECT_FILE}.tmp"; then
+                err "ERROR: Failed to update ${PROJECT_FILE}"
                 exit 1
             fi
-            mv "${SETTINGS_JSON}.tmp" "${SETTINGS_JSON}"
+            mv "${PROJECT_FILE}.tmp" "${PROJECT_FILE}"
         fi
     fi
   fi
 done
 
 # --- Locate and Update Client Libraries ---
-readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.agents/settings.json"
-
-if [[ ! -f "${SETTINGS_FILE}" ]]; then
-  err "ERROR: Settings file not found: ${SETTINGS_FILE}"
+if [[ ! -f "${PROJECT_FILE}" ]]; then
+  err "ERROR: Project configuration file not found: ${PROJECT_FILE}"
   err "Please run install.sh first."
   exit 1
 fi
@@ -309,38 +272,46 @@ if [[ -n "${CONTEXT_DIR_ARG:-}" ]]; then
             continue
         fi
 
-        echo "Adding context directory: ${abs_dir} to settings.json..."
-        if [[ -f "${SETTINGS_FILE}" ]]; then
+        echo "Adding context directory: ${abs_dir} to ${PROJECT_FILE}..."
+        if [[ -f "${PROJECT_FILE}" ]]; then
             if ! jq --arg new_path "${abs_dir}" '
-                if (.context.includeDirectories | any(. == $new_path)) then 
+                .projectResources //= {"resources": []} |
+                .projectResources.resources //= [] |
+                if (.projectResources.resources | any(.gitFolder.folderUri == ("file://" + $new_path))) then 
                     . 
                 else 
-                    .context.includeDirectories += [$new_path] 
-                end' "${SETTINGS_FILE}" > "${SETTINGS_FILE}.tmp"; then
-                err "ERROR: Failed to update ${SETTINGS_FILE} for ${abs_dir}"
+                    .projectResources.resources += [{
+                        "gitFolder": {
+                          "folderUri": ("file://" + $new_path),
+                          "allowWrite": true
+                        }
+                    }] 
+                end' "${PROJECT_FILE}" > "${PROJECT_FILE}.tmp"; then
+                err "ERROR: Failed to update ${PROJECT_FILE} for ${abs_dir}"
                 continue
             fi
-            mv "${SETTINGS_FILE}.tmp" "${SETTINGS_FILE}"
+            mv "${PROJECT_FILE}.tmp" "${PROJECT_FILE}"
         else
-             err "ERROR: settings.json not found while adding context_dir"
+             err "ERROR: project.json not found while adding context_dir"
         fi
     done
 fi
 
-echo "Reading ${SETTINGS_FILE} to find client libraries..."
+echo "Reading ${PROJECT_FILE} to find client libraries..."
 
-# Read all includeDirectories
+# Read all includeDirectories (extracting from projectResources.resources gitFolders)
 INCLUDE_DIRS=()
 while IFS= read -r line; do
+    [[ -z "${line}" ]] && continue
     INCLUDE_DIRS+=("$line")
-done < <(jq -r '.context.includeDirectories[]' "${SETTINGS_FILE}")
+done < <(jq -r '.projectResources.resources[].gitFolder.folderUri | select(. != null) | ltrimstr("file://")' "${PROJECT_FILE}")
 
 if [[ ${#INCLUDE_DIRS[@]} -eq 0 ]]; then
-    echo "WARN: No directories found in ${SETTINGS_FILE}."
+    echo "WARN: No directories found in ${PROJECT_FILE}."
     exit 0
 fi
 
-echo "Found ${#INCLUDE_DIRS[@]} directories in settings."
+echo "Found ${#INCLUDE_DIRS[@]} directories in project configuration."
 
 for lib_path in "${INCLUDE_DIRS[@]}"; do
     # Skip if path is empty
@@ -356,6 +327,11 @@ for lib_path in "${INCLUDE_DIRS[@]}"; do
     if ! abs_lib_path=$(realpath "${lib_path}" 2>/dev/null); then
          echo "WARN: Could not resolve path: ${lib_path}. Skipping."
          continue
+    fi
+
+    # Skip the main assistant workspace since we already updated it
+    if [[ "${abs_lib_path}" == "${PROJECT_DIR_ABS}" ]]; then
+        continue
     fi
 
 
