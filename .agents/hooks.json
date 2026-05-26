@@ -13,14 +13,5 @@
         "timeout": 30
       }
     ]
-  },
-  "terminate-session": {
-    "Stop": [
-      {
-        "type": "command",
-        "command": "python3 hooks/cleanup_environment.py",
-        "timeout": 30
-      }
-    ]
   }
 }
