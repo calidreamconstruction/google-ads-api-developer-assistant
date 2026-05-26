@@ -41,16 +41,9 @@ def cleanup():
                     shutil.rmtree(file_path)
             except Exception as e:
                 print(f"Failed to delete {file_path}. Reason: {e}", file=sys.stderr)
-        
-        # Delete isolated virtual environment
-        venv_dir = os.path.join(project_root, ".venv")
-        if os.path.exists(venv_dir):
-            print(f"Deleting virtual environment at {venv_dir}...", file=sys.stderr)
-            try:
-                shutil.rmtree(venv_dir)
-                print("Virtual environment deleted successfully.", file=sys.stderr)
-            except Exception as e:
-                print(f"Failed to delete virtual environment: {e}", file=sys.stderr)
+        # Note: Deleting the virtual environment on termination is disabled to ensure
+        # it persists across sessions and prevents teardown crash issues.
+        pass
 
 
     except Exception as e:

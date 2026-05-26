@@ -14,6 +14,12 @@
           "folderUri": "file:///usr/local/google/home/rwh/google-ads-api-developer-assistant/client_libs/google-ads-python",
           "allowWrite": true
         }
+      },
+      {
+        "gitFolder": {
+          "folderUri": "file:///usr/local/google/home/rwh/google-ads-api-developer-assistant/api_examples",
+          "allowWrite": true
+        }
       }
     ]
   }
