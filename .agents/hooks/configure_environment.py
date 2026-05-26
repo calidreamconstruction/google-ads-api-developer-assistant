@@ -194,9 +194,9 @@ def finish_hook(target_path, version):
     # Construct the JSON output required by Antigravity
     # Setting systemMessage to empty string to prevent repeated output as requested by user
     output = {
-        "hookSpecificOutput": {"additionalContext": context_string},
+        "additionalContext": context_string,
         "systemMessage": "",
-        "custom_vars": {
+        "customVars": {
             "PATH": f"{project_root}/.venv/bin:{os.environ.get('PATH', '')}",
             "VIRTUAL_ENV": f"{project_root}/.venv",
             "GOOGLE_ADS_CONFIGURATION_FILE_PATH": target_path,
