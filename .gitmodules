@@ -1,3 +1,0 @@
-[submodule "client_libs/google-ads-python"]
-	path = client_libs/google-ads-python
-	url = https://github.com/googleads/google-ads-python
