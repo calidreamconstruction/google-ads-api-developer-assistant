@@ -307,14 +307,38 @@ readonly PROJECT_FILE="${PROJECT_DIR_ABS}/.jetskicli/project.json"
 if command -v antigravity &> /dev/null; then
   echo "Initializing Antigravity project..."
   if ! antigravity project init; then
-    err "WARNING: Failed to execute 'antigravity project init'. Continuing..."
+    echo "WARNING: Failed to execute 'antigravity project init'. Using fallback initialization..."
   fi
 fi
 
 if [[ ! -f "${PROJECT_FILE}" ]]; then
-  err "ERROR: Project configuration file not found: ${PROJECT_FILE}"
-  err "Please ensure Antigravity/Jetski has initialized the workspace."
-  exit 1
+  echo "Project configuration file not found. Performing programmatic initialization..."
+  if ! python3 -c "
+import os, json, uuid
+project_dir = \"${PROJECT_DIR_ABS}\"
+project_file = \"${PROJECT_FILE}\"
+os.makedirs(os.path.dirname(project_file), exist_ok=True)
+data = {
+    \"id\": str(uuid.uuid4()),
+    \"name\": project_dir,
+    \"projectResources\": {
+        \"resources\": [
+            {
+                \"gitFolder\": {
+                    \"folderUri\": \"file://\" + project_dir,
+                    \"allowWrite\": True
+                }
+            }
+        ]
+    }
+}
+with open(project_file, \"w\") as f:
+    json.dump(data, f, indent=2)
+"; then
+    err "ERROR: Failed to initialize project.json using fallback."
+    exit 1
+  fi
+  echo "Successfully initialized ${PROJECT_FILE} via fallback."
 fi
 
 echo "Updating ${PROJECT_FILE} with client library resources..."
