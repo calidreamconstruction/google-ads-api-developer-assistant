@@ -286,8 +286,17 @@ def create_virtual_env(project_root):
             subprocess.run([sys.executable, "-m", "venv", venv_dir], check=True)
             print("Virtual environment created successfully.", file=sys.stderr)
 
-            # Install google-ads
+            # Upgrade pip
             venv_python = os.path.join(venv_dir, "bin", "python3")
+            print(f"Upgrading pip in {venv_dir}...", file=sys.stderr)
+            subprocess.run(
+                [venv_python, "-m", "pip", "install", "-q", "--upgrade", "pip"],
+                check=True,
+                stdout=subprocess.DEVNULL,
+            )
+            print("pip upgraded successfully.", file=sys.stderr)
+
+            # Install google-ads
             print(f"Installing google-ads into {venv_dir}...", file=sys.stderr)
             subprocess.run(
                 [venv_python, "-m", "pip", "install", "-q", "google-ads", "ruff"],

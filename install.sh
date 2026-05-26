@@ -304,6 +304,13 @@ fi
 # --- Modify project.json ---
 readonly PROJECT_FILE="${PROJECT_DIR_ABS}/.jetskicli/project.json"
 
+if command -v antigravity &> /dev/null; then
+  echo "Initializing Antigravity project..."
+  if ! antigravity project init; then
+    err "WARNING: Failed to execute 'antigravity project init'. Continuing..."
+  fi
+fi
+
 if [[ ! -f "${PROJECT_FILE}" ]]; then
   err "ERROR: Project configuration file not found: ${PROJECT_FILE}"
   err "Please ensure Antigravity/Jetski has initialized the workspace."
