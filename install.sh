@@ -350,7 +350,10 @@ if ! jq \
   .projectResources //= {"resources": []} |
   .projectResources.resources //= [] |
   reduce $libs[] as $new_path (.;
-    if (.projectResources.resources | any(.gitFolder.folderUri == ("file://" + $new_path))) then
+    if (.projectResources.resources | any(
+         (.gitFolder.folderUri | sub("file://"; "")) as $existing |
+         $new_path == $existing or ($new_path | startswith($existing + "/"))
+       )) then
       .
     else
       .projectResources.resources += [{
