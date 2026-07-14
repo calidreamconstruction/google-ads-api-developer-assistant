@@ -1,0 +1,129 @@
+name: Temporary Cali Website Screenshot Capture
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          mkdir -p /tmp/cali-capture
+          cd /tmp/cali-capture
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture actual desktop and mobile website screenshots
+        run: |
+          cd /tmp/cali-capture
+          cat > capture.js <<'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const path = require('path');
+
+          const pages = [
+            ['home', 'https://calidreamconstruction.com/'],
+            ['whole-home-remodel', 'https://calidreamconstruction.com/full-home-remodeling-renovations'],
+            ['kitchen', 'https://calidreamconstruction.com/kitchen'],
+            ['bathroom', 'https://calidreamconstruction.com/bathroom-remodel'],
+            ['exterior', 'https://calidreamconstruction.com/exterior'],
+            ['adu', 'https://calidreamconstruction.com/additional-dwelling-units'],
+            ['new-home', 'https://calidreamconstruction.com/new-home-construction'],
+            ['general-contractor', 'https://calidreamconstruction.com/general-contractor'],
+            ['roofing', 'https://calidreamconstruction.com/roofing'],
+            ['deck-builder', 'https://calidreamconstruction.com/deck-builder'],
+            ['gallery', 'https://calidreamconstruction.com/gallery'],
+            ['projects', 'https://calidreamconstruction.com/projects'],
+            ['contact', 'https://calidreamconstruction.com/contact']
+          ];
+
+          const devices = [
+            ['desktop', { viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1, isMobile: false, hasTouch: false }],
+            ['mobile', { viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true }]
+          ];
+
+          async function warmPage(page) {
+            await page.waitForTimeout(2500);
+            await page.evaluate(async () => {
+              const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+              for (let y = 0; y < max; y += 700) {
+                window.scrollTo(0, y);
+                await new Promise(r => setTimeout(r, 90));
+              }
+              window.scrollTo(0, 0);
+            });
+            await page.waitForTimeout(1200);
+          }
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const out = path.join(process.cwd(), 'cali-site-screenshots');
+            fs.mkdirSync(out, { recursive: true });
+            const manifest = [];
+
+            for (const [deviceName, options] of devices) {
+              const context = await browser.newContext({
+                ...options,
+                locale: 'en-US',
+                colorScheme: 'light',
+                reducedMotion: 'reduce',
+                ignoreHTTPSErrors: true
+              });
+
+              for (const [slug, url] of pages) {
+                const page = await context.newPage();
+                page.setDefaultTimeout(60000);
+                let status = null;
+                let finalUrl = null;
+                let title = null;
+                let error = null;
+                try {
+                  const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
+                  status = response ? response.status() : null;
+                  await warmPage(page);
+                  finalUrl = page.url();
+                  title = await page.title();
+                  await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__top.png`), fullPage: false });
+                  await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__full.png`), fullPage: true });
+                } catch (e) {
+                  error = String(e && e.stack ? e.stack : e);
+                  try {
+                    await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__error.png`), fullPage: false });
+                  } catch (_) {}
+                }
+                manifest.push({ slug, device: deviceName, requestedUrl: url, finalUrl, status, title, error });
+                await page.close();
+              }
+              await context.close();
+            }
+
+            fs.writeFileSync(path.join(out, 'manifest.json'), JSON.stringify(manifest, null, 2));
+            await browser.close();
+          })().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          EOF
+          node capture.js
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-site-actual-desktop-mobile-screenshots
+          path: /tmp/cali-capture/cali-site-screenshots
+          if-no-files-found: error
+          retention-days: 3
