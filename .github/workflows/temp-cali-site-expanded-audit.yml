@@ -1,0 +1,185 @@
+name: Temporary Cali Website Expanded Audit
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install browser and parser
+        run: |
+          mkdir -p /tmp/cali-expanded
+          cd /tmp/cali-expanded
+          npm init -y
+          npm install playwright@1.54.1 cheerio@1.0.0
+          npx playwright install --with-deps chromium
+      - name: Crawl live site and capture additional actual pages
+        run: |
+          cd /tmp/cali-expanded
+          cat > audit.js <<'EOF'
+          const { chromium } = require('playwright');
+          const cheerio = require('cheerio');
+          const fs = require('fs');
+          const path = require('path');
+
+          const base = 'https://calidreamconstruction.com';
+          const extraPages = [
+            ['about-us', `${base}/about-us`],
+            ['kitchen-small-partial', `${base}/kitchen/small-partial-remodel`],
+            ['kitchen-custom-islands', `${base}/custom-islands`],
+            ['kitchen-backsplash', `${base}/kitchen/backsplash`],
+            ['kitchen-custom-flooring', `${base}/kitchen/custom-flooring`],
+            ['kitchen-open-concept', `${base}/kitchen/open-concept`],
+            ['kitchen-full-remodel', `${base}/kitchen/full-remodel`],
+            ['city-rancho-santa-fe', `${base}/rancho-santa-fe`],
+            ['city-escondido', `${base}/escondido`],
+            ['city-san-diego', `${base}/san-diego`],
+            ['city-la-jolla', `${base}/la-jolla`],
+            ['city-oceanside', `${base}/oceanside`]
+          ];
+
+          function normalizeUrl(href) {
+            try {
+              const u = new URL(href, base);
+              if (!['http:', 'https:'].includes(u.protocol)) return null;
+              if (!['calidreamconstruction.com', 'www.calidreamconstruction.com'].includes(u.hostname)) return null;
+              u.hostname = 'calidreamconstruction.com';
+              u.hash = '';
+              for (const key of [...u.searchParams.keys()]) {
+                if (key.toLowerCase().startsWith('utm_')) u.searchParams.delete(key);
+              }
+              let s = u.toString();
+              if (s.endsWith('/') && u.pathname !== '/') s = s.slice(0, -1);
+              return s;
+            } catch { return null; }
+          }
+
+          async function fetchText(url) {
+            try {
+              const r = await fetch(url, { redirect: 'follow', headers: { 'User-Agent': 'CaliDreamWebsiteAudit/1.0' } });
+              return { ok: r.ok, status: r.status, finalUrl: r.url, contentType: r.headers.get('content-type') || '', text: await r.text() };
+            } catch (e) { return { ok: false, status: null, finalUrl: null, contentType: '', text: '', error: String(e) }; }
+          }
+
+          async function getSeeds() {
+            const seeds = new Set([base + '/']);
+            for (const suffix of ['/sitemap.xml', '/sitemap_index.xml']) {
+              const r = await fetchText(base + suffix);
+              if (r.text) {
+                const locs = [...r.text.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/gi)].map(m => m[1].trim());
+                for (const loc of locs) {
+                  if (/\.xml($|\?)/i.test(loc)) {
+                    const child = await fetchText(loc);
+                    const childLocs = [...child.text.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/gi)].map(m => m[1].trim());
+                    childLocs.forEach(x => { const n=normalizeUrl(x); if(n) seeds.add(n); });
+                  } else {
+                    const n = normalizeUrl(loc); if (n) seeds.add(n);
+                  }
+                }
+              }
+            }
+            const home = await fetchText(base + '/');
+            if (home.text) {
+              const $ = cheerio.load(home.text);
+              $('a[href]').each((_, el) => { const n=normalizeUrl($(el).attr('href')); if(n) seeds.add(n); });
+            }
+            extraPages.forEach(([,u]) => seeds.add(u));
+            return [...seeds];
+          }
+
+          async function crawlUrl(url) {
+            const r = await fetchText(url);
+            const row = { requestedUrl: url, finalUrl: r.finalUrl, status: r.status, contentType: r.contentType, error: r.error || null };
+            if (!/text\/html/i.test(r.contentType || '') || !r.text) return row;
+            const $ = cheerio.load(r.text);
+            const text = $('body').text().replace(/\s+/g,' ').trim();
+            row.title = $('title').first().text().trim();
+            row.metaDescription = $('meta[name="description"]').attr('content') || '';
+            row.canonical = $('link[rel="canonical"]').attr('href') || '';
+            row.robots = $('meta[name="robots"]').attr('content') || '';
+            row.h1 = $('h1').map((_,e)=>$(e).text().replace(/\s+/g,' ').trim()).get();
+            row.h2 = $('h2').map((_,e)=>$(e).text().replace(/\s+/g,' ').trim()).get();
+            row.wordCount = text ? text.split(/\s+/).length : 0;
+            row.placeholderHits = ['Button','Slide title','Write your caption here','our designers','our architects','design-build','5-year','10-year','15-year','55-year','financing'].filter(x => text.toLowerCase().includes(x.toLowerCase()));
+            row.internalLinks = [...new Set($('a[href]').map((_,e)=>normalizeUrl($(e).attr('href'))).get().filter(Boolean))];
+            row.textSample = text.slice(0, 4000);
+            return row;
+          }
+
+          async function runPool(items, limit, fn) {
+            const results = new Array(items.length);
+            let idx = 0;
+            async function worker() {
+              while (true) {
+                const i = idx++;
+                if (i >= items.length) return;
+                results[i] = await fn(items[i]);
+              }
+            }
+            await Promise.all(Array.from({length: Math.min(limit, items.length)}, worker));
+            return results;
+          }
+
+          async function warmPage(page) {
+            await page.waitForTimeout(2200);
+            await page.evaluate(async () => {
+              const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+              for (let y=0; y<max; y+=700) { window.scrollTo(0,y); await new Promise(r=>setTimeout(r,70)); }
+              window.scrollTo(0,0);
+            });
+            await page.waitForTimeout(1000);
+          }
+
+          (async () => {
+            const out = path.join(process.cwd(), 'cali-expanded-audit');
+            fs.mkdirSync(out, { recursive: true });
+            const seeds = await getSeeds();
+            const rows = await runPool(seeds, 5, crawlUrl);
+            fs.writeFileSync(path.join(out,'url-inventory.json'), JSON.stringify(rows,null,2));
+            fs.writeFileSync(path.join(out,'url-list.txt'), seeds.join('\n'));
+
+            const browser = await chromium.launch({headless:true});
+            const devices = [
+              ['desktop',{viewport:{width:1440,height:1000},deviceScaleFactor:1,isMobile:false,hasTouch:false}],
+              ['mobile',{viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true}]
+            ];
+            const shotManifest=[];
+            for (const [deviceName,opts] of devices) {
+              const context = await browser.newContext({...opts,locale:'en-US',colorScheme:'light',reducedMotion:'reduce',ignoreHTTPSErrors:true});
+              for (const [slug,url] of extraPages) {
+                const page=await context.newPage(); page.setDefaultTimeout(60000);
+                let status=null, finalUrl=null, title=null, error=null;
+                try {
+                  const response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:90000});
+                  status=response?response.status():null; await warmPage(page); finalUrl=page.url(); title=await page.title();
+                  await page.screenshot({path:path.join(out,`${slug}__${deviceName}__top.png`),fullPage:false});
+                  await page.screenshot({path:path.join(out,`${slug}__${deviceName}__full.png`),fullPage:true});
+                } catch(e) { error=String(e&&e.stack?e.stack:e); }
+                shotManifest.push({slug,device:deviceName,requestedUrl:url,finalUrl,status,title,error});
+                await page.close();
+              }
+              await context.close();
+            }
+            await browser.close();
+            fs.writeFileSync(path.join(out,'screenshot-manifest.json'), JSON.stringify(shotManifest,null,2));
+          })().catch(e=>{console.error(e);process.exit(1)});
+          EOF
+          node audit.js
+      - name: Upload expanded audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-site-expanded-actual-audit
+          path: /tmp/cali-expanded/cali-expanded-audit
+          if-no-files-found: error
+          retention-days: 3
