@@ -1,0 +1,152 @@
+name: Temporary CaliDream Edge Before Capture
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/temp-calidream-edge-before-capture.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture-before:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: temporary/calidream-edge-before-after-20260716
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          mkdir -p /tmp/calidream-capture
+          cd /tmp/calidream-capture
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture actual live before state
+        run: |
+          cd /tmp/calidream-capture
+          cat > capture.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const out = process.env.GITHUB_WORKSPACE + '/proof/calidream-edge-20260716/before';
+          fs.mkdirSync(out, { recursive: true });
+          const targets = [
+            ['home', 'https://calidreamconstruction.com/'],
+            ['contact', 'https://calidreamconstruction.com/contact'],
+            ['about', 'https://calidreamconstruction.com/about-us'],
+            ['kitchen', 'https://calidreamconstruction.com/kitchen'],
+            ['bathroom', 'https://calidreamconstruction.com/bathroom-remodel'],
+            ['whole-home', 'https://calidreamconstruction.com/full-home-remodeling-renovations'],
+            ['adu', 'https://calidreamconstruction.com/additional-dwelling-units'],
+            ['projects', 'https://calidreamconstruction.com/projects'],
+            ['gallery', 'https://calidreamconstruction.com/gallery'],
+            ['blog-home', 'https://blog.calidreamconstruction.com/']
+          ];
+          const devices = [
+            ['desktop', { viewport: { width: 1440, height: 1000 }, isMobile: false, hasTouch: false }],
+            ['mobile', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }]
+          ];
+          const browser = await chromium.launch({ headless: true });
+          const manifest = [];
+          for (const [deviceName, options] of devices) {
+            const context = await browser.newContext({
+              ...options,
+              deviceScaleFactor: 1,
+              locale: 'en-US',
+              colorScheme: 'light',
+              reducedMotion: 'reduce',
+              ignoreHTTPSErrors: true
+            });
+            for (const [slug, url] of targets) {
+              const page = await context.newPage();
+              page.setDefaultTimeout(60000);
+              const consoleErrors = [];
+              const requestFailures = [];
+              page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
+              page.on('requestfailed', req => requestFailures.push({ url: req.url(), error: req.failure()?.errorText || '' }));
+              const row = { phase: 'before', slug, device: deviceName, requestedUrl: url, error: null };
+              try {
+                const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
+                await page.waitForTimeout(2500);
+                row.status = response?.status() ?? null;
+                row.responseHeaders = response ? await response.allHeaders() : {};
+                row.finalUrl = page.url();
+                row.title = await page.title();
+                row.dom = await page.evaluate(() => ({
+                  h1: document.querySelector('h1')?.textContent?.trim() || '',
+                  viewportMeta: document.querySelector('meta[name="viewport"]')?.getAttribute('content') || '',
+                  viewportWidth: innerWidth,
+                  scrollWidth: Math.max(document.documentElement.scrollWidth, document.body?.scrollWidth || 0),
+                  scrollHeight: Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0),
+                  edgeComponents: [...document.querySelectorAll('[data-cali-edge-component]')].map(x => x.getAttribute('data-cali-edge-component')),
+                  reviewContainers: [...document.querySelectorAll('[id*="review" i], [class*="review" i], [data-cali-edge-component*="review" i]')].length,
+                  forms: [...document.forms].map(f => ({ action: f.action, method: f.method, fields: f.elements.length })),
+                  phoneLinks: [...document.querySelectorAll('a[href^="tel:"]')].map(a => a.getAttribute('href')),
+                  textLinks: [...document.querySelectorAll('a[href^="sms:"]')].map(a => a.getAttribute('href')),
+                  bodyTextStart: (document.body?.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 3000)
+                }));
+                await page.evaluate(async () => {
+                  const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                  for (let y = 0; y < max; y += 900) {
+                    scrollTo(0, y);
+                    await new Promise(r => setTimeout(r, 55));
+                  }
+                  scrollTo(0, 0);
+                });
+                await page.waitForTimeout(900);
+                await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__top.png`), fullPage: false });
+                await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__full.jpg`), fullPage: true, type: 'jpeg', quality: 58 });
+              } catch (error) {
+                row.error = String(error?.stack || error);
+              }
+              row.consoleErrors = consoleErrors;
+              row.requestFailures = requestFailures;
+              manifest.push(row);
+              await page.close();
+            }
+            await context.close();
+          }
+          await browser.close();
+          for (const url of [
+            'https://calidreamconstruction.com/api/cali-google-reviews',
+            'https://calidreamconstruction.com/robots.txt',
+            'https://calidreamconstruction.com/sitemap.xml',
+            'https://blog.calidreamconstruction.com/robots.txt',
+            'https://blog.calidreamconstruction.com/sitemap.xml'
+          ]) {
+            const record = { phase: 'before', requestedUrl: url };
+            try {
+              const response = await fetch(url, { redirect: 'manual', headers: { 'user-agent': 'CaliDreamBeforeAfterAudit/1.0' } });
+              record.status = response.status;
+              record.headers = Object.fromEntries(response.headers.entries());
+              record.body = (await response.text()).slice(0, 30000);
+            } catch (error) {
+              record.error = String(error);
+            }
+            manifest.push(record);
+          }
+          fs.writeFileSync(path.join(out, 'manifest.json'), JSON.stringify(manifest, null, 2));
+          fs.writeFileSync(path.join(out, 'README.md'), '# Actual Cali Dream live before-state capture\n\nCaptured at desktop 1440×1000 and mobile 390×844 before the Cloudflare edge implementation. Images are direct Playwright browser screenshots of the public production URLs.\n');
+          EOF
+          node capture.mjs
+
+      - name: Commit before-state proof to temporary branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add proof/calidream-edge-20260716/before
+          git commit -m "proof: capture CaliDream live before state" || exit 0
+          git push origin HEAD:temporary/calidream-edge-before-after-20260716
