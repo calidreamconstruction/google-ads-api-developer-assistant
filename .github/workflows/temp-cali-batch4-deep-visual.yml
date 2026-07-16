@@ -1,0 +1,363 @@
+name: Temporary Cali Dream Batch 4 Deep Visual Capture
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Install Playwright
+        run: |
+          mkdir -p /tmp/cali-batch4
+          cd /tmp/cali-batch4
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Crawl inventory and capture 64 additional pages
+        run: |
+          cd /tmp/cali-batch4
+          cat > capture.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const ROOT = 'https://blog.calidreamconstruction.com';
+          const OUT = path.join(process.cwd(), 'cali-batch4-deep-visual');
+          const SHOTS = path.join(OUT, 'screenshots');
+          fs.mkdirSync(SHOTS, { recursive: true });
+
+          const prior = new Set([
+            'https://blog.calidreamconstruction.com',
+            'https://blog.calidreamconstruction.com/blog',
+            'https://blog.calidreamconstruction.com/areas',
+            'https://blog.calidreamconstruction.com/guides',
+            'https://blog.calidreamconstruction.com/projects',
+            'https://blog.calidreamconstruction.com/blog/kitchen-remodel-cost-guide-san-diego',
+            'https://blog.calidreamconstruction.com/blog/home-addition-contractor-san-diego',
+            'https://blog.calidreamconstruction.com/blog/adu-permits-san-diego-complete-guide',
+            'https://blog.calidreamconstruction.com/blog/kitchen-remodel-cost-encinitas',
+            'https://blog.calidreamconstruction.com/compare/adu-vs-garage-conversion',
+            'https://blog.calidreamconstruction.com/projects/custom-home-build-in-encinitas',
+            'https://blog.calidreamconstruction.com/blog/adu-builder-4s-ranch',
+            'https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-4s-ranch-2026',
+            'https://blog.calidreamconstruction.com/blog/best-contractor-4s-ranch',
+            'https://blog.calidreamconstruction.com/blog/luxury-home-renovation-4s-ranch',
+            'https://blog.calidreamconstruction.com/blog/outdoor-living-4s-ranch-design',
+            'https://blog.calidreamconstruction.com/blog/remodeling-companies-near-carlsbad',
+            'https://blog.calidreamconstruction.com/blog/aging-in-place-remodeling-coronado-universal-design-upgrades-high-end',
+            'https://blog.calidreamconstruction.com/blog/full-home-renovation-coronado-planning-phasing',
+            'https://blog.calidreamconstruction.com/blog/design-build-process-saves-time-coronado-concept-permit-punch-list',
+          ]);
+
+          function normalize(raw) {
+            try {
+              const u = new URL(raw, ROOT);
+              if (u.hostname !== 'blog.calidreamconstruction.com') return null;
+              u.protocol = 'https:';
+              u.search = '';
+              u.hash = '';
+              u.pathname = u.pathname.replace(/\/{2,}/g, '/').replace(/\/$/, '') || '/';
+              return u.toString().replace(/\/$/, '');
+            } catch { return null; }
+          }
+
+          async function fetchText(url, timeoutMs = 20000) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), timeoutMs);
+            try {
+              const response = await fetch(url, {
+                redirect: 'follow',
+                signal: controller.signal,
+                headers: { 'user-agent': 'Mozilla/5.0 CaliDreamBatch4Audit/1.0' },
+              });
+              return { status: response.status, finalUrl: response.url, text: await response.text(), headers: Object.fromEntries(response.headers.entries()) };
+            } catch (error) {
+              return { status: 0, finalUrl: url, text: '', headers: {}, error: String(error) };
+            } finally {
+              clearTimeout(timer);
+            }
+          }
+
+          function locs(xml) {
+            return [...xml.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/gi)]
+              .map(m => m[1].replace(/&amp;/g, '&').trim());
+          }
+
+          async function discover() {
+            const queue = [`${ROOT}/sitemap.xml`, `${ROOT}/sitemap_index.xml`, `${ROOT}/sitemap-index.xml`];
+            const maps = new Set();
+            const urls = new Set();
+            while (queue.length && maps.size < 250) {
+              const sitemap = queue.shift();
+              if (maps.has(sitemap)) continue;
+              maps.add(sitemap);
+              const result = await fetchText(sitemap);
+              if (!result.text.includes('<loc>')) continue;
+              for (const loc of locs(result.text)) {
+                if (/\.xml(?:$|\?)/i.test(loc)) queue.push(loc);
+                else {
+                  const n = normalize(loc);
+                  if (n) urls.add(n);
+                }
+              }
+            }
+            return { urls: [...urls].sort(), sitemaps: [...maps] };
+          }
+
+          function decodeEntities(value = '') {
+            return value
+              .replace(/&amp;/g, '&')
+              .replace(/&quot;/g, '"')
+              .replace(/&#39;|&apos;/g, "'")
+              .replace(/&lt;/g, '<')
+              .replace(/&gt;/g, '>')
+              .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
+          }
+
+          function stripHtml(value = '') {
+            return decodeEntities(value.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+          }
+
+          function firstMatch(html, re) {
+            const m = html.match(re);
+            return m ? stripHtml(m[1] || '') : '';
+          }
+
+          function classify(url, title, h1) {
+            const s = `${new URL(url).pathname} ${title} ${h1}`.toLowerCase();
+            const cities = ['san-diego','coronado','oceanside','carlsbad','encinitas','escondido','poway','vista','san-marcos','solana-beach','del-mar','la-jolla','rancho-santa-fe','4s-ranch','cardiff','bonsall','fallbrook','santee','la-mesa','el-cajon','national-city','chula-vista','carmel-valley','rancho-bernardo','ramona','valley-center'];
+            const services = ['kitchen','bathroom','adu','addition','whole-home','home-remodel','custom-home','new-home','deck','patio','pergola','backyard','outdoor','roof','floor','hardscape','garage-conversion','aging-in-place','permit','contractor'];
+            return {
+              city: cities.find(x => s.includes(x)) || '',
+              service: services.find(x => s.includes(x)) || '',
+              type: new URL(url).pathname.split('/').filter(Boolean)[0] || 'home',
+            };
+          }
+
+          function inspectHtml(requestedUrl, result) {
+            const html = result.text || '';
+            const title = firstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
+            const h1 = firstMatch(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i);
+            const meta = firstMatch(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i) || firstMatch(html, /<meta[^>]+content=["']([^"']*)["'][^>]+name=["']description["'][^>]*>/i);
+            const canonicalMatch = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["'][^>]*>/i) || html.match(/<link[^>]+href=["']([^"']+)["'][^>]+rel=["']canonical["'][^>]*>/i);
+            const robots = firstMatch(html, /<meta[^>]+name=["']robots["'][^>]+content=["']([^"']*)["'][^>]*>/i);
+            const text = stripHtml(html);
+            const low = `${title} ${h1} ${meta} ${text}`.toLowerCase();
+            const flags = [];
+            const checks = [
+              ['design-build-language', ['design-build','design build','designer-builder']],
+              ['in-house-design-claim', ['our designers','our architects','in-house designer','in-house architect']],
+              ['free-estimate-claim', ['free estimate','free consultation','free feasibility']],
+              ['fixed-price-claim', ['price range','$20,000','$25,000','$50,000','$100,000','$500,000','costs between','cost range']],
+              ['fixed-timeline-claim', ['weeks to complete','months to complete','completed in','timeline is','takes approximately']],
+              ['rental-income-roi-claim', ['rental income','payback','roi','return on investment','cash flow']],
+              ['best-contractor-claim', ['best contractor','best choice','top-rated','top rated','five-star','5-star']],
+              ['rating-review-claim', ['google rating','review count','reviews from','5.0 rating','42 reviews']],
+              ['financing-claim', ['financing available','financing options','payment plans']],
+              ['warranty-claim', ['year warranty','lifetime warranty','workmanship warranty']],
+              ['public-address-claim', ['2802 paseo del sol']],
+              ['placeholder-residue', ['write your caption here','slide title','lorem ipsum','this is a subtitle for your new post']],
+              ['permit-guarantee', ['permit guaranteed','guaranteed approval','we guarantee permits']],
+            ];
+            for (const [flag, terms] of checks) if (terms.some(t => low.includes(t))) flags.push(flag);
+            const years = [...low.matchAll(/\b(20\d{2})\b/g)].map(m => Number(m[1]));
+            if (years.some(y => y < 2026)) flags.push('stale-year');
+            const words = text ? text.split(/\s+/).length : 0;
+            if (words < 300) flags.push('thin-page');
+            if (!meta) flags.push('missing-meta');
+            if (!h1) flags.push('missing-h1');
+            if (!canonicalMatch) flags.push('missing-canonical');
+            const cls = classify(requestedUrl, title, h1);
+            return {
+              requestedUrl,
+              finalUrl: result.finalUrl,
+              status: result.status,
+              title,
+              h1,
+              metaDescription: meta,
+              canonical: canonicalMatch ? canonicalMatch[1] : '',
+              robots,
+              wordCount: words,
+              textExcerpt: text.slice(0, 2500),
+              flags: [...new Set(flags)],
+              ...cls,
+              error: result.error || '',
+            };
+          }
+
+          async function pool(items, limit, fn) {
+            const out = new Array(items.length);
+            let cursor = 0;
+            await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+              while (true) {
+                const index = cursor++;
+                if (index >= items.length) return;
+                out[index] = await fn(items[index], index);
+              }
+            }));
+            return out;
+          }
+
+          function signature(item) {
+            return `${item.type}|${item.city}|${item.service}|${item.title.toLowerCase().replace(/20\d{2}/g,'YEAR').replace(/\b(?:san diego|coronado|oceanside|carlsbad|encinitas|escondido|poway|vista|san marcos|solana beach|del mar|la jolla|rancho santa fe|4s ranch|cardiff|bonsall|fallbrook)\b/g,'CITY')}`;
+          }
+
+          function score(item) {
+            let value = 0;
+            const s = `${item.requestedUrl} ${item.title} ${item.h1}`.toLowerCase();
+            if (item.status !== 200) value -= 100;
+            if (item.flags.length) value += item.flags.length * 9;
+            if (item.city) value += 12;
+            if (item.service) value += 12;
+            if (item.type === 'areas') value += 15;
+            if (item.type === 'projects') value += 20;
+            if (item.type === 'guides') value += 18;
+            if (item.type === 'compare') value += 16;
+            if (s.includes('permit') || s.includes('cost') || s.includes('contractor') || s.includes('remodel') || s.includes('construction')) value += 8;
+            if (item.wordCount < 300) value += 5;
+            return value;
+          }
+
+          function select64(inventory) {
+            const candidates = inventory.filter(x => x.status === 200 && !x.error && !prior.has(normalize(x.requestedUrl)));
+            candidates.sort((a,b) => score(b) - score(a) || a.requestedUrl.localeCompare(b.requestedUrl));
+            const selected = [];
+            const sigCounts = new Map();
+            const typeCounts = new Map();
+            for (const item of candidates) {
+              const sig = signature(item);
+              const sigCount = sigCounts.get(sig) || 0;
+              const typeCount = typeCounts.get(item.type) || 0;
+              if (sigCount >= 2) continue;
+              if (item.type === 'areas' && typeCount >= 24) continue;
+              if (item.type === 'blog' && typeCount >= 28) continue;
+              if (!['areas','blog','guides','projects','compare'].includes(item.type) && typeCount >= 6) continue;
+              selected.push(item);
+              sigCounts.set(sig, sigCount + 1);
+              typeCounts.set(item.type, typeCount + 1);
+              if (selected.length === 64) break;
+            }
+            if (selected.length < 64) {
+              for (const item of candidates) {
+                if (!selected.includes(item)) selected.push(item);
+                if (selected.length === 64) break;
+              }
+            }
+            return selected;
+          }
+
+          function slug(url) {
+            return (new URL(url).pathname.replace(/^\/+|\/+$/g, '') || 'home')
+              .replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase().slice(0, 110);
+          }
+
+          async function captureOne(browser, item, device, options) {
+            const context = await browser.newContext({
+              ...options,
+              locale: 'en-US',
+              colorScheme: 'light',
+              reducedMotion: 'reduce',
+              ignoreHTTPSErrors: true,
+            });
+            const page = await context.newPage();
+            page.setDefaultTimeout(60000);
+            const consoleErrors = [];
+            const failedRequests = [];
+            page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text().slice(0,500)); });
+            page.on('requestfailed', req => failedRequests.push(`${req.url()} :: ${req.failure()?.errorText || ''}`.slice(0,700)));
+            const name = slug(item.requestedUrl);
+            const record = { requestedUrl: item.requestedUrl, device, slug: name, error: '' };
+            try {
+              const response = await page.goto(item.requestedUrl, { waitUntil: 'domcontentloaded', timeout: 90000 });
+              await page.addStyleTag({ content: '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important} video{visibility:hidden!important}' });
+              await page.waitForTimeout(1200);
+              await page.evaluate(async () => {
+                const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                for (let y = 0; y < max; y += 900) {
+                  window.scrollTo(0, y);
+                  await new Promise(r => setTimeout(r, 45));
+                }
+                window.scrollTo(0, 0);
+              });
+              await page.waitForTimeout(700);
+              record.status = response?.status() ?? null;
+              record.finalUrl = page.url();
+              record.title = await page.title();
+              record.metrics = await page.evaluate(() => ({
+                viewportWidth: innerWidth,
+                viewportHeight: innerHeight,
+                scrollWidth: Math.max(document.documentElement.scrollWidth, document.body?.scrollWidth || 0),
+                scrollHeight: Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0),
+                horizontalOverflowPx: Math.max(0, Math.max(document.documentElement.scrollWidth, document.body?.scrollWidth || 0) - innerWidth),
+                h1: document.querySelector('h1')?.innerText?.trim() || '',
+              }));
+              record.consoleErrors = consoleErrors.slice(0,10);
+              record.failedRequests = failedRequests.slice(0,15);
+              await page.screenshot({ path: path.join(SHOTS, `${name}__${device}__top.png`), fullPage: false });
+              await page.screenshot({ path: path.join(SHOTS, `${name}__${device}__full.jpg`), fullPage: true, type: 'jpeg', quality: 54 });
+            } catch (error) {
+              record.error = String(error);
+            } finally {
+              await context.close();
+            }
+            return record;
+          }
+
+          const discovery = await discover();
+          if (discovery.urls.length < 100) throw new Error(`Only ${discovery.urls.length} URLs discovered`);
+          const inspection = await pool(discovery.urls, 18, async url => inspectHtml(url, await fetchText(url)));
+          const selected = select64(inspection);
+          if (selected.length < 64) throw new Error(`Only ${selected.length} pages selected`);
+
+          const browser = await chromium.launch({ headless: true });
+          const desktop = await pool(selected, 4, item => captureOne(browser, item, 'desktop', { viewport: { width: 1440, height: 1000 }, isMobile: false, hasTouch: false }));
+          const mobile = await pool(selected, 4, item => captureOne(browser, item, 'mobile', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }));
+          await browser.close();
+
+          const captures = [...desktop, ...mobile];
+          const flagCounts = {};
+          for (const item of inspection) for (const flag of item.flags) flagCounts[flag] = (flagCounts[flag] || 0) + 1;
+          const summary = {
+            generatedAt: new Date().toISOString(),
+            discoveredUrls: discovery.urls.length,
+            inspectedPages: inspection.length,
+            priorExcluded: [...prior],
+            uniquePagesCaptured: selected.length,
+            screenshotFiles: fs.readdirSync(SHOTS).length,
+            navigationErrors: captures.filter(x => x.error).length,
+            mobileOverflowPages: mobile.filter(x => (x.metrics?.horizontalOverflowPx || 0) > 2).length,
+            selectedByType: Object.fromEntries([...new Set(selected.map(x => x.type))].map(t => [t, selected.filter(x => x.type === t).length])),
+            flagCounts,
+          };
+
+          fs.writeFileSync(path.join(OUT, 'coverage_summary.json'), JSON.stringify(summary, null, 2));
+          fs.writeFileSync(path.join(OUT, 'discovered_urls.txt'), discovery.urls.join('\n') + '\n');
+          fs.writeFileSync(path.join(OUT, 'sitemaps_visited.txt'), discovery.sitemaps.join('\n') + '\n');
+          fs.writeFileSync(path.join(OUT, 'all_page_inventory.json'), JSON.stringify(inspection, null, 2));
+          fs.writeFileSync(path.join(OUT, 'selected_64_pages.json'), JSON.stringify(selected, null, 2));
+          fs.writeFileSync(path.join(OUT, 'capture_manifest.json'), JSON.stringify(captures, null, 2));
+
+          const headers = ['requestedUrl','finalUrl','status','type','city','service','title','h1','metaDescription','canonical','robots','wordCount','flags','error'];
+          const csv = [headers.join(',')];
+          const cell = value => `"${String(value ?? '').replace(/"/g,'""')}"`;
+          for (const item of inspection) csv.push(headers.map(h => cell(h === 'flags' ? item.flags.join('|') : item[h])).join(','));
+          fs.writeFileSync(path.join(OUT, 'all_page_inventory.csv'), csv.join('\n'));
+          console.log(JSON.stringify(summary, null, 2));
+          EOF
+          node capture.mjs
+
+      - name: Upload actual screenshot and inventory artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-batch4-deep-visual-actual
+          path: /tmp/cali-batch4/cali-batch4-deep-visual
+          if-no-files-found: error
+          retention-days: 3
