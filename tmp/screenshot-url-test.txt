@@ -1,0 +1,4 @@
+https://image.thum.io/get/width/1440/crop/1000/noanimate/https://blog.calidreamconstruction.com/blog/
+https://image.thum.io/get/fullpage/width/1440/noanimate/https://blog.calidreamconstruction.com/blog/
+https://s.wordpress.com/mshots/v1/https%3A%2F%2Fblog.calidreamconstruction.com%2Fblog%2F?w=1440
+https://api.microlink.io/?url=https%3A%2F%2Fblog.calidreamconstruction.com%2Fblog%2F&screenshot=true&meta=false
