@@ -1,0 +1,267 @@
+name: Temporary CaliDream Edge After Capture
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/temp-calidream-edge-after-capture.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temporary-calidream-after-capture
+  cancel-in-progress: false
+
+jobs:
+  wait-and-capture-after:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: temporary/calidream-edge-before-after-20260716
+          fetch-depth: 0
+
+      - name: Wait for the new live Worker and reviews component
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof/calidream-edge-20260716/after
+          ready=0
+          for attempt in $(seq 1 65); do
+            headers="$(mktemp)"
+            body="$(mktemp)"
+            api_body="$(mktemp)"
+            status="$(curl -L -sS -D "$headers" -o "$body" -w '%{http_code}' --max-time 30 'https://calidreamconstruction.com/?edge-proof=20260716' || true)"
+            api_status="$(curl -L -sS -o "$api_body" -w '%{http_code}' --max-time 30 'https://calidreamconstruction.com/api/cali-google-reviews?edge-proof=20260716' || true)"
+            version="$(awk 'BEGIN{IGNORECASE=1} /^x-cali-dream-edge-version:/{gsub(/\r/,""); print $2}' "$headers" | tail -1)"
+            marker_count="$(grep -o 'data-cali-edge-component' "$body" | wc -l | tr -d ' ')"
+            json_ok=0
+            if python3 - "$api_body" <<'PY'
+          import json, pathlib, sys
+          try:
+              data=json.loads(pathlib.Path(sys.argv[1]).read_text(encoding='utf-8'))
+          except Exception:
+              raise SystemExit(1)
+          if not isinstance(data, dict):
+              raise SystemExit(1)
+          if not any(k in data for k in ('source','status','reviews','profileUrl','mapsUrl')):
+              raise SystemExit(1)
+          print(json.dumps({k:data.get(k) for k in ('source','status','rating','reviewCount') if k in data}, sort_keys=True))
+          PY
+            then json_ok=1; fi
+            printf 'attempt=%s homepage=%s api=%s version=%s markers=%s json=%s\n' "$attempt" "$status" "$api_status" "$version" "$marker_count" "$json_ok" | tee -a proof/calidream-edge-20260716/after/wait.log
+            if [[ "$status" == "200" && "$api_status" == "200" && "$marker_count" -ge 1 && "$json_ok" -eq 1 && "$version" != "2026-07-15-truth-4" && -n "$version" ]]; then
+              ready=1
+              cp "$headers" proof/calidream-edge-20260716/after/home-response-headers.txt
+              cp "$api_body" proof/calidream-edge-20260716/after/reviews-endpoint.json
+              printf '%s\n' "$version" > proof/calidream-edge-20260716/after/edge-version.txt
+              break
+            fi
+            sleep 60
+          done
+          if [[ "$ready" -ne 1 ]]; then
+            echo 'New production edge implementation was not observable before timeout.' >&2
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          mkdir -p /tmp/calidream-after
+          cd /tmp/calidream-after
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture actual live after state
+        run: |
+          cd /tmp/calidream-after
+          cat > capture.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+          import path from 'node:path';
+
+          const root = process.env.GITHUB_WORKSPACE + '/proof/calidream-edge-20260716';
+          const out = root + '/after';
+          fs.mkdirSync(out, { recursive: true });
+          const targets = [
+            ['home', 'https://calidreamconstruction.com/'],
+            ['contact', 'https://calidreamconstruction.com/contact'],
+            ['about', 'https://calidreamconstruction.com/about-us'],
+            ['kitchen', 'https://calidreamconstruction.com/kitchen'],
+            ['bathroom', 'https://calidreamconstruction.com/bathroom-remodel'],
+            ['whole-home', 'https://calidreamconstruction.com/full-home-remodeling-renovations'],
+            ['adu', 'https://calidreamconstruction.com/additional-dwelling-units'],
+            ['projects', 'https://calidreamconstruction.com/projects'],
+            ['gallery', 'https://calidreamconstruction.com/gallery'],
+            ['blog-home', 'https://blog.calidreamconstruction.com/']
+          ];
+          const devices = [
+            ['desktop', { viewport: { width: 1440, height: 1000 }, isMobile: false, hasTouch: false }],
+            ['mobile', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }]
+          ];
+          const browser = await chromium.launch({ headless: true });
+          const manifest = [];
+          for (const [deviceName, options] of devices) {
+            const context = await browser.newContext({
+              ...options,
+              deviceScaleFactor: 1,
+              locale: 'en-US',
+              colorScheme: 'light',
+              reducedMotion: 'reduce',
+              ignoreHTTPSErrors: true
+            });
+            for (const [slug, baseUrl] of targets) {
+              const url = baseUrl + (baseUrl.includes('?') ? '&' : '?') + 'edge-proof=20260716-after';
+              const page = await context.newPage();
+              page.setDefaultTimeout(60000);
+              const consoleErrors = [];
+              const requestFailures = [];
+              page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
+              page.on('requestfailed', req => requestFailures.push({ url: req.url(), error: req.failure()?.errorText || '' }));
+              const row = { phase: 'after', slug, device: deviceName, requestedUrl: baseUrl, error: null };
+              try {
+                const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
+                await page.waitForTimeout(3500);
+                row.status = response?.status() ?? null;
+                row.responseHeaders = response ? await response.allHeaders() : {};
+                row.finalUrl = page.url();
+                row.title = await page.title();
+                row.dom = await page.evaluate(() => ({
+                  h1: document.querySelector('h1')?.textContent?.trim() || '',
+                  viewportMeta: document.querySelector('meta[name="viewport"]')?.getAttribute('content') || '',
+                  viewportWidth: innerWidth,
+                  scrollWidth: Math.max(document.documentElement.scrollWidth, document.body?.scrollWidth || 0),
+                  scrollHeight: Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0),
+                  edgeComponents: [...document.querySelectorAll('[data-cali-edge-component]')].map(x => x.getAttribute('data-cali-edge-component')),
+                  reviewContainers: [...document.querySelectorAll('[id*="review" i], [class*="review" i], [data-cali-edge-component*="review" i]')].length,
+                  reviewWidgetVisible: [...document.querySelectorAll('[data-cali-edge-component*="review" i]')].some(x => {
+                    const r=x.getBoundingClientRect(), s=getComputedStyle(x);
+                    return r.width>0 && r.height>0 && s.display!=='none' && s.visibility!=='hidden';
+                  }),
+                  googleAttributionVisible: [...document.querySelectorAll('[data-cali-edge-component*="review" i]')].some(x => /Google/i.test(x.innerText || '')),
+                  forms: [...document.forms].map(f => ({ action: f.action, method: f.method, fields: f.elements.length })),
+                  phoneLinks: [...document.querySelectorAll('a[href^="tel:"]')].map(a => a.getAttribute('href')),
+                  textLinks: [...document.querySelectorAll('a[href^="sms:"]')].map(a => a.getAttribute('href')),
+                  bodyTextStart: (document.body?.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 3000)
+                }));
+                await page.evaluate(async () => {
+                  const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+                  for (let y = 0; y < max; y += 900) {
+                    scrollTo(0, y);
+                    await new Promise(r => setTimeout(r, 55));
+                  }
+                  scrollTo(0, 0);
+                });
+                await page.waitForTimeout(900);
+                await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__top.png`), fullPage: false });
+                await page.screenshot({ path: path.join(out, `${slug}__${deviceName}__full.jpg`), fullPage: true, type: 'jpeg', quality: 58 });
+              } catch (error) {
+                row.error = String(error?.stack || error);
+              }
+              row.consoleErrors = consoleErrors;
+              row.requestFailures = requestFailures;
+              manifest.push(row);
+              await page.close();
+            }
+            await context.close();
+          }
+          await browser.close();
+          for (const url of [
+            'https://calidreamconstruction.com/api/cali-google-reviews',
+            'https://calidreamconstruction.com/robots.txt',
+            'https://calidreamconstruction.com/sitemap.xml',
+            'https://blog.calidreamconstruction.com/robots.txt',
+            'https://blog.calidreamconstruction.com/sitemap.xml'
+          ]) {
+            const record = { phase: 'after', requestedUrl: url };
+            try {
+              const response = await fetch(url + (url.includes('?') ? '&' : '?') + 'edge-proof=20260716-after', { redirect: 'manual', headers: { 'user-agent': 'CaliDreamBeforeAfterAudit/1.0' } });
+              record.status = response.status;
+              record.headers = Object.fromEntries(response.headers.entries());
+              record.body = (await response.text()).slice(0, 30000);
+            } catch (error) {
+              record.error = String(error);
+            }
+            manifest.push(record);
+          }
+          fs.writeFileSync(path.join(out, 'manifest.json'), JSON.stringify(manifest, null, 2));
+          const beforePath = path.join(root, 'before', 'manifest.json');
+          if (fs.existsSync(beforePath)) {
+            const before = JSON.parse(fs.readFileSync(beforePath, 'utf8'));
+            const beforeMap = new Map(before.filter(x => x.slug && x.device).map(x => [`${x.slug}:${x.device}`, x]));
+            const comparisons = manifest.filter(x => x.slug && x.device).map(after => {
+              const before = beforeMap.get(`${after.slug}:${after.device}`) || null;
+              return {
+                slug: after.slug,
+                device: after.device,
+                beforeStatus: before?.status ?? null,
+                afterStatus: after.status ?? null,
+                beforeTitle: before?.title ?? '',
+                afterTitle: after.title ?? '',
+                beforeH1: before?.dom?.h1 ?? '',
+                afterH1: after.dom?.h1 ?? '',
+                beforeViewportMeta: before?.dom?.viewportMeta ?? '',
+                afterViewportMeta: after.dom?.viewportMeta ?? '',
+                beforeOverflowPx: before ? Math.max(0, (before.dom?.scrollWidth || 0) - (before.dom?.viewportWidth || 0)) : null,
+                afterOverflowPx: Math.max(0, (after.dom?.scrollWidth || 0) - (after.dom?.viewportWidth || 0)),
+                beforeEdgeComponents: before?.dom?.edgeComponents || [],
+                afterEdgeComponents: after.dom?.edgeComponents || [],
+                reviewWidgetVisible: after.dom?.reviewWidgetVisible || false,
+                googleAttributionVisible: after.dom?.googleAttributionVisible || false,
+                beforeFormCount: before?.dom?.forms?.length ?? null,
+                afterFormCount: after.dom?.forms?.length ?? null,
+                beforeConsoleErrors: before?.consoleErrors?.length ?? null,
+                afterConsoleErrors: after.consoleErrors?.length ?? null,
+                beforeRequestFailures: before?.requestFailures?.length ?? null,
+                afterRequestFailures: after.requestFailures?.length ?? null
+              };
+            });
+            fs.writeFileSync(path.join(root, 'comparison.json'), JSON.stringify(comparisons, null, 2));
+          }
+          fs.writeFileSync(path.join(out, 'README.md'), '# Actual Cali Dream live after-state capture\n\nCaptured at desktop 1440×1000 and mobile 390×844 after the Cloudflare edge deployment became observable in production. Images are direct Playwright browser screenshots of the public production URLs.\n');
+          EOF
+          node capture.mjs
+
+      - name: Validate production regression contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('proof/calidream-edge-20260716')
+          rows=json.loads((root/'after/manifest.json').read_text())
+          page_rows=[x for x in rows if x.get('slug')]
+          assert page_rows, 'No after-page rows'
+          assert all(x.get('status') == 200 for x in page_rows), 'One or more critical pages failed'
+          assert all(not x.get('error') for x in page_rows), 'One or more browser captures failed'
+          for x in page_rows:
+              dom=x.get('dom') or {}
+              assert dom.get('viewportMeta'), f"Missing viewport meta: {x['slug']} {x['device']}"
+              if x['device']=='mobile':
+                  overflow=max(0, int(dom.get('scrollWidth') or 0)-int(dom.get('viewportWidth') or 0))
+                  assert overflow <= 24, f"Critical mobile overflow {overflow}px: {x['slug']}"
+              assert dom.get('edgeComponents'), f"No edge component marker: {x['slug']} {x['device']}"
+          home=[x for x in page_rows if x['slug']=='home']
+          assert home and all((x.get('dom') or {}).get('reviewWidgetVisible') for x in home), 'Homepage reviews widget not visible'
+          assert all((x.get('dom') or {}).get('googleAttributionVisible') for x in home), 'Google attribution not visible'
+          contact=[x for x in page_rows if x['slug']=='contact']
+          assert contact and all(len((x.get('dom') or {}).get('forms') or []) >= 1 for x in contact), 'Contact form disappeared'
+          print('Production browser contract passed')
+          PY
+
+      - name: Commit after-state proof and remove temporary workflows
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/temp-calidream-edge-before-capture.yml .github/workflows/temp-calidream-edge-after-capture.yml
+          git add proof/calidream-edge-20260716
+          git commit -m "proof: capture and validate CaliDream live after state"
+          git push origin HEAD:temporary/calidream-edge-before-after-20260716
