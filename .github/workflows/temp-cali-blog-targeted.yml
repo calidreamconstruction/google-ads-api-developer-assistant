@@ -1,0 +1,100 @@
+name: Temporary Cali Blog Targeted Page Capture
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Install Playwright
+        run: |
+          mkdir -p /tmp/cali-blog-targeted
+          cd /tmp/cali-blog-targeted
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture previously unaudited blog indexes and utility templates
+        run: |
+          cd /tmp/cali-blog-targeted
+          cat > capture.js <<'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const path = require('path');
+          const ROOT = 'https://blog.calidreamconstruction.com';
+          const OUT = path.join(process.cwd(), 'cali-blog-targeted');
+          fs.mkdirSync(path.join(OUT, 'screenshots'), { recursive: true });
+          const pages = [
+            ['blog-index', '/blog/'],
+            ['guides-index', '/guides/'],
+            ['projects-index', '/projects/'],
+            ['services-kitchen', '/services/kitchen'],
+            ['services-bathroom', '/services/bathroom'],
+            ['services-adu', '/services/adu'],
+            ['services-whole-home', '/services/whole-home'],
+            ['services-exterior', '/services/exterior'],
+            ['contact', '/contact/'],
+            ['gallery', '/gallery/'],
+            ['compare-adu-garage', '/compare/adu-vs-garage-conversion'],
+            ['compare-quartz-granite', '/compare/quartz-vs-granite-countertops'],
+            ['lp-whole-home', '/lp/whole-home-remodel-escondido'],
+            ['lp-garage-adu', '/lp/garage-conversion-adu-escondido'],
+            ['thank-you-qualified', '/thank-you/qualified-wholehome/'],
+            ['thank-you-lowfit', '/thank-you/lowfit-wholehome/']
+          ];
+          async function pool(items, limit, fn) {
+            const out = new Array(items.length); let next = 0;
+            await Promise.all(Array.from({length: Math.min(limit, items.length)}, async () => {
+              while (true) { const i = next++; if (i >= items.length) return; out[i] = await fn(items[i]); }
+            }));
+            return out;
+          }
+          async function capture(browser, item, device, options) {
+            const [slug, rel] = item;
+            const context = await browser.newContext({...options, locale:'en-US', colorScheme:'light', reducedMotion:'reduce', ignoreHTTPSErrors:true});
+            const page = await context.newPage();
+            page.setDefaultTimeout(60000);
+            const url = ROOT + rel;
+            const result = {slug, rel, url, device, error:''};
+            try {
+              const response = await page.goto(url, {waitUntil:'domcontentloaded', timeout:90000});
+              await page.waitForTimeout(1600);
+              result.status = response ? response.status() : null;
+              result.finalUrl = page.url();
+              result.title = await page.title();
+              result.metrics = await page.evaluate(() => ({
+                viewportWidth: innerWidth,
+                scrollWidth: Math.max(document.documentElement.scrollWidth, document.body?.scrollWidth || 0),
+                scrollHeight: Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0),
+                h1: document.querySelector('h1')?.innerText?.trim() || ''
+              }));
+              await page.screenshot({path:path.join(OUT,'screenshots',`${slug}__${device}__top.png`),fullPage:false});
+              await page.screenshot({path:path.join(OUT,'screenshots',`${slug}__${device}__full.jpg`),fullPage:true,type:'jpeg',quality:55});
+            } catch (e) { result.error = String(e); }
+            await context.close();
+            return result;
+          }
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            const desktop = await pool(pages, 3, p => capture(browser, p, 'desktop', {viewport:{width:1440,height:1000}}));
+            const mobile = await pool(pages, 3, p => capture(browser, p, 'mobile', {viewport:{width:390,height:844},isMobile:true,hasTouch:true}));
+            await browser.close();
+            fs.writeFileSync(path.join(OUT,'manifest.json'),JSON.stringify([...desktop,...mobile],null,2));
+          })().catch(e => {console.error(e);process.exit(1)});
+          EOF
+          node capture.js
+
+      - name: Upload targeted screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-blog-targeted-index-utility-screenshots
+          path: /tmp/cali-blog-targeted/cali-blog-targeted
+          if-no-files-found: error
+          retention-days: 3
