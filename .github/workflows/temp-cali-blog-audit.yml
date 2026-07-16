@@ -1,0 +1,96 @@
+name: Temporary Cali Blog Remaining Pages Audit Public Runner
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Prepare isolated audit runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/cali-blog-audit /tmp/cali-blog-audit-out
+          mkdir -p /tmp/cali-blog-audit
+          cd /tmp/cali-blog-audit
+          npm init -y
+          npm install playwright@1.54.1 cheerio@1.0.0
+          PLAYWRIGHT_BROWSERS_PATH=/tmp/cali-blog-audit/pw-browsers npx playwright install --with-deps chromium
+
+      - name: Discover inspect and screenshot only unaudited blog pages
+        shell: bash
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /tmp/cali-blog-audit/pw-browsers
+        run: |
+          set -euo pipefail
+          cd /tmp/cali-blog-audit
+          cat > audit.js.gz.b64 <<'EOF'
+          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
+          EOF
+          tr -d '\n ' < audit.js.gz.b64 | base64 -d | gzip -d > audit.js
+          node --check audit.js
+          node audit.js
+
+      - name: Upload crawl inventory and actual screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-blog-remaining-pages-actual-audit
+          path: /tmp/cali-blog-audit-out
+          if-no-files-found: error
+          retention-days: 3
