@@ -1,0 +1,33 @@
+name: Temporary Cali Batch 5 Screenshot Capture
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install browser
+        run: |
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+      - name: Capture public pages
+        run: node tmp/cali-batch5/capture.js
+      - name: Upload actual screenshots and evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-batch5-actual-desktop-mobile-20260720
+          path: cali-batch5-actual
+          if-no-files-found: error
+          retention-days: 3
