@@ -1,0 +1,36 @@
+name: Temporary Cali Batch 7 Actual Screenshot Audit
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture Batch 7 pages
+        run: node batch7/capture.js
+
+      - name: Upload actual desktop/mobile evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-batch7-actual-desktop-mobile
+          path: cali-batch7-actual
+          if-no-files-found: error
+          retention-days: 3
