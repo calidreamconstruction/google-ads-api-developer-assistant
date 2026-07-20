@@ -1,0 +1,103 @@
+name: Temporary Cali Live Spacing Diagnosis
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Install Playwright
+        run: |
+          mkdir -p /tmp/cali-spacing && cd /tmp/cali-spacing
+          npm init -y
+          npm install playwright@1.54.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture live desktop and mobile spacing evidence
+        run: |
+          cd /tmp/cali-spacing
+          cat > diagnose.js <<'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const path = require('path');
+          const OUT = path.join(process.cwd(), 'cali-live-spacing');
+          fs.mkdirSync(path.join(OUT, 'screenshots'), { recursive: true });
+          const pages = [
+            ['home', 'https://calidreamconstruction.com/'],
+            ['contact', 'https://calidreamconstruction.com/contact'],
+            ['about', 'https://calidreamconstruction.com/about-us'],
+          ];
+          const devices = [
+            ['desktop', { viewport: { width: 1440, height: 1000 }, isMobile: false, hasTouch: false }],
+            ['mobile', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }],
+          ];
+          function slug(s){return s.replace(/[^a-z0-9]+/gi,'-').toLowerCase();}
+          async function inspect(browser, pageName, url, device, options){
+            const context = await browser.newContext({ ...options, locale:'en-US', colorScheme:'light', reducedMotion:'reduce', ignoreHTTPSErrors:true });
+            const page = await context.newPage();
+            const errors=[]; const failed=[];
+            page.on('console', m=>{if(m.type()==='error') errors.push(m.text().slice(0,1000));});
+            page.on('pageerror', e=>errors.push(String(e).slice(0,1000)));
+            page.on('requestfailed', r=>failed.push({url:r.url(),error:r.failure()?.errorText||''}));
+            const row={pageName,url,device,error:''};
+            try{
+              const response=await page.goto(`${url}${url.includes('?')?'&':'?'}spacingqa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:90000});
+              await page.waitForTimeout(2200);
+              await page.evaluate(async()=>{const max=Math.max(document.body?.scrollHeight||0,document.documentElement.scrollHeight);for(let y=0;y<max;y+=850){scrollTo(0,y);await new Promise(r=>setTimeout(r,45));}scrollTo(0,0);});
+              await page.waitForTimeout(900);
+              row.status=response?.status()??null;
+              row.edgeVersion=response?.headers()['x-cali-dream-edge-version']||'';
+              Object.assign(row,await page.evaluate(()=>{
+                const body=document.body; const doc=document.documentElement;
+                const visible=e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0;};
+                const px=v=>Number.parseFloat(v)||0;
+                const textNodes=[...document.querySelectorAll('h1,h2,h3,h4,p,a,li,span,button')].filter(visible).map(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return{tag:e.tagName,text:(e.innerText||'').replace(/\s+/g,' ').trim().slice(0,180),fontSize:s.fontSize,lineHeight:s.lineHeight,letterSpacing:s.letterSpacing,wordSpacing:s.wordSpacing,textAlign:s.textAlign,width:Math.round(r.width),left:Math.round(r.left),top:Math.round(r.top)};}).filter(x=>x.text);
+                const spacingOutliers=textNodes.filter(x=>Math.abs(px(x.letterSpacing))>1.5||Math.abs(px(x.wordSpacing))>2||x.textAlign==='justify').slice(0,100);
+                const elements=[...document.querySelectorAll('body *')].filter(visible).map(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return{tag:e.tagName,id:e.id||'',cls:String(e.className||'').slice(0,180),text:(e.innerText||'').replace(/\s+/g,' ').trim().slice(0,120),top:Math.round(r.top+scrollY),bottom:Math.round(r.bottom+scrollY),height:Math.round(r.height),width:Math.round(r.width),marginTop:s.marginTop,marginBottom:s.marginBottom,paddingTop:s.paddingTop,paddingBottom:s.paddingBottom,minHeight:s.minHeight,position:s.position,display:s.display,overflow:s.overflow};});
+                const tall=elements.filter(x=>x.height>=500).sort((a,b)=>b.height-a.height).slice(0,60);
+                const bigVertical=elements.filter(x=>px(x.marginTop)+px(x.marginBottom)+px(x.paddingTop)+px(x.paddingBottom)>=120).sort((a,b)=>(px(b.marginTop)+px(b.marginBottom)+px(b.paddingTop)+px(b.paddingBottom))-(px(a.marginTop)+px(a.marginBottom)+px(a.paddingTop)+px(a.paddingBottom))).slice(0,80);
+                const footerEls=[...document.querySelectorAll('footer,[role=contentinfo],#dmFooter,.dmFooter,.dmFooterContainer,[class*=footer],[id*=footer]')].filter(visible).map(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return{tag:e.tagName,id:e.id||'',cls:String(e.className||'').slice(0,240),top:Math.round(r.top+scrollY),bottom:Math.round(r.bottom+scrollY),height:Math.round(r.height),width:Math.round(r.width),marginTop:s.marginTop,marginBottom:s.marginBottom,paddingTop:s.paddingTop,paddingBottom:s.paddingBottom,minHeight:s.minHeight,display:s.display,overflow:s.overflow,text:(e.innerText||'').replace(/\s+/g,' ').trim().slice(0,500)};});
+                const sections=[...document.querySelectorAll('section,.dmRespRow,.dmRespColsWrapper,.dmNewParagraph,.dmCustomHtml')].filter(visible).map(e=>{const r=e.getBoundingClientRect(),s=getComputedStyle(e);return{tag:e.tagName,id:e.id||'',cls:String(e.className||'').slice(0,180),top:Math.round(r.top+scrollY),bottom:Math.round(r.bottom+scrollY),height:Math.round(r.height),marginTop:s.marginTop,marginBottom:s.marginBottom,paddingTop:s.paddingTop,paddingBottom:s.paddingBottom,text:(e.innerText||'').replace(/\s+/g,' ').trim().slice(0,120)};}).sort((a,b)=>a.top-b.top);
+                const gaps=[];for(let i=1;i<sections.length;i++){const gap=sections[i].top-sections[i-1].bottom;if(gap>80)gaps.push({gap,after:sections[i-1],before:sections[i]});}
+                return{
+                  title:document.title,
+                  h1:document.querySelector('h1')?.innerText?.trim()||'',
+                  viewportMeta:document.querySelector('meta[name=viewport]')?.content||'',
+                  viewportWidth:innerWidth,
+                  scrollWidth:Math.max(doc.scrollWidth,body?.scrollWidth||0),
+                  scrollHeight:Math.max(doc.scrollHeight,body?.scrollHeight||0),
+                  horizontalOverflowPx:Math.max(0,Math.max(doc.scrollWidth,body?.scrollWidth||0)-innerWidth),
+                  bodyComputed:{fontSize:getComputedStyle(body).fontSize,lineHeight:getComputedStyle(body).lineHeight,letterSpacing:getComputedStyle(body).letterSpacing,wordSpacing:getComputedStyle(body).wordSpacing},
+                  spacingOutliers,tall,bigVertical,footerEls,gaps:gaps.sort((a,b)=>b.gap-a.gap).slice(0,40),
+                  reviewMarkers:[...document.querySelectorAll('[data-cali-widget],[data-cali-edge-component]')].map(e=>e.getAttribute('data-cali-widget')||e.getAttribute('data-cali-edge-component')).filter(Boolean),
+                  forms:document.querySelectorAll('form,iframe[src*=form],iframe[src*=leadconnectorhq]').length,
+                };
+              }));
+              row.consoleErrors=errors.slice(0,30);row.requestFailures=failed.slice(0,30);
+              const base=`${slug(pageName)}__${device}`;
+              await page.screenshot({path:path.join(OUT,'screenshots',`${base}__top.png`),fullPage:false});
+              await page.screenshot({path:path.join(OUT,'screenshots',`${base}__full.jpg`),fullPage:true,type:'jpeg',quality:58});
+              await page.evaluate(()=>scrollTo(0,Math.max(0,document.documentElement.scrollHeight-innerHeight)));
+              await page.waitForTimeout(500);
+              await page.screenshot({path:path.join(OUT,'screenshots',`${base}__footer.png`),fullPage:false});
+            }catch(e){row.error=String(e?.stack||e);}
+            await context.close(); return row;
+          }
+          (async()=>{const browser=await chromium.launch({headless:true});const rows=[];for(const [device,opts] of devices){for(const [name,url] of pages)rows.push(await inspect(browser,name,url,device,opts));}await browser.close();fs.writeFileSync(path.join(OUT,'diagnostic.json'),JSON.stringify(rows,null,2));const summary={createdAt:new Date().toISOString(),records:rows.length,successful:rows.filter(r=>!r.error).length,errors:rows.filter(r=>r.error).length};fs.writeFileSync(path.join(OUT,'summary.json'),JSON.stringify(summary,null,2));console.log(JSON.stringify(summary));})().catch(e=>{console.error(e);process.exit(1);});
+          EOF
+          node diagnose.js
+
+      - name: Upload live spacing evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cali-live-spacing-diagnosis
+          path: /tmp/cali-spacing/cali-live-spacing
+          if-no-files-found: error
+          retention-days: 3
