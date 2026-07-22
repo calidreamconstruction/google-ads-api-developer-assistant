@@ -10,18 +10,18 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35ac91b840995-SJC",
+      "cf-ray": "a1efd3b99e782f0e-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:18:46 GMT",
+      "date": "Wed, 22 Jul 2026 04:50:53 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=RHEtiFLqMF6bKsPXxs4h3VQBJ1cY9ryBXXzmN6bFG4hCGnsYyfL%2FmA3r%2BY7W%2Bq%2BXk4y%2BvOA%2FRxSPNQFybGqs7yKqdEo2UTy4ZxTfDCcSCkWlUm1SV3WxuMKGvXGvFxxmvNBe%2BV0W%2BA2%2BOM%2F3\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Fs6ZtvZft%2FbLOrK%2BOZsY2Ice3oiFYgoGg3zbCcZm1SZ24q5jlUNlbiikxPjHrz18Y6RobVuaoznCA%2BLwnEhJKyGoeI7x3PfDeZDhpQBz9eIcwu8a%2BveHpT9cik7XVxu1VFUHa9s3cCx%2FyPRA\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=13,cfOrigin;dur=0,cfWorker;dur=395",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=34,cfOrigin;dur=0,cfWorker;dur=400",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -50,12 +50,11 @@
       "bodyTextStart": "Home Services Home Remodel Kitchen Partial Kitchen Remodel Custom Islands Backsplash Flooring Open Concept Full Kitchen Remodel Bathroom Exterior Remodeling Home Additions New Build General Contractor Roofing Deck Builder Gallery About Us Blog Contact (858) 434-7166 San Diego Home Remodeling Construction Premium construction and remodeling services throughout San Diego County. From concept to completion, we bring your vision to life. START -> VIEW OUR WORK Call Us Owner-Led Remodeling and Construction Cali Dream Construction is the owner-led home remodeling and construction company in San Diego. We are focused on practical planning, clear scopes, and quality construction. our owner-led team of skilled tradespeople and project professionals creates custom designs for bathroom remodeling, accessory dwelling units (ADUs) Kitchen | Bathroom | Home | Exterior Remodeling With owner-led project experience, Cali Dream Construction is your point of contact for design and development of magnificent luxury Home Construction and remodeling. Serving communities from Encinitas to La Jolla and beyond, we deliver exceptional results with a client-focused process that ensures your vision comes to life. As a leading choice for homeowners searching for a home remodeling company near me, we provide quality, reliability, and results that truly stand out in San Diego. BUILD YOUR DREAM HOME Construction and Remodeling In San Diego Bonsall Home Remodel view the project Cardiff Home Build view the project Solana Beach Home Build View the Project Kitchen Renovation Transform your kitchen into a culinary masterpiece with custom cabinetry, premium countertops, and modern appliances. Learn More -> Bathroom Remodel Create a bathroom planned around your needs, style, and daily use. Cali Dream Construction specializes in tile work, custom vanities, and luxury bathroom remodels throughout San Diego County. Learn More -> Full Home Remodeling Renovate your home exactly how you would like with Cali Dream Construction’s Modern remodeling and redesign home experts. new spaces like kitchen, bathroom, or anything else. Learn More -> Home Additions Expand your home with a custom ADU or home EXPANSION! We design and build new living spaces that add value, comfort, and flexibility across San Diego and surrounding areas. Learn More -> New Home Builds From the ground-up. Our new construction home builds are the pride and joy of Dream Construction. We build your home and give life to your visions across San Diego and North County. Learn More -> Custom Decks & Patios Enjoy San Diego living outdoors. Cali Dream Construction builds custom decks, patios, and outdoor kitchens designed for entertaining and relaxation. Learn More -> START YOUR PROJECT -> See Gallery Cali Dream Construction Service Areas. Rancho Santa Fe Escondido Rancho Bernardo Poway San Diego Coronado Oceanside La Jolla Encinitas M ore See All Service Areas Here We’re committed to delivering exceptional remodeling and constructio"
     },
     "consoleErrors": [
-      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "requestStorageAccess: Permission denied."
     ],
     "requestFailures": [
@@ -64,11 +63,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -88,11 +87,11 @@
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://www.google.com/recaptcha/enterprise.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX",
+        "url": "https://backend.leadconnectorhq.com/funnels/funnel/geo-location/",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://backend.leadconnectorhq.com/funnels/funnel/geo-location/",
+        "url": "https://www.google.com/recaptcha/enterprise.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -116,19 +115,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35aeb6e32fa96-SJC",
+      "cf-ray": "a1efd3dc8f2c9dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:18:51 GMT",
+      "date": "Wed, 22 Jul 2026 04:50:58 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=KWHfBJXLg3h6raNL23Qw9QzAPuWgxwVGt8sseVrWwEV679jQknLa2WzHP%2B6AmBtBLkoFNh4zV7vJkyfZvSM0LOYpLUy63ie8l9nGKvhiz95YfvYo0rfvS6%2BE0VsokERSdoCJxm4Tbai11c6X\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=cp2UFggbN6gGCO91pdgA%2Byh8%2Fq0YntL9SCRzahrLjbaSFFmnGchJzheyQW%2Bn1L3wJ%2FXP%2BJAhYv3dGnFexiHz40zqkgDdO9HEjvB47GHnKcMqX%2B1TCGulbFwGx51g1p6EjTScf5rtdD2jSH8d\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=93, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=22,cfOrigin;dur=0,cfWorker;dur=101, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -156,9 +155,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "requestStorageAccess: Permission denied."
     ],
@@ -168,11 +167,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -180,19 +179,19 @@
         "error": "net::ERR_ABORTED"
       },
       {
+        "url": "https://backend.leadconnectorhq.com/forms/form-survey-event",
+        "error": "net::ERR_ABORTED"
+      },
+      {
         "url": "https://www.gstatic.com/recaptcha/releases/rL1ELiQAg1kPezz6_H9hTZ_i/recaptcha__en.js",
         "error": "net::ERR_ABORTED"
       },
       {
+        "url": "https://backend.leadconnectorhq.com/forms/form-survey-event",
+        "error": "net::ERR_ABORTED"
+      },
+      {
         "url": "https://backend.leadconnectorhq.com/funnels/funnel/geo-location/",
-        "error": "net::ERR_ABORTED"
-      },
-      {
-        "url": "https://backend.leadconnectorhq.com/forms/form-survey-event",
-        "error": "net::ERR_ABORTED"
-      },
-      {
-        "url": "https://backend.leadconnectorhq.com/forms/form-survey-event",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -216,19 +215,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35b06af09fa96-SJC",
+      "cf-ray": "a1efd3f76e1b9dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:18:55 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:03 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=6N1V2dDZ0S6s3nE%2FrUacG7wVRa2NHpr1AZPeF1ZLlvDpCarIgDw36l9gYWmRYWXIfYCeTT9ZEjXHxBw0QoHI70RPdbOEeUdlNvTP%2B19Yi%2FuqESNu01PhSZr5%2FO1g3NADejZ6IvA8lGeB%2BQws\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=3rYn1ZKP%2FWSQ68fnXLp4CSyrcTs%2F0Rj%2Fwahn5zj5CSt%2F9yyT5JiDYGsUgV9vvxkfJ2LDLR37t2niA4Rl79bZ3s4J4PiNO4OGcxzfO%2FaMINd2Xr8m11mkNR3HshLusAEdv5zwP0YP3qGk8Jb2\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=89, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=24,cfOrigin;dur=0,cfWorker;dur=96, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -256,9 +255,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -267,7 +266,7 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -275,7 +274,7 @@
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -299,19 +298,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35b23483dfa96-SJC",
+      "cf-ray": "a1efd4135de99dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:00 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:07 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=cmaAlByut2x2uYHXW%2FAxW%2BMhtnPzdxV7OZGbBQa4yGiISQtYf6rII4TcJwyioCMufjhWvJNFX40ViocZIKCPH0SDf5VmjeOuEXzWwHb7yZXN0C6XNboHryTSLb7Y7lnJY1GB7XceVfbBDrEw\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IyqTy%2FUOqRgsYq5D%2Fv9z%2B5l9MvwJ580lHIen2CnioLG400ye2dy1dxPSLSW6%2Fb6fiS7mkLxPUQ9p%2Fjh4l0oK0FuEfJe532r%2F2TYczkZ8tV4PX7woR4R9apJ%2FMp8pwHW1Zf4XdD62yeKQXKKv\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=16,cfOrigin;dur=0,cfWorker;dur=101, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=92, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -339,9 +338,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -350,19 +349,19 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://vid.cdn-website.com/5d318c8a/videos/ZetSmqjETUGUgd35tNIF_san+diego+luxury+kitchen+remodel-v.mp4",
-        "error": "net::ERR_ABORTED"
-      },
-      {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
         "url": "https://rtc.multiscreensite.com/performance/metrics",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://vid.cdn-website.com/5d318c8a/videos/ZetSmqjETUGUgd35tNIF_san+diego+luxury+kitchen+remodel-v.mp4",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -382,19 +381,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35b3fd8fbfa96-SJC",
+      "cf-ray": "a1efd42f8c5e9dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:05 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:12 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=b3mdYsOzNIKUcdfHC%2BrkRyGFKTQyKIfxpXYO46k1xwz7bNrZWff8zPCe%2B9kLhUJ0w3xkvAOoX7wgqU35mrDoYmdm11Kf6RJ1ljwWDeilG46SzJHvUHhCkBDpBtkgAtt7SYT5Mj%2F5qeLwEI6Z\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=f3ttwlIrzqdO%2FMY6uSt9LAQQag%2FWUhQExjapNsOyj8meE3%2FiMRwlutPpBek%2FLyFN45R1sNV4JiD9VSwPnefdTREVcNRtsugv51xU8MmolSbsNkDkUxWq2p66hogacoRTLjZ3Yje5VsPi6wS9\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=28,cfOrigin;dur=0,cfWorker;dur=100, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=19,cfOrigin;dur=0,cfWorker;dur=96, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -422,9 +421,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -433,7 +432,7 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -441,7 +440,7 @@
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -465,19 +464,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35b5d895bfa96-SJC",
+      "cf-ray": "a1efd44d8dfb9dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:09 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:16 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=g8zhwKHcNc8sNHuNEhfsxmFXXiu9gItttTGHLzFCqfLFt7seS0WA6SWAUWsYKPIMfrYRZRka0cGLzZMMkzdB05yJXlGkuQgnD3lem35HSPrextPr%2BYTbS0wmKyyCcSfnvi3y%2BwFm8ijUDWz9\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=8%2BG4rcFutDJuTVmemoL%2BOfEZPUnlEu0bZpIAtBYFeiDxdmnLes0Xked7jOt4x%2FnLGCrUGTTYPFx3WwvNixTdYX%2BeuXedM4xk3KeUiu6Uk8Wik4IrOmBeSBo9LF4FSlzMKBjf0ChV5JDSTyr7\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=16,cfOrigin;dur=0,cfWorker;dur=92, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=16,cfOrigin;dur=0,cfWorker;dur=97, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -505,9 +504,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -516,7 +515,7 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -524,7 +523,7 @@
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -548,19 +547,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35b79a9e3fa96-SJC",
+      "cf-ray": "a1efd4697e099dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:14 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:21 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=i7pp%2BiAnxY1Jq%2Bfwt1knita6ndU2GErjXUivSmp4kC9mMYq5dNQVGGTbMvBmPPenK4GZ7Uf7vBleEad9mMCYlao2AHVN09KPmrMLNZ%2BkP8g2KHRA4RnRmSTbY%2FnDeKsPVFx%2BoM1GNiMe3df3\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7vlW8mcvFsu3V5U6t2JSzc%2BCDJpcqavQ3A2emISJTN9Ljhr38731XXD4jHS%2B%2FsbU5LzISMGq8uiuEKyv0rHHK2jB0HW2mDGuhw02ZQln%2FiJtRhYHiTKAaqvA%2Fqfi0qaSMr8ke4GO5i6N5pX3\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=92, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=17,cfOrigin;dur=0,cfWorker;dur=92, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -588,9 +587,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -599,11 +598,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -627,19 +626,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35b94fa5ffa96-SJC",
+      "cf-ray": "a1efd484bda39dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:18 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:25 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=beoazig63QJn1a45nEaOjPmLabxGQhag33Ax8Jqh9GQGJanK%2FDP7QuWqHJeaw8ZQIlBj7g%2BYrfGp%2BBPyByVNbP0hEqDP4%2Fe%2FFCoFkb8RsjG%2FJYcChipMHA6a7iCp2oKqGMLbnyHngak3vczk\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=mWJPNgWFpvJ%2FMpHMYTULzZMEDh6HV3hIsS%2B%2BPKS6CdDVNmFSOv6VVAULHfj1vHTDkslkznJ%2BPlsT23GdBCR54RyyGMTGG%2B6Ygoq5CH9WDl33zuZhg%2FxuOTpc%2FHFTpZqtztUqrwWPtM1r3Jv9\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=20,cfOrigin;dur=0,cfWorker;dur=110, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=26,cfOrigin;dur=0,cfWorker;dur=114, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -668,9 +667,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -679,11 +678,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -707,19 +706,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35bb74b0cfa96-SJC",
+      "cf-ray": "a1efd4a7ba9f9dea-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:24 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:31 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bWAeu%2Fq%2BwaEyDgYs2nwcZO9%2B%2Bwp%2FoEaH%2FgeALxlIcmN%2FMlqS67YeM9wpmySLmkdUmrBy3lV9UMIE%2BZLo%2FJZlqG%2F92vNJquTyQx7j5hdP00hnxVW79HDfLSUBg9rqg%2Fu1gU9qXgM3QTuUyymp\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=NN96g41xeH1rtjwmA29A4zkTfFMp0g%2BBlaoXsqirMb5qLsrxUCZraltCq34wHgwc8p%2FmyCSfv5G12%2B2OSAko6KenWF%2FDQyNSgdMJK5dqLXkpL3U90YbZEr0qyQsBv6E%2BdWuPpwV3g4S%2Frw8X\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=20,cfOrigin;dur=0,cfWorker;dur=110, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=32,cfOrigin;dur=0,cfWorker;dur=119, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -748,10 +747,11 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
       {
@@ -759,11 +759,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8qoiXTiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8goiXTiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67f0h2&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67l0h2&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -787,17 +787,17 @@
       "access-control-allow-origin": "*",
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=1800",
-      "cf-ray": "a1c35bd40f8e0995-SJC",
+      "cf-ray": "a1efd4c56ffa2f0e-LAX",
       "content-encoding": "br",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
-      "date": "Thu, 16 Jul 2026 19:19:28 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:35 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "permissions-policy": "camera=(), microphone=(), geolocation=(self)",
       "referrer-policy": "strict-origin-when-cross-origin",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7aJOOCj8N3liekpPPXRAERWgkoLmWn7s0RGP2fb6yASOwANi5oEdMChnozxXbO%2FqlUCYMPKM0mkGtVEM8oQelT72WSDkzR4EhbGFA7T6yB2m%2FxOEYWpjra3mYlSH3r2mI%2F0zpBSv4bCzRJ6W0fVIUdAZrSGxjjI%3D\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=KrwAUecSJWT7UeaHPp9QJfuLUgMOBXEdg3zUqfkByqkkFD40xRiy7shYzzR6vt15xbrBvQTggZERqicZcPd5bjMAYJFJuT4ZE1swuJmbEO%2BcVirob%2BBrF5rqyvxt9F3mHvWHECKm0MUZT9lxdDxbGGIP%2BID8t3Q%3D\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfEdge;dur=8,cfOrigin;dur=0,cfWorker;dur=22",
+      "server-timing": "cfEdge;dur=27,cfOrigin;dur=0,cfWorker;dur=60",
       "speculation-rules": "\"/cdn-cgi/speculation\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "x-content-type-options": "nosniff",
@@ -805,13 +805,13 @@
       "x-robots-tag": "index, follow"
     },
     "finalUrl": "https://blog.calidreamconstruction.com/",
-    "title": "CaliDream Blog | San Diego Remodel Costs & Guides",
+    "title": "Cali Dream Construction Guides | San Diego Remodel Planning",
     "dom": {
-      "h1": "San Diego Remodeling Knowledge Base",
+      "h1": "Remodel planning built on real properties and official sources",
       "viewportMeta": "width=device-width, initial-scale=1.0",
       "viewportWidth": 1440,
       "scrollWidth": 1440,
-      "scrollHeight": 4053,
+      "scrollHeight": 4815,
       "edgeComponents": [],
       "reviewContainers": 0,
       "forms": [],
@@ -822,10 +822,9 @@
         "tel:+18584347166"
       ],
       "textLinks": [],
-      "bodyTextStart": "Cali Dream Construction Articles Area Guides Expert Guides Projects Calculators Free Estimate San Diego Remodeling Knowledge Base Real costs, real timelines, real contractor advice. Written by a licensed San Diego design-build firm that does the work — not a content farm. Get a Free Estimate (858) 434-7166 1,200+ In-depth Articles 45+ San Diego Cities CSLB #1054602 Browse by Category 1,179 Blog Articles Kitchen remodels, bathroom renovations, ADUs, luxury builds, commercial construction 305 Area Guides City-specific pricing, permits, contractors, and neighborhood insights 208 Expert Guides Planning, budgeting, permits, materials, and contractor selection 5 Project Case Studies Real San Diego project photos, scope notes, budget ranges, and timelines 50+ Cost Calculators Instant estimates for kitchen, bathroom, ADU, roofing, and more Popular Guides Kitchen San Diego Kitchen Remodel Timeline Week-by-week breakdown of what to expect during your kitchen renovation — from demo to final walkthrough. Additions Home Addition Cost in San Diego Real pricing for room additions, second stories, and bump-outs from a licensed San Diego contractor. ADU San Diego ADU Permit Process Step-by-step guide to ADU permits in San Diego — timelines, fees, and what trips up most homeowners. Cost, Comparison, And Project Proof Kitchen Remodel Cost in Encinitas Budget ranges, scope drivers, permit notes, and contractor guidance for coastal kitchens. Bathroom Remodel Cost in La Jolla Luxury bath pricing, waterproofing, tile, glass, ventilation, and HOA planning factors. ADU Cost in San Diego Detached ADU and conversion cost ranges with utility, permit, and rental-ready tradeoffs. ADU vs Garage Conversion Compare timeline, cost, property constraints, rental value, and the better fit for your lot. Quartz vs Granite Countertops Selection guidance for remodel budgets, maintenance, heat tolerance, and long-term durability. Custom Home Build in Encinitas Real project photos and scope notes from a hillside custom-home build. Ready to Start Your Remodel? Get a free estimate from San Diego's trusted design-build contractor. Or call (858) 434-7166 Service Areas We serve all of San Diego County — from the coast to the mountains. Escondido Carlsbad La Jolla Rancho Santa Fe Encinitas Oceanside Del Mar Solana Beach Coronado Alpine Santee El Cajon Chula Vista San Marcos Poway All 45+ Cities → © 2026 Cali Dream Construction · CSLB #1054602 · (858) 434-7166 Main Site · Articles · Areas · Guides · Projects · Calculators · Sitemap Ready to Start Your Remodel? Get a free estimate from San Diego's trusted design-build contractor. CSLB #1054602. Or call now: (858) 434-7166 Explore Cali Dream Construction Kitchen Remodeling Bathroom Remodeling ADU Construction Deck Building Free Estimate"
+      "bodyTextStart": "Cali Dream Construction Articles Area Guides Planning Guides Project Proof Planning Tools Discuss a Project Owner-led San Diego County general contractor · CSLB #1054602 Remodel planning built on real properties and official sources Use current permit links, project-planning checklists and local construction guidance before committing to a kitchen, bathroom, ADU, addition or whole-home scope. Open the Permit & Jurisdiction Guide Call (858) 434-7166 Official-source links Public agency pages are cited for permit, zoning and ADU facts. Property-specific planning Scope, site conditions and jurisdiction determine the path. Direct project contact Discuss fit, constraints and the next useful step with an owner-led contractor. New · Updated July 15, 2026 Which agency actually controls your remodel? A ZIP code is not a permitting jurisdiction. This homeowner hub organizes the City of San Diego, unincorporated County, Encinitas, Carlsbad and Oceanside permit, zoning, records and ADU starting points. Use the jurisdiction guide City vs. unincorporated County Official permit and property portals Encinitas July 2026 fee changes County ADU separate-sale update Pre-bid records checklist Start with the decision you are making These resources are organized around homeowner decisions, not generic keyword variations. KITCHEN PLANNING Scope before price Separate layout, structural, utility, finish and access decisions before treating an early range as a bid. Review kitchen planning → BATHROOM PLANNING Waterproofing, ventilation and layout Understand the hidden systems that matter more than a finish-only shopping list. Review bathroom planning → ADU FEASIBILITY Property constraints before floor plans Start with jurisdiction, zoning, access, utilities, fire requirements and existing conditions. Review ADU planning → SPACE STRATEGY Addition or ADU? Compare the household problem each option solves before choosing a project type. Compare the options → MATERIAL CHOICE Quartz or granite? Compare maintenance, heat exposure, fabrication, seams and visual variation for the actual kitchen. Compare countertops → PROJECT PROOF See scope notes and photos Use project documentation to evaluate execution, sequencing and the kind of work being discussed. View project proof → Project pathways Move from a broad idea to a property-specific conversation. Kitchens & bathrooms Layout, utilities, ventilation, waterproofing, cabinetry, tile, lighting and finish coordination. Kitchen service Bathroom service Related articles ADUs & additions Jurisdiction, feasibility, plans, engineering, utilities, access, permit responsibility and construction sequencing. ADU service Addition service Permit guide Whole-home remodeling Phasing, temporary living, structural changes, service upgrades, windows, finishes and closeout. Whole-home service Planning guide Project proof Outdoor & exterior work Drainage, access, grading, retaining, structure, weather exposure and coastal or neighborhood constraints. Out"
     },
     "consoleErrors": [
-      "Failed to load resource: the server responded with a status of 404 ()",
       "Failed to load resource: the server responded with a status of 404 ()",
       "Failed to load resource: the server responded with a status of 404 ()",
       "requestStorageAccess: Permission denied.",
@@ -844,18 +843,18 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35bee5ad1f005-SJC",
+      "cf-ray": "a1efd4e12ce6d7a4-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:32 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:40 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=vguj3%2B7elA6Y6iL3glLgXFKCBOPv6Q8zd9uSZ17XVtwlKLGOklk3LrJQIgJgkEH2lgILjcR%2FY8jGADalRVQuq6ldQacVdlyFJU3hr8uk1wYzHHEHsy%2BtthsLWsl3wSfYlZkOLGyPoAlhBqun\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=BVFXfbjiBFNPTvZLovA6bA1PDIgSTGFpnEWMsjuthSlcTo%2BUFIIoNLycaMqj1y6dmbcpjFuJeMySUO4NOanQ7D1KdE5HJkpuJmuN4SlpRc8Vpa2JSYDDBtQmGr%2FpssAXNn2Go%2FoWJEmCOyhq\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=16,cfOrigin;dur=0,cfWorker;dur=119",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=33,cfOrigin;dur=0,cfWorker;dur=408",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -887,11 +886,11 @@
     },
     "consoleErrors": [
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
-      "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-      "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
+      "Failed to load resource: the server responded with a status of 404 ()",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Failed to load resource: the server responded with a status of 404 ()",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "requestStorageAccess: Permission denied."
     ],
     "requestFailures": [
@@ -900,19 +899,15 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
-        "error": "net::ERR_ABORTED"
-      },
-      {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
-        "error": "net::ERR_ABORTED"
-      },
-      {
         "url": "https://vid.cdn-website.com/md/pexels/videos/apartment-at-home-business-buy-7578547-v.mp4",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://rtc.multiscreensite.com/performance/metrics",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -921,6 +916,14 @@
       },
       {
         "url": "https://vid.cdn-website.com/5d318c8a/videos/P8UnGpmMQ92G9aGGaxSn_videoplayback+%282%29-v.mp4",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://rtc.multiscreensite.com/performance/metrics",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://rtc.multiscreensite.com/performance/metrics",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -933,10 +936,6 @@
       },
       {
         "url": "https://backend.leadconnectorhq.com/funnels/funnel/geo-location/",
-        "error": "net::ERR_ABORTED"
-      },
-      {
-        "url": "https://rtc.multiscreensite.com/performance/metrics",
         "error": "net::ERR_ABORTED"
       }
     ]
@@ -952,19 +951,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35c0ea8ca483d-SJC",
+      "cf-ray": "a1efd5038e0551ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:38 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:45 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=aXsW%2BEWnKRf2vY9hxf7pkSvx6%2FEuez1YnuXJ49NP8VG3E2aZDqkgaV%2B7QUS5tTKpzc6OUbis4Kl5YruF2gAg8Eda7so4MvjNNTUt9aNt7S%2FhNFk%2BRVvWVksAxFmBU5nTkyS9mB747JSUrbYA\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=EPkLC9Cnrqfoxj9GDSSzYnFpDP7GLwEUyYZSyhNOwA9groJO1BDoS%2FwbKqkoFJbHtEDjwvce2tDiXjOqmRvAKN5jcc8zgq%2BJgO35cXjk0KWiTaRgwl5VRNrsY5zyV5H6BY6sIfEf7D5nWZTi\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=9,cfOrigin;dur=0,cfWorker;dur=98, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=93, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -994,9 +993,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "requestStorageAccess: Permission denied."
     ],
@@ -1006,11 +1005,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1022,15 +1021,15 @@
         "error": "net::ERR_ABORTED"
       },
       {
+        "url": "https://backend.leadconnectorhq.com/funnels/funnel/geo-location/",
+        "error": "net::ERR_ABORTED"
+      },
+      {
         "url": "https://backend.leadconnectorhq.com/forms/form-survey-event",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://www.gstatic.com/recaptcha/releases/A7KpaEASfhDcK0nXxgQEyyYv/recaptcha__en.js",
-        "error": "net::ERR_ABORTED"
-      },
-      {
-        "url": "https://backend.leadconnectorhq.com/funnels/funnel/geo-location/",
+        "url": "https://www.gstatic.com/recaptcha/releases/rL1ELiQAg1kPezz6_H9hTZ_i/recaptcha__en.js",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1054,19 +1053,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35c28aa8e483d-SJC",
+      "cf-ray": "a1efd51d5cb551ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:42 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:50 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=sF3Q9dE1SNdSVrtNCXBZUO9lfvJvBMElKpCVSgLgtBXEFzQyEiWeZFZg5mEspSlTGUo9gbuTFGsZQ%2F%2Fy1Ai5FGJD9kNMWU5%2BCyONEtu7opg3OnC5xufgzV1qq3YWaGyolx%2Bw0rInPTrTg%2B5P\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=UEHeI9Y3rG5QFe%2F28SRS3KKZrUZyo4eFR6o4FPYoaazGRV6%2BPmCNSORr5FvrWio0BxrB8quovlEMgiYGh6%2BE9xqRmDbtd2GvHzY%2BQ2Yt4YTPzGnFgjO%2BPMnN%2B7ARVx4Dtf4O2aC9pZqRp5Pm\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=8,cfOrigin;dur=0,cfWorker;dur=96, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=11,cfOrigin;dur=0,cfWorker;dur=117, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1095,9 +1094,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -1110,11 +1109,11 @@
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1138,19 +1137,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35c43acd6483d-SJC",
+      "cf-ray": "a1efd5386c5451ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:46 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:54 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rgWtVMg6hmxOjgYw2lGTygbHPnnxS3ipl1SAF4t5xGXTQYaGulsP0csIuoyeWP%2BvxkLQeh8RJmFky3dnR698hd4QQKjzyEhAngwHlz3ic4lJhInY7MvL5GXs4X4Du8ccsNZ6E1KByi3keWeY\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=yFSHitXWcxXSUwXWih98T0UXbWOA2XgGPvJGZXP0eazfhyS0Tx1waps8I6OuypVkTpCl%2Bpe9WugdbMoISQnRL3nb5vuIQLUR07aE9A0dSsJ7nrvtiDyd2qRMe5WevjS0P67y0q%2FemLs%2B591A\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=9,cfOrigin;dur=0,cfWorker;dur=96, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=106, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1179,9 +1178,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -1190,15 +1189,15 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
-        "error": "net::ERR_ABORTED"
-      },
-      {
         "url": "https://vid.cdn-website.com/5d318c8a/videos/ZetSmqjETUGUgd35tNIF_san+diego+luxury+kitchen+remodel-v.mp4",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1222,19 +1221,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35c5eee88483d-SJC",
+      "cf-ray": "a1efd553ca4e51ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:50 GMT",
+      "date": "Wed, 22 Jul 2026 04:51:58 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=hMycfKHHedB5huqbMvZfokEJe8G%2Fl134XureQam%2FPOvxz0sL5PGgiWuvdnMethQ0ojGZlMZBEb6cfuF8TIJvZsOqbx5ShCzHDx4gULe81u5H%2FjJPKIsd3FW5%2BK0uS2svK%2BJGhyX6YBYrFXeq\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=fzTTcEK%2FAkpmPFpSma2XEFQRhHLcQBv%2FjbYfxao5r00S5LwAGOYPMj0a2pZV7w6VNb6YoFSQYxGlI%2Ftz%2FB5V%2Br%2FCTJWSfZyFos7sL6r5EUjvfJdTptXkFJW%2Bfa4MUPkG8Feta%2B31kdOLhoSX\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=8,cfOrigin;dur=0,cfWorker;dur=103, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=15,cfOrigin;dur=0,cfWorker;dur=99, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1263,9 +1262,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -1274,7 +1273,7 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1282,7 +1281,7 @@
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1306,19 +1305,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35c7b6929483d-SJC",
+      "cf-ray": "a1efd570496051ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:55 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:03 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=NGDtmyavpkhKxEgnIYiGzi11f2UFdCzKmr%2BUK%2FBD0OKOBqfrbvG%2BCAR2djEndnXtEkr1hSHCWI%2FrIb72tFfSkEnYcl3niRCq6RuOXHupR2DzM8HIfhclEeyMARzeZtip3Z31ZUEK9v7Djw7N\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=WQG%2FsQCLK7VmSvW%2FaloFVwzZZ%2FBEwYAlYxUbhkIH3I3VVgKvSLCk0rsecnZ5aNjW7BZMB2FwjqdAkFWKdJYlLrWblqr8pXP5g0kwdVXPbuK7g0hZxleAAnqgzmrV851VmkeRAYEQKHwiHo%2Fb\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=9,cfOrigin;dur=0,cfWorker;dur=96, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=13,cfOrigin;dur=0,cfWorker;dur=91, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1347,9 +1346,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -1358,15 +1357,15 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
-        "error": "net::ERR_ABORTED"
-      },
-      {
         "url": "https://vid.cdn-website.com/5d318c8a/videos/qDg0UmDTe272gICdvFxw_Bathroom+Remodeling-v.mp4",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1390,19 +1389,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35c960bfb483d-SJC",
+      "cf-ray": "a1efd58adffb51ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:19:59 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:07 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=fYJdlrLTZfpU6ugpvESxjlRhtOLMwTSpzgSBzDvQUY6WYPMlH9q9yKKMndyP267Ink9mDqMgvTzYpcS425%2BypXPcSNyVOdGfG0NeEPD%2F2sujQCGG4ggFXvSp%2BAb%2FYnh9GSxGLDWvFQDBPjSR\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=wwQn8EZiFupIlZLYlTmQfDoxNkunBIxV9%2BSfsH8TOIkuddXVA3BlCwz5hMGolyB%2FORiWe8iUvTWQjkAHLt3%2Feb8MKmosuYvMZvNycHaEjIi7ziI1PmynaqzgFmYLRKkvBYADPtdafA2fu5JY\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=10,cfOrigin;dur=0,cfWorker;dur=98, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=16,cfOrigin;dur=0,cfWorker;dur=86, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1431,9 +1430,9 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
     ],
     "requestFailures": [
@@ -1442,11 +1441,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1470,19 +1469,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35cb05e2e483d-SJC",
+      "cf-ray": "a1efd5a4fe4f51ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:20:04 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:11 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7grv2rxaHHi8AAmUwv519uMNE%2BQhcWoKgUQfcU%2BqYnqJPa2%2FOcdLNiflMjOVlGQv7K64%2BalS8F7siCU6QgcYPMQeU7%2BIx3%2FzhX5AviJvfA9ZwqTv87qLDDHahksd2ZvNJ0rWuef%2BFGR%2B5iyS\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=fQqLVbxFMenhgwz%2BNQWCqJsrMt14J2X%2FEidioU2htVx7ytUSisobBu5xpUUiPyi1UmAhPbisxZXeZVDU%2FeEwBfElyyzb%2FJR%2BCAEyPkiqpf%2B4mW4W0oFCPpx3qQnD309bDcmyZ541VKCV%2FxY%2F\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=12,cfOrigin;dur=0,cfWorker;dur=108, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=17,cfOrigin;dur=0,cfWorker;dur=106, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1512,10 +1511,10 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
-      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node"
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
     ],
     "requestFailures": [
       {
@@ -1523,12 +1522,16 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://connect.facebook.net//log/error?p=pixel&sl=2&v=2.9.359&e=%5BMeta%20pixel%5D%20Bot%20traffic%20detected%20and%20blocked%20-%20pixel_id%3A%20683764771465544&ue=0&rs=stable&rqm=FGET",
+        "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
         "url": "https://rtc.multiscreensite.com/performance/metrics",
@@ -1536,6 +1539,14 @@
       },
       {
         "url": "https://rtc.multiscreensite.com/performance/metrics",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://rtc.multiscreensite.com/feature/metrics",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://rtc.multiscreensite.com/feature/metrics",
         "error": "net::ERR_ABORTED"
       }
     ]
@@ -1551,19 +1562,19 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "no-cache, must-revalidate",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35cd529c7483d-SJC",
+      "cf-ray": "a1efd5c9ee3751ae-LAX",
       "content-encoding": "zstd",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:20:09 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:17 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "priority": "u=0,i",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CHqm0xxccGS5IcjUDdKweP0a9NaV4z%2Bs5xVbRCpkhcJ%2FFPy%2FVOo4PZbpJzNimdCA99l4CTGFcMTSMGyJ77MYh%2BiCRCPm1ZHn5BVJu8hu%2FJsjFPwrPbjIhMrYWf5WCJxlH7Bq%2FQ1dIhmBR6tv\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=hKa7BSqALMGWmZkJ7%2F8UhthcucajCVoldC0AHuKrd0%2B2tRJirnfGQ7yBNohCdjQuxLnwu%2F44nyhUt%2FRmSoSbDIrF7P%2Bczh2oLr4sv3u%2Fvzmx%2BnQJQ87JroBEUQn%2FlFkYFAe1wNXI%2Fml3tZ9c\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=14,cfOrigin;dur=0,cfWorker;dur=113, cfExtPri",
+      "server-timing": "cfCacheStatus;desc=\"DYNAMIC\", cfEdge;dur=21,cfOrigin;dur=0,cfWorker;dur=114, cfExtPri",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "vary": "user-agent,accept-encoding",
@@ -1593,10 +1604,11 @@
     },
     "consoleErrors": [
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+      "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "eapps.Platform throws: \"Widget \"2734b822-04a2-4b4f-a8b1-c2bd179e9dce\" can`t be initialized because WIDGET_NOT_FOUND\" with \n\t -> JSHandle@node",
       "Failed to load resource: the server responded with a status of 404 ()",
-      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+      "Refused to execute script from 'https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
     ],
     "requestFailures": [
       {
@@ -1604,11 +1616,11 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8poyXQiFg",
+        "url": "https://calidreamconstruction.com/hra2/xMpyiN9zGqNbHIMib8G-2vt91cvSvIvNDc0ZR-dNvm8noyXQiFg",
         "error": "net::ERR_ABORTED"
       },
       {
-        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67e1h1&f=1",
+        "url": "https://calidreamconstruction.com/hra2/?id=G-8X0YRNEBF6&cx=c&gtm=4e67k1h1&f=1",
         "error": "net::ERR_ABORTED"
       },
       {
@@ -1632,17 +1644,17 @@
       "access-control-allow-origin": "*",
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=1800",
-      "cf-ray": "a1c35cf048b6f005-SJC",
+      "cf-ray": "a1efd5e51de8d7a4-LAX",
       "content-encoding": "br",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html; charset=utf-8",
-      "date": "Thu, 16 Jul 2026 19:20:14 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:22 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "permissions-policy": "camera=(), microphone=(), geolocation=(self)",
       "referrer-policy": "strict-origin-when-cross-origin",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=YLefv8pY8CECGcrTzQnqZ45wsNVRGb9y%2BHTzGxksvPNcLLJQmYsX30zshXA%2FFzvpYWkuEbu%2BeGDB10rEUpecoLDLqvdD1vrtyWDVw1JIwW8WnKlgRyKt2Tw5Ec%2Bdps52FQhzFoULr2hp2NhA3tC2nqMHU7zBJ%2FY%3D\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=yXHBMa7YPC1eApQvUVDcnscWZY97wp%2BYWAaKTO8ZZFzm3Oa%2FP1qMu1WdlE6ntB0UwmSqBr2j%2BxwNwUofJvoIy8dsacXxMYZRxcH72jkakdP3s71vJbwD6M1VEZNsnz%2B6BcQYG84aeU7ETxfrWVnpoVEhVVfPBCY%3D\"}]}",
       "server": "cloudflare",
-      "server-timing": "cfEdge;dur=13,cfOrigin;dur=0,cfWorker;dur=26",
+      "server-timing": "cfEdge;dur=65,cfOrigin;dur=0,cfWorker;dur=113",
       "speculation-rules": "\"/cdn-cgi/speculation\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
       "x-content-type-options": "nosniff",
@@ -1650,13 +1662,13 @@
       "x-robots-tag": "index, follow"
     },
     "finalUrl": "https://blog.calidreamconstruction.com/",
-    "title": "CaliDream Blog | San Diego Remodel Costs & Guides",
+    "title": "Cali Dream Construction Guides | San Diego Remodel Planning",
     "dom": {
-      "h1": "San Diego Remodeling Knowledge Base",
+      "h1": "Remodel planning built on real properties and official sources",
       "viewportMeta": "width=device-width, initial-scale=1.0",
       "viewportWidth": 390,
       "scrollWidth": 390,
-      "scrollHeight": 6252,
+      "scrollHeight": 7736,
       "edgeComponents": [],
       "reviewContainers": 0,
       "forms": [],
@@ -1667,10 +1679,9 @@
         "tel:+18584347166"
       ],
       "textLinks": [],
-      "bodyTextStart": "Cali Dream Construction Articles Area Guides Expert Guides Projects Calculators Free Estimate San Diego Remodeling Knowledge Base Real costs, real timelines, real contractor advice. Written by a licensed San Diego design-build firm that does the work — not a content farm. Get a Free Estimate (858) 434-7166 1,200+ In-depth Articles 45+ San Diego Cities CSLB #1054602 Browse by Category 1,179 Blog Articles Kitchen remodels, bathroom renovations, ADUs, luxury builds, commercial construction 305 Area Guides City-specific pricing, permits, contractors, and neighborhood insights 208 Expert Guides Planning, budgeting, permits, materials, and contractor selection 5 Project Case Studies Real San Diego project photos, scope notes, budget ranges, and timelines 50+ Cost Calculators Instant estimates for kitchen, bathroom, ADU, roofing, and more Popular Guides Kitchen San Diego Kitchen Remodel Timeline Week-by-week breakdown of what to expect during your kitchen renovation — from demo to final walkthrough. Additions Home Addition Cost in San Diego Real pricing for room additions, second stories, and bump-outs from a licensed San Diego contractor. ADU San Diego ADU Permit Process Step-by-step guide to ADU permits in San Diego — timelines, fees, and what trips up most homeowners. Cost, Comparison, And Project Proof Kitchen Remodel Cost in Encinitas Budget ranges, scope drivers, permit notes, and contractor guidance for coastal kitchens. Bathroom Remodel Cost in La Jolla Luxury bath pricing, waterproofing, tile, glass, ventilation, and HOA planning factors. ADU Cost in San Diego Detached ADU and conversion cost ranges with utility, permit, and rental-ready tradeoffs. ADU vs Garage Conversion Compare timeline, cost, property constraints, rental value, and the better fit for your lot. Quartz vs Granite Countertops Selection guidance for remodel budgets, maintenance, heat tolerance, and long-term durability. Custom Home Build in Encinitas Real project photos and scope notes from a hillside custom-home build. Ready to Start Your Remodel? Get a free estimate from San Diego's trusted design-build contractor. Or call (858) 434-7166 Service Areas We serve all of San Diego County — from the coast to the mountains. Escondido Carlsbad La Jolla Rancho Santa Fe Encinitas Oceanside Del Mar Solana Beach Coronado Alpine Santee El Cajon Chula Vista San Marcos Poway All 45+ Cities → © 2026 Cali Dream Construction · CSLB #1054602 · (858) 434-7166 Main Site · Articles · Areas · Guides · Projects · Calculators · Sitemap Ready to Start Your Remodel? Get a free estimate from San Diego's trusted design-build contractor. CSLB #1054602. Or call now: (858) 434-7166 Explore Cali Dream Construction Kitchen Remodeling Bathroom Remodeling ADU Construction Deck Building Free Estimate"
+      "bodyTextStart": "Cali Dream Construction Articles Area Guides Planning Guides Project Proof Planning Tools Discuss a Project Owner-led San Diego County general contractor · CSLB #1054602 Remodel planning built on real properties and official sources Use current permit links, project-planning checklists and local construction guidance before committing to a kitchen, bathroom, ADU, addition or whole-home scope. Open the Permit & Jurisdiction Guide Call (858) 434-7166 Official-source links Public agency pages are cited for permit, zoning and ADU facts. Property-specific planning Scope, site conditions and jurisdiction determine the path. Direct project contact Discuss fit, constraints and the next useful step with an owner-led contractor. New · Updated July 15, 2026 Which agency actually controls your remodel? A ZIP code is not a permitting jurisdiction. This homeowner hub organizes the City of San Diego, unincorporated County, Encinitas, Carlsbad and Oceanside permit, zoning, records and ADU starting points. Use the jurisdiction guide City vs. unincorporated County Official permit and property portals Encinitas July 2026 fee changes County ADU separate-sale update Pre-bid records checklist Start with the decision you are making These resources are organized around homeowner decisions, not generic keyword variations. KITCHEN PLANNING Scope before price Separate layout, structural, utility, finish and access decisions before treating an early range as a bid. Review kitchen planning → BATHROOM PLANNING Waterproofing, ventilation and layout Understand the hidden systems that matter more than a finish-only shopping list. Review bathroom planning → ADU FEASIBILITY Property constraints before floor plans Start with jurisdiction, zoning, access, utilities, fire requirements and existing conditions. Review ADU planning → SPACE STRATEGY Addition or ADU? Compare the household problem each option solves before choosing a project type. Compare the options → MATERIAL CHOICE Quartz or granite? Compare maintenance, heat exposure, fabrication, seams and visual variation for the actual kitchen. Compare countertops → PROJECT PROOF See scope notes and photos Use project documentation to evaluate execution, sequencing and the kind of work being discussed. View project proof → Project pathways Move from a broad idea to a property-specific conversation. Kitchens & bathrooms Layout, utilities, ventilation, waterproofing, cabinetry, tile, lighting and finish coordination. Kitchen service Bathroom service Related articles ADUs & additions Jurisdiction, feasibility, plans, engineering, utilities, access, permit responsibility and construction sequencing. ADU service Addition service Permit guide Whole-home remodeling Phasing, temporary living, structural changes, service upgrades, windows, finishes and closeout. Whole-home service Planning guide Project proof Outdoor & exterior work Drainage, access, grading, retaining, structure, weather exposure and coastal or neighborhood constraints. Out"
     },
     "consoleErrors": [
-      "Failed to load resource: the server responded with a status of 404 ()",
       "Failed to load resource: the server responded with a status of 404 ()",
       "Failed to load resource: the server responded with a status of 404 ()",
       "requestStorageAccess: Permission denied.",
@@ -1686,17 +1697,17 @@
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=300",
       "cf-cache-status": "DYNAMIC",
-      "cf-ray": "a1c35d0b48bd0995-SJC",
+      "cf-ray": "a1efd6037f4e2f0e-LAX",
       "connection": "keep-alive",
       "content-encoding": "br",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/html;charset=utf-8",
       "d-cache": "from-cache",
       "d-geo": "US",
-      "date": "Thu, 16 Jul 2026 19:20:18 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:27 GMT",
       "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=UNp18Cla5B%2FToYDSK8ZVOcyYJqbInUYEHWQUxxztgInYSK9TDgf%2FSCoewArRtodLC6AmZ7i9jNUzf2dCFeHzjhIOm2xyRBicosshZBQ0bcvzKVKFYdaZyN%2Ba9NNqZK4rC%2FcAaXY0%2FNPU5T0N\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=C0T%2Bq3j2oFbAdoOciXM83j5TyZSEAcy6WnS6TG6%2Bh8vn9MVtZrfEd2RiF2EaWw6mloDTZtx%2Bj%2F%2B5ivCarTX%2B0elV8deI5gnsw1aAynSUuSPncApW73%2By%2FCaWfwA6diZMVs2PlEu0Y3C0bBT%2F\"}]}",
       "server": "cloudflare",
       "speculation-rules": "\"https://static.cdn-website.com/speculations/rules/prerender-1.0.3.json\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
@@ -1715,13 +1726,13 @@
     "headers": {
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=3600",
-      "cf-ray": "a1c35d0d6df80995-SJC",
+      "cf-ray": "a1efd60589042f0e-LAX",
       "connection": "keep-alive",
       "content-encoding": "br",
       "content-type": "text/plain; charset=utf-8",
-      "date": "Thu, 16 Jul 2026 19:20:18 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:27 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=BuuWXWHGqyIKggArS1wB5ITymq38nTKXgH7IEH%2BC59XO%2BGRE2RkST7xpqpMmeG7ghmwA769mJUEAd0ef2%2FQkA2d8%2F2q1juLeuu%2ByyR7zveCI46Ft9TThgpyWtvu9u8g4iJwWuwTK2FW5NQHV\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=VfwRo3vLgBDT9XRKl8uOv1Beccrf%2BB6S%2FLm4LgDm6b9lWI5yB7aNpts4hmMIJ39YzacZ%2FbRvqSv%2FYo7iZlHisIqfX%2FX5mwEI0Nai3Gs%2BsbYeeZ4jwpjkSMKVA6VaMz5bLnGCaTPZF7ZigyH9\"}]}",
       "server": "cloudflare",
       "speculation-rules": "\"/cdn-cgi/speculation\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
@@ -1738,13 +1749,13 @@
     "headers": {
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=3600",
-      "cf-ray": "a1c35d0d8e220995-SJC",
+      "cf-ray": "a1efd605a91b2f0e-LAX",
       "connection": "keep-alive",
       "content-encoding": "br",
       "content-type": "application/xml; charset=utf-8",
-      "date": "Thu, 16 Jul 2026 19:20:18 GMT",
+      "date": "Wed, 22 Jul 2026 04:52:27 GMT",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ljD3dzZbrbzt4EVWAXoxIYrM6q2oWedpooEgSHPbTz0ZgYlHHowYLPOaCI215WmwWNcdlQxfwH%2FybjmbGH1xqaJTujxXGl7EvL%2BvA9vgkRXS1nutMOgvafjogHuiqKPYOfntGU1%2FoNeQPL5r\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PLiNMWI%2FM2MNcKhRBKZfd%2B%2BOJvNEF3I4ZKiRCTXk8lP9BkSYu9DfdXbLQF5nlFwBMajz9rgAFUKEa0y0bdFkFtPHex7Z%2FRn6OiYOh%2FIS5jJ1K1fkPwIjsNmspFzkGI9q0vk5FodyuYv8VFs6\"}]}",
       "server": "cloudflare",
       "speculation-rules": "\"/cdn-cgi/speculation\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
@@ -1762,17 +1773,17 @@
       "access-control-allow-origin": "*",
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=86400",
-      "cf-ray": "a1c35d0e5d65e34e-SJC",
+      "cf-ray": "a1efd606cae22a95-LAX",
       "connection": "keep-alive",
       "content-encoding": "br",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "text/plain; charset=utf-8",
-      "date": "Thu, 16 Jul 2026 19:20:18 GMT",
-      "etag": "W/\"163f744e2716e0aaa7e7d42e2800b59a\"",
+      "date": "Wed, 22 Jul 2026 04:52:27 GMT",
+      "etag": "W/\"6eeca7e604d4258f4926abc537a39ed3\"",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "permissions-policy": "camera=(), microphone=(), geolocation=(self)",
       "referrer-policy": "strict-origin-when-cross-origin",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ZOf8Oc8SvrRNkoCn5VY9e8qXSBXeDZJFr7YnwGLGbhVQk%2BQD1GipChtDC30%2BpW7WaPbFkBMNKyW9xW3ERqZx3pPECBl00gr9sDsg6zaCbZ1gyY3jBDNRs1K0T4aW%2FjR2RNNTN9MoIebVZjWau52FTcgZLFV0DD0%3D\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CnNESwRN72tlnV6FX2NQM0hdtcS%2BLpAzOiBAEmbd%2FanBFC1UzzdL7znzPKkn%2F%2FLYQ6hSfFD5D5YxxnsgI8tJGpqsKn8QE8bGw%2FMXNuPyKPLogOjsHsapyKambAIR%2FBk8wSosribBWVKflgzRHoLY%2BCv22%2BkdHwE%3D\"}]}",
       "server": "cloudflare",
       "speculation-rules": "\"/cdn-cgi/speculation\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
@@ -1781,7 +1792,7 @@
       "x-frame-options": "SAMEORIGIN",
       "x-robots-tag": "index, follow"
     },
-    "body": "# Cali Dream Construction Blog Robots.txt\n# Optimized for all search engines + AI crawlers\n\nUser-agent: *\nAllow: /\n\n# Sitemaps\nSitemap: https://blog.calidreamconstruction.com/sitemap.xml\n\n# AI/LLM Information (for ChatGPT, Perplexity, Claude, etc.)\n# See /llms.txt for structured business information\n\n# Crawl-delay (be nice to servers)\nCrawl-delay: 1\n\n# Block internal/admin paths\nDisallow: /api/\nDisallow: /admin/\nDisallow: /*.json$\nDisallow: /config/\nDisallow: /_quarantine_posts/\nDisallow: /_backups/\n\n# === SEARCH ENGINE CRAWLERS ===\nUser-agent: Googlebot\nAllow: /\n\nUser-agent: Googlebot-Image\nAllow: /\n\nUser-agent: Bingbot\nAllow: /\n\nUser-agent: Slurp\nAllow: /\n\nUser-agent: DuckDuckBot\nAllow: /\n\n# === AI SEARCH CRAWLERS ===\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: anthropic-ai\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: CCBot\nAllow: /\n\nUser-agent: Amazonbot\nAllow: /\n\nUser-agent: cohere-ai\nAllow: /\n\nUser-agent: Meta-ExternalAgent\nAllow: /\n\n# === SOCIAL MEDIA CRAWLERS ===\nUser-agent: facebookexternalhit\nAllow: /\n\nUser-agent: Twitterbot\nAllow: /\n\nUser-agent: LinkedInBot\nAllow: /\n\nUser-agent: Pinterest\nAllow: /\n\nUser-agent: Slackbot\nAllow: /\n\n# === APPLE CRAWLERS ===\nUser-agent: Applebot\nAllow: /\n\n# === ARCHIVE/RESEARCH ===\nUser-agent: ia_archiver\nAllow: /\n"
+    "body": "User-agent: *\nAllow: /\n\nSitemap: https://blog.calidreamconstruction.com/sitemap.xml\n"
   },
   {
     "phase": "before",
@@ -1791,17 +1802,17 @@
       "access-control-allow-origin": "*",
       "alt-svc": "h3=\":443\"; ma=86400",
       "cache-control": "public, max-age=3600",
-      "cf-ray": "a1c35d0e8dcae34e-SJC",
+      "cf-ray": "a1efd6074b532a95-LAX",
       "connection": "keep-alive",
       "content-encoding": "br",
       "content-security-policy": "frame-ancestors 'self'",
       "content-type": "application/xml",
-      "date": "Thu, 16 Jul 2026 19:20:18 GMT",
-      "etag": "W/\"4364cc46bc695c834001ef2c93fece35\"",
+      "date": "Wed, 22 Jul 2026 04:52:27 GMT",
+      "etag": "W/\"5ac2c6e08bfaa97d1ba2be1827b13e27\"",
       "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
       "permissions-policy": "camera=(), microphone=(), geolocation=(self)",
       "referrer-policy": "strict-origin-when-cross-origin",
-      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=qdOiKQ3%2BHak8X1nnhFvpBiAgVJiKu2gHtCuhaUHZhBsqfIMXeeAWm88lZp2thu6bISRfWijC4ns9pcSDMYsKtPehDBNZj3LxxgeVD14eVtZUvH5Bh572UDUKGjRKSOm6CXb23iI8KbTB1XeyNd24BAIvX2wAHok%3D\"}]}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=LYnsZTNveEe2KEw%2BYTDBu1S4TYBELk%2BHFwvDOzp0DWPYEJlGKX1ZigPxzSJeF0wvDjBfAhDXGrhmylt66R4Sk1wXjPNpFopFkBbhookv6uWSkB0MO8tSzewnWYJehvu2A9gqAE%2BHZirAzLKDD%2FXFhkNbfV5NZPQ%3D\"}]}",
       "server": "cloudflare",
       "speculation-rules": "\"/cdn-cgi/speculation\"",
       "strict-transport-security": "max-age=31536000; includeSubDomains",
@@ -1810,6 +1821,6 @@
       "x-frame-options": "SAMEORIGIN",
       "x-robots-tag": "index, follow"
     },
-    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodeling-across-san-diego-neighborhoods</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/best-contractor-poway-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/multigenerational-home-design-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/tile-shower-vs-acrylic-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builders-in-cardiff-by-the-sea-encinitas-permits-coastal-zone-costs-roi-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/tile-flooring-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/pergola-installation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/energy-rebates-san-diego-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/sliding-glass-door-replacement-cost</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/luxury-kitchen-design-4s-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-rancho-bernardo</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-kitchen-remodel-cost-factors-to-consider</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/electrical-panel-upgrade-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/national_city_permits_approvals</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-remodel-cost-per-square-foot-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/guides/roof-insurance-claims-california-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/rancho-santa-fe-kitchen-remodel-guide-layouts-materials-and-must-have-features</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-scripps-ranch-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/rancho-bernardo-home-remodel</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/foundation-repair-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/lemon_grove_junior_adu</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/sunroom-addition-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-contractor-rancho-bernardo</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/aging-in-place-remodeling-coronado-universal-design-upgrades-high-end</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/interior-painting-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-cost-poway</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/pool-deck-resurfacing-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/home-addition-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/ev-charger-installation-home-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-remodel-poway</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/oceanside_adu_designer_guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/spring-home-maintenance-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-san-diego-cost</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-contractor-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-remodel-permit-cost</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-vs-adu-which-one-solves-the-right-problem</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/garage-conversion-adu-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-4s-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/wine-cellar-installation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/garage-conversion-san-diego-cost</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-cost-san-diego-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/outdoor-kitchen-rancho-bernardo</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-cost-rancho-bernardo</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodel-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/carlsbad_junior_adu</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/stucco-repair-cost-san-diego-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/popcorn-ceiling-removal-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/carlsbad_garage_conversion</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bay-window-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/asphalt-vs-concrete-driveway-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/tankless-water-heater-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/design-build-vs-general-contractor</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-scripps-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/two-story-adu-san-diego-regulations</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/luxury-kitchen-design-rancho-santa-fe</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-remodel-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/luxury-kitchen-design-scripps-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/garage-conversion-adu-4s-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/asbestos-removal-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/artificial-turf-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodeling-in-san-diego-what-to-expect-and-how-to-prepare</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/scripps-ranch-home-renovation</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/guides/rancho_bernardo_kitchen_designer_guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-renovation-san-diego-cost</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-permits-san-diego-complete-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/hvac-replacement-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/electrical-panel-upgrade-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-building-permit-cost-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/ceiling-fan-installation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-cost-san-diego-complete-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/compare/adu-vs-garage-conversion</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/compare/quartz-vs-granite-countertops</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodel-cost-encinitas</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-la-jolla</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/custom-paver-steps-and-walkway-in-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/modern-backyard-with-pool-and-landscaping-in-encinitas</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/modern-kitchen-with-marble-countertops-in-encinitas</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/luxury-bathroom-tile-work-in-encinitas-new-build</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/custom-home-build-in-encinitas</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/home-addition-financing-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/bathroom-remodel-financing-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/home-remodeling-financing-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/fha-203k-loan-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/kitchen-remodel-financing-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/renovation-loan-process-step-by-step</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/heloc-vs-home-equity-loan-remodel</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/adu-financing-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/cash-out-refinance-vs-heloc-remodel</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/fannie-mae-homestyle-renovation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/exterior</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/whole-home</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/adu</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/bathroom</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/how_to_replace_light_fixture_basic</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/kitchen</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/interior_trim_packages_and_detailing</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/la-jolla-whole-home-remodel-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/coronado-adu-guest-suite-options-design-ideas-what-to-expect-in-the-permit</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/driveways-pavers-and-drainage-in-poway-preventing-runoff-problems-before-they-st</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/summer-remodel-tips-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-marcos-home-renovation</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/faq-how-to-prepare-home-for-remodel</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodel-contractor-near-me-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/permit_timeline_san_diego_county_adu_additions</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/what-to-photograph-on-every-remodel-so-your-website-shows-real-proof</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/insulation-upgrade-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/fall-home-prep-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-kitchen-layout-mistakes</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/murphy-bed-installation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/solana-beach-windows-and-doors-upgrade-energy-corrosion-resistance</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/roof_deck_waterproofing_san_diego_design_guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/faq-how-to-budget-home-remodel-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/security-system-installation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/do-you-need-a-permit-for-kitchen-remodeling-in-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/est-kitchen-flooring-for-poway-homes-heat-pets-kids-easy-cleaning</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/0466_custom-home-builder-selection-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/water-damage-repair-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/remodeling-in-poways-fire-hazard-areas-what-to-upgrade-first-roof-vents-decks-la</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bonita-home-renovation</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/pool-house-del-sur</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/el-cajon-bathroom-ventilation-and-mold-prevention-design-choices</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/carlsbad-outdoor-kitchen-fire-feature-what-to-plan-first</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/oceanside-coastal-cottage-remodel-keeping-charm-while-upgrading-systems</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/coastalproof-hardware-finishes-cabinets-hinges-and-metals-that-resist-salt-air</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/lvp-vs-hardwood-san-diego-homes</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/coronado-home-additions-expand-without-sacrificing-coastal-style</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-home-remodel-san-diego-guide-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/rancho-bernardo-home-remodel-hoa-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/la_mesa_garage_conversion</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodeling-in-coronado-california-costs-permits-timelines-what-homeowner</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-la-jolla-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/vista-garage-conversion-or-adu-for-extra-income-what-to-budget</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/mold-remediation-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/what-a-realistic-poway-remodel-timeline-looks-like-from-design-to-final-inspecti</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/santee-kitchen-remodel-surfaces-that-handle-everyday-abuse</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/estate-renovation-4s-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/0182_retail-store-construction-california</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/do-you-need-a-permit-for-kitchen-remodeling-in-carmel-mountain-ranch</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san_diego_garage_conversion</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/commercial-tenant-improvement-san-diego-guide</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/remodeling-historic-home-coronado</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-san-diego-prices</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/punch_list_process_for_homeowners</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-renovation-santaluz</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/design-build-firms-san-diego-comparison</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-rewiring-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/choose-contractor-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/2026_del_mar_whole_house_timeline</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-marcos-garage-conversion-to-gym-or-office-essentials-first</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-whole-home-remodel-budgeting-how-to-avoid-scope-creep</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/oceanside-deck-waterproofing-and-balcony-repair-what-homeowners-miss</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/storefront_and_commercial_glazing_overview</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-del-mar</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/how-to-plan-adu-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-home-remodel-roi-2026</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/aging-in-place-remodeling-in-poway-beautiful-accessibility-not-hospital-design</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/paver-driveway-cost-san-diego</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/cardiff-by-the-sea-water-damage-"
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://blog.calidreamconstruction.com/blog/best-contractor-poway-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodeling-across-san-diego-neighborhoods</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builders-in-cardiff-by-the-sea-encinitas-permits-coastal-zone-costs-roi-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/multigenerational-home-design-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/tile-shower-vs-acrylic-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/pergola-installation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/tile-flooring-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/sliding-glass-door-replacement-cost</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/energy-rebates-san-diego-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-rancho-bernardo</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/luxury-kitchen-design-4s-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-kitchen-remodel-cost-factors-to-consider</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-remodel-cost-per-square-foot-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/electrical-panel-upgrade-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/guides/roof-insurance-claims-california-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/national_city_permits_approvals</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-scripps-ranch-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/rancho-santa-fe-kitchen-remodel-guide-layouts-materials-and-must-have-features</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/rancho-bernardo-home-remodel</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/foundation-repair-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/lemon_grove_junior_adu</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/sunroom-addition-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-contractor-rancho-bernardo</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/aging-in-place-remodeling-coronado-universal-design-upgrades-high-end</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/interior-painting-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-cost-poway</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/pool-deck-resurfacing-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/home-addition-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/ev-charger-installation-home-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/oceanside_adu_designer_guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-remodel-poway</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/spring-home-maintenance-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-san-diego-cost</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-contractor-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-remodel-permit-cost</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/garage-conversion-adu-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-4s-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-vs-adu-which-one-solves-the-right-problem</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/wine-cellar-installation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/garage-conversion-san-diego-cost</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-cost-san-diego-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/outdoor-kitchen-rancho-bernardo</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-addition-cost-rancho-bernardo</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodel-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/carlsbad_junior_adu</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/popcorn-ceiling-removal-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/stucco-repair-cost-san-diego-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/areas/carlsbad_garage_conversion</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bay-window-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/asphalt-vs-concrete-driveway-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/tankless-water-heater-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-builder-scripps-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/design-build-vs-general-contractor</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/two-story-adu-san-diego-regulations</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/luxury-kitchen-design-rancho-santa-fe</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-remodel-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/garage-conversion-adu-4s-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/luxury-kitchen-design-scripps-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/artificial-turf-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/asbestos-removal-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/scripps-ranch-home-renovation</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodeling-in-san-diego-what-to-expect-and-how-to-prepare</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-renovation-san-diego-cost</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/guides/rancho_bernardo_kitchen_designer_guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-permits-san-diego-complete-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/electrical-panel-upgrade-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/ceiling-fan-installation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/hvac-replacement-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-building-permit-cost-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-cost-san-diego-complete-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/compare/quartz-vs-granite-countertops</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/compare/adu-vs-garage-conversion</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodel-cost-encinitas</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-la-jolla</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/adu-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/modern-backyard-with-pool-and-landscaping-in-encinitas</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/custom-paver-steps-and-walkway-in-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/modern-kitchen-with-marble-countertops-in-encinitas</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/luxury-bathroom-tile-work-in-encinitas-new-build</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/projects/custom-home-build-in-encinitas</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/guides/san-diego-remodeling-permit-jurisdiction-guide/</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/bathroom-remodel-financing-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/home-remodeling-financing-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/kitchen-remodel-financing-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/renovation-loan-process-step-by-step</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/home-addition-financing-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/heloc-vs-home-equity-loan-remodel</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/adu-financing-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/cash-out-refinance-vs-heloc-remodel</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/fha-203k-loan-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/financing/fannie-mae-homestyle-renovation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/adu</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/bathroom</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/kitchen</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/exterior</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/services/whole-home</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/la-jolla-whole-home-remodel-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/coronado-adu-guest-suite-options-design-ideas-what-to-expect-in-the-permit</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/how_to_replace_light_fixture_basic</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/summer-remodel-tips-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-marcos-home-renovation</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/interior_trim_packages_and_detailing</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/faq-how-to-prepare-home-for-remodel</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodel-contractor-near-me-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/driveways-pavers-and-drainage-in-poway-preventing-runoff-problems-before-they-st</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/murphy-bed-installation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/permit_timeline_san_diego_county_adu_additions</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/what-to-photograph-on-every-remodel-so-your-website-shows-real-proof</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/insulation-upgrade-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/faq-how-to-budget-home-remodel-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/fall-home-prep-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-kitchen-layout-mistakes</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/est-kitchen-flooring-for-poway-homes-heat-pets-kids-easy-cleaning</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/solana-beach-windows-and-doors-upgrade-energy-corrosion-resistance</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/roof_deck_waterproofing_san_diego_design_guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/water-damage-repair-cost-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/remodeling-in-poways-fire-hazard-areas-what-to-upgrade-first-roof-vents-decks-la</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/security-system-installation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/do-you-need-a-permit-for-kitchen-remodeling-in-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/pool-house-del-sur</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/el-cajon-bathroom-ventilation-and-mold-prevention-design-choices</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/0466_custom-home-builder-selection-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/carlsbad-outdoor-kitchen-fire-feature-what-to-plan-first</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/oceanside-coastal-cottage-remodel-keeping-charm-while-upgrading-systems</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/coastalproof-hardware-finishes-cabinets-hinges-and-metals-that-resist-salt-air</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bonita-home-renovation</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/lvp-vs-hardwood-san-diego-homes</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/coronado-home-additions-expand-without-sacrificing-coastal-style</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-home-remodel-san-diego-guide-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/rancho-bernardo-home-remodel-hoa-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/la_mesa_garage_conversion</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/kitchen-remodeling-in-coronado-california-costs-permits-timelines-what-homeowner</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/estate-renovation-4s-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-cost-la-jolla-2026</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/vista-garage-conversion-or-adu-for-extra-income-what-to-budget</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/mold-remediation-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/do-you-need-a-permit-for-kitchen-remodeling-in-carmel-mountain-ranch</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san_diego_garage_conversion</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/what-a-realistic-poway-remodel-timeline-looks-like-from-design-to-final-inspecti</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/santee-kitchen-remodel-surfaces-that-handle-everyday-abuse</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/remodeling-historic-home-coronado</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-san-diego-prices</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/0182_retail-store-construction-california</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/punch_list_process_for_homeowners</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/home-renovation-santaluz</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/design-build-firms-san-diego-comparison</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/commercial-tenant-improvement-san-diego-guide</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/whole-house-rewiring-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/choose-contractor-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/2026_del_mar_whole_house_timeline</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/how-to-plan-adu-san-diego</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-marcos-garage-conversion-to-gym-or-office-essentials-first</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-whole-home-remodel-budgeting-how-to-avoid-scope-creep</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/oceanside-deck-waterproofing-and-balcony-repair-what-homeowners-miss</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/cardiff-by-the-sea-water-damage-repair-remodel-what-to-fix-before-finishes</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/storefront_and_commercial_glazing_overview</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/bathroom-remodel-del-mar</loc><lastmod>2026-07-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://blog.calidreamconstruction.com/blog/san-diego-home-remodel-roi-2026</loc><lastmod>2026-0"
   }
 ]
