@@ -6,7 +6,7 @@
     This script performs the following steps:
     1. Verifies that required tools (git) are installed.
     2. Clones or updates the selected Google Ads client libraries into a specified directory.
-    3. Updates the '.gemini/settings.json' file to include the project's API examples,
+    3. Updates the '.agents/settings.json' file to include the project's API examples,
        saved code, and the cloned client libraries in the context.
 
 .PARAMETER Python
@@ -165,7 +165,7 @@ foreach ($Lang in $AllLangs) {
 }
 
 # --- Modify settings.json ---
-$SettingsFile = Join-Path $ProjectDirAbs ".gemini\settings.json"
+$SettingsFile = Join-Path $ProjectDirAbs ".agents\settings.json"
 
 if (-not (Test-Path -LiteralPath $SettingsFile)) {
     Write-Error "ERROR: Settings file not found: $SettingsFile"
@@ -208,29 +208,7 @@ try {
     Write-Host "New contents of context.includeDirectories:"
     Write-Host ($SettingsJson.context.includeDirectories | Out-String)
 
-    Write-Host "Registering Google Ads API Developer Assistant as a Gemini extension..."
-    if (Get-Command gemini -ErrorAction SilentlyContinue) {
-        try {
-            $InstallOutput = "Y" | & gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git 2>&1 | Out-String
-            if ($LASTEXITCODE -ne 0) {
-                if ($InstallOutput -match "already installed") {
-                    Write-Host "Extension already installed. Reinstalling..."
-                    gemini extensions uninstall "google-ads-api-developer-assistant" 2>&1 | Out-Null
-                    $InstallOutput = "Y" | & gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git 2>&1 | Out-String
-                } else {
-                    Write-Warning $InstallOutput
-                    Write-Warning "Failed to register extension automatically. You may need to run 'gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git' manually."
-                }
-            } else {
-                Write-Host $InstallOutput
-            }
-        }
-        catch {
-            Write-Warning "An unexpected error occurred during extension registration: $_"
-        }
-    } else {
-        Write-Warning "'gemini' command not found. Skipping extension registration."
-    }
+
 }
 catch {
     Write-Error "ERROR: Failed to update settings file: $_"

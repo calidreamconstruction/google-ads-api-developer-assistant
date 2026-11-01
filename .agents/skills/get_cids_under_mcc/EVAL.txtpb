@@ -1,0 +1,31 @@
+suite_name: "Get CIDs under MCC"
+timeout_seconds: 300
+cases {
+  name: "Get CIDs under MCC basic invocation"
+  prompt: "Retrieve all child accounts under MCC 1234567890"
+  expected_tool_calls {
+    tool_name: "run_command"
+    arguments_contain: "./.venv/bin/python3"
+    arguments_contain: ".gemini/skills/get_cids_under_mcc/scripts/get_cids_under_mcc.py"
+    arguments_contain: "--customer_id"
+    arguments_contain: "1234567890"
+    arguments_contain: "--api_version"
+  }
+  expectations: "child accounts under MCC"
+}
+cases {
+  name: "Get CIDs under MCC with print and CSV flags"
+  prompt: "Get child accounts under MCC 1234567890, save to CSV and print them"
+  expected_tool_calls {
+    tool_name: "run_command"
+    arguments_contain: "./.venv/bin/python3"
+    arguments_contain: ".gemini/skills/get_cids_under_mcc/scripts/get_cids_under_mcc.py"
+    arguments_contain: "--customer_id"
+    arguments_contain: "1234567890"
+    arguments_contain: "--save_csv"
+    arguments_contain: "--print_cids"
+    arguments_contain: "--api_version"
+  }
+  expectations: "Results saved to"
+  expectations: "Child accounts under MCC"
+}

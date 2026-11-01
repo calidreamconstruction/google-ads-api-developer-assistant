@@ -5,11 +5,11 @@
 .DESCRIPTION
     This script performs the following steps:
     1. Updates the 'google-ads-api-developer-assistant' repository (git pull).
-    2. Reads '.gemini/settings.json' to locate configured client library repositories.
+    2. Reads '.agents/settings.json' to locate configured client library repositories.
     3. Updates each found client library repository (git pull).
 
 .PARAMETER ContextDir
-    Comma-separated list of directories to add to .gemini/settings.json context.includeDirectories.
+    Comma-separated list of directories to add to .agents/settings.json context.includeDirectories.
 
 .EXAMPLE
     .\update.ps1
@@ -70,7 +70,7 @@ Write-Host "Detected project root: $ProjectDirAbs"
 # --- Update Assistant Repo ---
 Write-Host "Updating google-ads-api-developer-assistant..."
 
-$SettingsFile = Join-Path $ProjectDirAbs ".gemini\settings.json"
+$SettingsFile = Join-Path $ProjectDirAbs ".agents\settings.json"
 $TempSettingsFile = [System.IO.Path]::GetTempFileName()
 
 $CustomerIdFile = Join-Path $ProjectDirAbs "customer_id.txt"
@@ -242,7 +242,7 @@ if ($SpecifiedLangs.Count -gt 0) {
 }
 
 # --- Locate and Update Client Libraries ---
-$SettingsFile = Join-Path $ProjectDirAbs ".gemini\settings.json"
+$SettingsFile = Join-Path $ProjectDirAbs ".agents\settings.json"
 
 # --- Handle ContextDir argument ---
 if ($null -ne $ContextDir -and $ContextDir.Count -gt 0) {

@@ -62,8 +62,8 @@ fi
 # 2. Setup "Project" in Temp Dir
 # install.sh expects to be run from within the repo
 # We will run it from FAKE_PROJECT, pretending it's the repo root
-mkdir -p "${FAKE_PROJECT}/.gemini"
-echo '{"context": {"includeDirectories": []}}' > "${FAKE_PROJECT}/.gemini/settings.json"
+mkdir -p "${FAKE_PROJECT}/.agents"
+echo '{"context": {"includeDirectories": []}}' > "${FAKE_PROJECT}/.agents/settings.json"
 
 # Create dummy directories that install.sh references
 mkdir -p "${FAKE_PROJECT}/api_examples"
@@ -91,17 +91,17 @@ for lang in php ruby java dotnet; do
 done
 
 # Check if settings.json updated
-if grep -q "google-ads-python" "${FAKE_PROJECT}/.gemini/settings.json"; then
+if grep -q "google-ads-python" "${FAKE_PROJECT}/.agents/settings.json"; then
     echo "PASS: settings.json contains google-ads-python"
 else
     echo "FAIL: settings.json does NOT contain google-ads-python"
-    cat "${FAKE_PROJECT}/.gemini/settings.json"
+    cat "${FAKE_PROJECT}/.agents/settings.json"
     exit 1
 fi
 
 # Verify other languages are NOT in settings.json
 for lang in php ruby java dotnet; do
-    if grep -q "google-ads-${lang}" "${FAKE_PROJECT}/.gemini/settings.json"; then
+    if grep -q "google-ads-${lang}" "${FAKE_PROJECT}/.agents/settings.json"; then
         echo "FAIL: settings.json contains google-ads-${lang} but should not (default is Python only)"
         exit 1
     fi
@@ -133,7 +133,7 @@ fi
 # Let's verify this behavior is what we expect or if it's a "bug" (or feature).
 # For now, I test that java IS present.
 
-if grep -q "google-ads-java" "${FAKE_PROJECT}/.gemini/settings.json"; then
+if grep -q "google-ads-java" "${FAKE_PROJECT}/.agents/settings.json"; then
     echo "PASS: settings.json contains google-ads-java"
 else
     echo "FAIL: settings.json does NOT contain google-ads-java"
@@ -141,7 +141,7 @@ else
 fi
 
 # Verify Python is present (Since Python is now always enabled)
-if grep -q "google-ads-python" "${FAKE_PROJECT}/.gemini/settings.json"; then
+if grep -q "google-ads-python" "${FAKE_PROJECT}/.agents/settings.json"; then
     echo "INFO: google-ads-python is STILL present (Always enabled)"
 else
     echo "FAIL: google-ads-python is GONE (It should always be present)"
