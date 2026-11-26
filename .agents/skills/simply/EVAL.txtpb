@@ -1,0 +1,10 @@
+suite_name: "Simply Explanation"
+timeout_seconds: 300
+cases {
+  name: "Simply explanation basic query"
+  prompt: "Simply explain the concept of click_view and how it is used in Google Ads API"
+  expectations: "The Big Picture"
+  expectations: "Analogy"
+  expectations: "Interconnectedness"
+  expectations: "Simple Language"
+}

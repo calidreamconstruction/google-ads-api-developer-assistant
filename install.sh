@@ -19,9 +19,6 @@
 #   It performs the following steps:
 #   1. Verifies that required tools (jq, git) are installed.
 #   2. Clones or updates the 'google-ads-python' repository into a specified directory.
-#   3. Updates the '.gemini/settings.json' file to include the project's API examples,
-#      saved code, and the cloned Python library in the context.
-#   4. Registers the project as a Gemini extension.
 
 # Exit on any error, and on undefined variables.
 set -eu
@@ -218,124 +215,195 @@ done
 clone_or_update() {
   local repo_url="$1"
   local clone_path="$2"
+  local log_file="$3"
   local repo_name
   
   repo_name=$(basename "${clone_path}")
 
-  echo "Managing repository ${repo_name} in ${clone_path}"
-  if [[ -d "${clone_path}/.git" ]]; then
-    echo "Directory ${clone_path} already exists. Updating..."
-    if ! (cd "${clone_path}" && git pull); then
-      echo "WARN: Failed to update ${repo_name}. Continuing..."
+  {
+    echo "Managing repository ${repo_name} in ${clone_path}"
+    if [[ -d "${clone_path}/.git" ]]; then
+      echo "Directory ${clone_path} already exists. Updating..."
+      if ! (cd "${clone_path}" && git pull); then
+        echo "WARN: Failed to update ${repo_name}. Continuing..."
+      else
+        echo "Successfully updated ${repo_name}."
+      fi
+    elif [[ -d "${clone_path}" ]]; then
+       echo "WARN: Directory ${clone_path} exists but is not a git repo. Skipping."
     else
-      echo "Successfully updated ${repo_name}."
+      echo "Cloning ${repo_url} into ${clone_path}"
+      if ! git clone "${repo_url}" "${clone_path}"; then
+        err "ERROR: Failed to clone ${repo_url}"
+        exit 1
+      fi
+      echo "Successfully cloned ${repo_name}."
     fi
-  elif [[ -d "${clone_path}" ]]; then
-     echo "WARN: Directory ${clone_path} exists but is not a git repo. Skipping."
-  else
-    echo "Cloning ${repo_url} into ${clone_path}"
-    if ! git clone "${repo_url}" "${clone_path}"; then
-      err "ERROR: Failed to clone ${repo_url}"
-      exit 1
-    fi
-    echo "Successfully cloned ${repo_name}."
-  fi
+  } > "${log_file}" 2>&1
 }
+
+# Standard arrays to track background processes (supported in Bash 3.2)
+pids=()
+log_files=()
+langs_running=()
+
+# Cleanup function for background jobs and logs on interruption
+cleanup_bg() {
+  echo "Installation interrupted. Cleaning up background processes..." >&2
+  for pid in "${pids[@]}"; do
+    if kill -0 "${pid}" 2>/dev/null; then
+      kill "${pid}" 2>/dev/null
+    fi
+  done
+  for log_file in "${log_files[@]}"; do
+    rm -f "${log_file}" 2>/dev/null
+  done
+}
+trap cleanup_bg INT TERM
 
 for lang in $ALL_LANGS; do
   if is_enabled "$lang"; then
     eval "path=\"\$LIB_PATH_${lang}\""
     url=$(get_repo_url "$lang")
-    clone_or_update "$url" "$path"
+    log_file="${PROJECT_DIR_ABS}/install_${lang}_log_$$.tmp"
+    
+    clone_or_update "$url" "$path" "${log_file}" &
+    pids+=($!)
+    log_files+=("${log_file}")
+    langs_running+=("${lang}")
   fi
 done
 
-# --- Modify settings.json ---
-readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.gemini/settings.json"
+# Wait for all background processes and report output
+failed=false
+set +e # Temporarily disable exit on error to check individual job status
+for i in "${!pids[@]}"; do
+  pid="${pids[$i]}"
+  lang="${langs_running[$i]}"
+  log_file="${log_files[$i]}"
+  
+  if ! wait "${pid}"; then
+    err "ERROR: Installation failed for ${lang}."
+    failed=true
+  fi
+  
+  if [[ -f "${log_file}" ]]; then
+    cat "${log_file}"
+    rm -f "${log_file}"
+  fi
+done
+set -e # Re-enable exit on error
 
-if [[ ! -f "${SETTINGS_FILE}" ]]; then
-  err "ERROR: Settings file not found: ${SETTINGS_FILE}"
+trap - INT TERM # Clear interruption traps
+
+if [[ "${failed}" == "true" ]]; then
+  err "ERROR: One or more library installations failed."
   exit 1
 fi
 
-echo "Updating ${SETTINGS_FILE} with context paths..."
+# --- Modify project.json ---
+readonly PROJECT_FILE="${PROJECT_DIR_ABS}/.jetskicli/project.json"
 
-readonly CONTEXT_PATH_EXAMPLES="${PROJECT_DIR_ABS}/api_examples"
-readonly CONTEXT_PATH_SAVED="${PROJECT_DIR_ABS}/saved/code"
+if command -v antigravity &> /dev/null; then
+  echo "Initializing Antigravity project..."
+  if ! antigravity project init; then
+    echo "WARNING: Failed to execute 'antigravity project init'. Using fallback initialization..."
+  fi
+fi
 
-# Construct jq args
-JQ_ARGS=(
-  --arg examples "${CONTEXT_PATH_EXAMPLES}"
-  --arg saved "${CONTEXT_PATH_SAVED}"
-)
+if [[ ! -f "${PROJECT_FILE}" ]]; then
+  echo "Project configuration file not found. Performing programmatic initialization..."
+  if ! python3 -c "
+import os, json, uuid
+project_dir = \"${PROJECT_DIR_ABS}\"
+project_file = \"${PROJECT_FILE}\"
+os.makedirs(os.path.dirname(project_file), exist_ok=True)
+data = {
+    \"id\": str(uuid.uuid4()),
+    \"name\": project_dir,
+    \"projectResources\": {
+        \"resources\": [
+            {
+                \"gitFolder\": {
+                    \"folderUri\": \"file://\" + project_dir,
+                    \"allowWrite\": True
+                }
+            }
+        ]
+    }
+}
+with open(project_file, \"w\") as f:
+    json.dump(data, f, indent=2)
+"; then
+    err "ERROR: Failed to initialize project.json using fallback."
+    exit 1
+  fi
+  echo "Successfully initialized ${PROJECT_FILE} via fallback."
+fi
 
-# Add each lib path as an arg
+echo "Updating ${PROJECT_FILE} with client library resources..."
+
+# Construct JSON array of library paths
+LIBS_JSON="["
+first=true
 for lang in $ALL_LANGS; do
   if is_enabled "$lang"; then
     eval "path=\"\$LIB_PATH_${lang}\""
-    JQ_ARGS+=(--arg "lib_${lang}" "${path}")
+    if [ "$first" = true ]; then
+      LIBS_JSON+="\"${path}\""
+      first=false
+    else
+      LIBS_JSON+=", \"${path}\""
+    fi
   fi
 done
+LIBS_JSON+="]"
 
-# Construct the array construction string for jq
-JQ_ARRAY_STR="[\$examples, \$saved"
-for lang in $ALL_LANGS; do
-  if is_enabled "$lang"; then
-    JQ_ARRAY_STR+=", \$lib_$lang"
-  fi
-done
-JQ_ARRAY_STR+="]"
+# Use jq to modify the project.json file
+TMP_PROJECT_FILE=""
+trap 'rm -f "${TMP_PROJECT_FILE}"' EXIT # Cleanup tmp file on exit
 
-# Use jq to modify the JSON file
-TMP_SETTINGS_FILE=""
-trap 'rm -f "${TMP_SETTINGS_FILE}"' EXIT # Cleanup tmp file on exit
-
-if ! TMP_SETTINGS_FILE=$(mktemp "${SETTINGS_FILE}.XXXXXX"); then
+if ! TMP_PROJECT_FILE=$(mktemp "${PROJECT_FILE}.XXXXXX"); then
   err "ERROR: Failed to create temporary file."
   exit 1
 fi
 
+# Append new gitFolder resources if they don't already exist
 if ! jq \
-  "${JQ_ARGS[@]}" \
-  ".context.includeDirectories = ${JQ_ARRAY_STR}" \
-  "${SETTINGS_FILE}" > "${TMP_SETTINGS_FILE}"; then
-  err "ERROR: jq command failed to update ${SETTINGS_FILE}"
+  --argjson libs "${LIBS_JSON}" '
+  .projectResources //= {"resources": []} |
+  .projectResources.resources //= [] |
+  reduce $libs[] as $new_path (.;
+    if (.projectResources.resources | any(
+         (.gitFolder.folderUri | sub("file://"; "")) as $existing |
+         $new_path == $existing or ($new_path | startswith($existing + "/"))
+       )) then
+      .
+    else
+      .projectResources.resources += [{
+        "gitFolder": {
+          "folderUri": ("file://" + $new_path),
+          "allowWrite": true
+        }
+      }]
+    end
+  )' \
+  "${PROJECT_FILE}" > "${TMP_PROJECT_FILE}"; then
+  err "ERROR: jq command failed to update ${PROJECT_FILE}"
   exit 1
 fi
 
 # Replace the original file with the modified one
-if ! mv "${TMP_SETTINGS_FILE}" "${SETTINGS_FILE}"; then
-  err "ERROR: Failed to move temporary file to ${SETTINGS_FILE}"
+if ! mv "${TMP_PROJECT_FILE}" "${PROJECT_FILE}"; then
+  err "ERROR: Failed to move temporary file to ${PROJECT_FILE}"
   exit 1
 fi
 
-echo "Registering Google Ads API Developer Assistant as a Gemini extension..."
-if command -v gemini &> /dev/null; then
-  # Use yes Y to handle the interactive prompt as --consent is not supported in OSS
-  # Capture output to detect "already installed" state
-  if ! INSTALL_OUTPUT=$(yes Y | gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git 2>&1); then
-    if [[ "${INSTALL_OUTPUT}" == *"already installed"* ]]; then
-      echo "Extension already installed. Reinstalling..."
-      gemini extensions uninstall "google-ads-api-developer-assistant" || true
-      yes Y | gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git
-    else
-      echo "${INSTALL_OUTPUT}" >&2
-      err "WARN: Failed to register extension automatically. You may need to run 'gemini extensions install https://github.com/googleads/google-ads-api-developer-assistant.git' manually."
-    fi
-  else
-    echo "${INSTALL_OUTPUT}"
-  fi
-else
-  echo "WARN: 'gemini' command not found. Skipping extension registration."
-fi
-
-
-
 trap - EXIT # Clear the trap
 
-echo "Successfully updated ${SETTINGS_FILE}"
-echo "New contents of context.includeDirectories:"
-jq '.context.includeDirectories' "${SETTINGS_FILE}"
+echo "Successfully updated ${PROJECT_FILE}"
+echo "New contents of projectResources.resources:"
+jq '.projectResources.resources' "${PROJECT_FILE}"
 
 echo "Installation complete."
 echo ""
