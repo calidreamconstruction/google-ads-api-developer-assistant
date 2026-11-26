@@ -17,9 +17,9 @@ import os
 import unittest
 from unittest.mock import patch, MagicMock
 
-# Add .agents/hooks to sys.path
+# Add .gemini/hooks to sys.path
 script_dir = os.path.dirname(os.path.abspath(__file__))
-hooks_dir = os.path.join(script_dir, "../.agents/hooks")
+hooks_dir = os.path.join(script_dir, "../.gemini/hooks")
 sys.path.append(hooks_dir)
 
 import configure_environment
