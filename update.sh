@@ -18,7 +18,7 @@
 #   This script updates the Google Ads API Developer Assistant and its dependencies.
 #   It performs the following steps:
 #   1. Updates the 'google-ads-api-developer-assistant' repository (git pull).
-#   2. Reads '.agents/settings.json' to locate the 'google-ads-python' repository.
+#   2. Reads '.gemini/settings.json' to locate the 'google-ads-python' repository.
 #   3. Updates the 'google-ads-python' repository (git pull).
 
 # Exit on any error, and on undefined variables.
@@ -36,7 +36,7 @@ usage() {
   echo ""
   echo "  This script performs the following actions:"
   echo "  1. Updates the 'google-ads-api-developer-assistant' repository (git pull)."
-  echo "  2. Reads '.agents/settings.json' to find configured client libraries."
+  echo "  2. Reads '.gemini/settings.json' to find configured client libraries."
   echo "  3. Updates each found client library repository (git pull)."
   echo ""
   echo "  Options:"
@@ -49,7 +49,7 @@ usage() {
   echo "    --context_dir <dirs> Comma-separated list of directories to add to settings.json"
   echo ""
   echo "  If flags are provided, the script will ensure those libraries are installed"
-  echo "  (cloned) and registered in .agents/settings.json if they weren't already."
+  echo "  (cloned) and registered in .gemini/settings.json if they weren't already."
   echo ""
 }
 
@@ -167,12 +167,27 @@ echo "Detected project root: ${PROJECT_DIR_ABS}"
 # --- Update Assistant Repo ---
 echo "Updating google-ads-api-developer-assistant..."
 
-readonly PROJECT_FILE="${PROJECT_DIR_ABS}/.jetskicli/project.json"
+SETTINGS_JSON=".gemini/settings.json"
+TEMP_SETTINGS=$(mktemp)
 
 CUSTOMER_ID_FILE="customer_id.txt"
 TEMP_CUSTOMER_ID=$(mktemp)
 
-# 1. Backup customer_id.txt if it exists
+# 1. Backup existing settings if they exist
+if [[ -f "${SETTINGS_JSON}" ]]; then
+    echo "Backing up ${SETTINGS_JSON}..."
+    cp "${SETTINGS_JSON}" "${TEMP_SETTINGS}"
+    
+    # 2. Reset local changes to settings.json to allow git pull
+    # Only if the file is tracked and modified (or just blindly checkout if we know it's strict)
+    # Safest is to just checkout it if it exists in git.
+    if git ls-files --error-unmatch "${SETTINGS_JSON}" &> /dev/null; then
+        echo "Resetting ${SETTINGS_JSON} to avoid merge conflicts..."
+        git checkout "${SETTINGS_JSON}"
+    fi
+fi
+
+# 1b. Backup customer_id.txt if it exists
 if [[ -f "${CUSTOMER_ID_FILE}" ]]; then
     echo "Backing up ${CUSTOMER_ID_FILE}..."
     cp "${CUSTOMER_ID_FILE}" "${TEMP_CUSTOMER_ID}"
@@ -186,6 +201,14 @@ fi
 
 if ! git pull; then
     err "ERROR: Failed to update google-ads-api-developer-assistant."
+    # Attempt to restore settings if they were backed up? 
+    # Probably safer to leave the repo state as is if pull failed, 
+    # but strictly speaking we might want to restore the user's settings 
+    # if we reverted them.
+    if [[ -f "${TEMP_SETTINGS}" ]] && [[ -s "${TEMP_SETTINGS}" ]]; then
+         echo "Restoring original settings after failed pull..."
+         mv "${TEMP_SETTINGS}" "${SETTINGS_JSON}"
+    fi
     if [[ -f "${TEMP_CUSTOMER_ID}" ]] && [[ -s "${TEMP_CUSTOMER_ID}" ]]; then
          echo "Restoring original customer_id.txt after failed pull..."
          mv "${TEMP_CUSTOMER_ID}" "${CUSTOMER_ID_FILE}"
@@ -193,9 +216,28 @@ if ! git pull; then
     exit 1
 fi
 
-# 2. Restore customer_id.txt
+# 3. Restore/Merge settings
+if [[ -f "${TEMP_SETTINGS}" ]] && [[ -s "${TEMP_SETTINGS}" ]]; then
+    echo "Merging preserved settings with new defaults..."
+    # Merge: existing (backup) *over* new (repo)
+    # We want local user values to override repo values, but we also want 
+    # to keep any new keys from the repo that weren't in user's file.
+    # Logic: .[0] is repo (new), .[1] is backup (user). 
+    # .[0] * .[1] means backup overrides repo.
+    if jq -s '.[0] * .[1]' "${SETTINGS_JSON}" "${TEMP_SETTINGS}" > "${TEMP_SETTINGS}.merged"; then
+        mv "${TEMP_SETTINGS}.merged" "${SETTINGS_JSON}"
+        echo "Settings restored and merged successfully."
+    else
+        err "WARN: Failed to merge settings.json. Restoring original backup without merge."
+        mv "${TEMP_SETTINGS}" "${SETTINGS_JSON}"
+    fi
+    rm -f "${TEMP_SETTINGS}"
+fi
+
+# 3b. Restore customer_id.txt
 if [[ -f "${TEMP_CUSTOMER_ID}" ]] && [[ -s "${TEMP_CUSTOMER_ID}" ]]; then
     echo "Restoring preserved ${CUSTOMER_ID_FILE}..."
+    # Always overwrite with user's backup
     mv "${TEMP_CUSTOMER_ID}" "${CUSTOMER_ID_FILE}"
     echo "${CUSTOMER_ID_FILE} restored successfully."
     rm -f "${TEMP_CUSTOMER_ID}"
@@ -221,36 +263,31 @@ for lang in $ALL_LANGS; do
             exit 1
         fi
         
-        # Add to project.json if not present
-        if [[ -f "${PROJECT_FILE}" ]]; then
-            # Ensure path is absolute
+        # Add to settings.json if not present
+        if [[ -f "${SETTINGS_JSON}" ]]; then
+            # Ensure path is absolute for settings.json
             ABS_PATH=$(realpath "${lib_path}" 2>/dev/null || echo "${lib_path}")
-            echo "Registering ${ABS_PATH} in ${PROJECT_FILE}..."
+            echo "Registering ${ABS_PATH} in ${SETTINGS_JSON}..."
             if ! jq --arg new_path "${ABS_PATH}" '
-                .projectResources //= {"resources": []} |
-                .projectResources.resources //= [] |
-                if (.projectResources.resources | any(.gitFolder.folderUri == ("file://" + $new_path))) then 
+                if (.context.includeDirectories | any(. == $new_path)) then 
                     . 
                 else 
-                    .projectResources.resources += [{
-                        "gitFolder": {
-                          "folderUri": ("file://" + $new_path),
-                          "allowWrite": true
-                        }
-                    }] 
-                end' "${PROJECT_FILE}" > "${PROJECT_FILE}.tmp"; then
-                err "ERROR: Failed to update ${PROJECT_FILE}"
+                    .context.includeDirectories += [$new_path] 
+                end' "${SETTINGS_JSON}" > "${SETTINGS_JSON}.tmp"; then
+                err "ERROR: Failed to update ${SETTINGS_JSON}"
                 exit 1
             fi
-            mv "${PROJECT_FILE}.tmp" "${PROJECT_FILE}"
+            mv "${SETTINGS_JSON}.tmp" "${SETTINGS_JSON}"
         fi
     fi
   fi
 done
 
 # --- Locate and Update Client Libraries ---
-if [[ ! -f "${PROJECT_FILE}" ]]; then
-  err "ERROR: Project configuration file not found: ${PROJECT_FILE}"
+readonly SETTINGS_FILE="${PROJECT_DIR_ABS}/.gemini/settings.json"
+
+if [[ ! -f "${SETTINGS_FILE}" ]]; then
+  err "ERROR: Settings file not found: ${SETTINGS_FILE}"
   err "Please run install.sh first."
   exit 1
 fi
@@ -272,46 +309,38 @@ if [[ -n "${CONTEXT_DIR_ARG:-}" ]]; then
             continue
         fi
 
-        echo "Adding context directory: ${abs_dir} to ${PROJECT_FILE}..."
-        if [[ -f "${PROJECT_FILE}" ]]; then
+        echo "Adding context directory: ${abs_dir} to settings.json..."
+        if [[ -f "${SETTINGS_FILE}" ]]; then
             if ! jq --arg new_path "${abs_dir}" '
-                .projectResources //= {"resources": []} |
-                .projectResources.resources //= [] |
-                if (.projectResources.resources | any(.gitFolder.folderUri == ("file://" + $new_path))) then 
+                if (.context.includeDirectories | any(. == $new_path)) then 
                     . 
                 else 
-                    .projectResources.resources += [{
-                        "gitFolder": {
-                          "folderUri": ("file://" + $new_path),
-                          "allowWrite": true
-                        }
-                    }] 
-                end' "${PROJECT_FILE}" > "${PROJECT_FILE}.tmp"; then
-                err "ERROR: Failed to update ${PROJECT_FILE} for ${abs_dir}"
+                    .context.includeDirectories += [$new_path] 
+                end' "${SETTINGS_FILE}" > "${SETTINGS_FILE}.tmp"; then
+                err "ERROR: Failed to update ${SETTINGS_FILE} for ${abs_dir}"
                 continue
             fi
-            mv "${PROJECT_FILE}.tmp" "${PROJECT_FILE}"
+            mv "${SETTINGS_FILE}.tmp" "${SETTINGS_FILE}"
         else
-             err "ERROR: project.json not found while adding context_dir"
+             err "ERROR: settings.json not found while adding context_dir"
         fi
     done
 fi
 
-echo "Reading ${PROJECT_FILE} to find client libraries..."
+echo "Reading ${SETTINGS_FILE} to find client libraries..."
 
-# Read all includeDirectories (extracting from projectResources.resources gitFolders)
+# Read all includeDirectories
 INCLUDE_DIRS=()
 while IFS= read -r line; do
-    [[ -z "${line}" ]] && continue
     INCLUDE_DIRS+=("$line")
-done < <(jq -r '.projectResources.resources[].gitFolder.folderUri | select(. != null) | ltrimstr("file://")' "${PROJECT_FILE}")
+done < <(jq -r '.context.includeDirectories[]' "${SETTINGS_FILE}")
 
 if [[ ${#INCLUDE_DIRS[@]} -eq 0 ]]; then
-    echo "WARN: No directories found in ${PROJECT_FILE}."
+    echo "WARN: No directories found in ${SETTINGS_FILE}."
     exit 0
 fi
 
-echo "Found ${#INCLUDE_DIRS[@]} directories in project configuration."
+echo "Found ${#INCLUDE_DIRS[@]} directories in settings."
 
 for lib_path in "${INCLUDE_DIRS[@]}"; do
     # Skip if path is empty
@@ -327,11 +356,6 @@ for lib_path in "${INCLUDE_DIRS[@]}"; do
     if ! abs_lib_path=$(realpath "${lib_path}" 2>/dev/null); then
          echo "WARN: Could not resolve path: ${lib_path}. Skipping."
          continue
-    fi
-
-    # Skip the main assistant workspace since we already updated it
-    if [[ "${abs_lib_path}" == "${PROJECT_DIR_ABS}" ]]; then
-        continue
     fi
 
 
