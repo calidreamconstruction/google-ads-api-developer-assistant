@@ -36,7 +36,7 @@ try {
     if ($IsLinux) { chmod +x (Join-Path $FakeBin "git") }
 
     # 2. Setup Fake Project
-    $SettingsDir = Join-Path $FakeProject ".agents"
+    $SettingsDir = Join-Path $FakeProject ".gemini"
     New-Item -ItemType Directory -Force -Path $SettingsDir | Out-Null
     $SettingsFile = Join-Path $SettingsDir "settings.json"
     Set-Content -Path $SettingsFile -Value '{"context": {"includeDirectories": []}}'
